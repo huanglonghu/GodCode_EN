@@ -54,7 +54,7 @@ public class AddFriendFragment extends BaseFragment {
 
     public void initView() {
         User user = UserOption.getInstance().querryUser(Constant.userId);
-        binding.tvMySmNum.setText("我的SY号:" + user.getSyNumber());
+        binding.tvMySmNum.setText("My ID:" + user.getSyNumber());
     }
 
     @Override

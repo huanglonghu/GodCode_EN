@@ -16,13 +16,13 @@ public class DeleteDialog extends AlertDialog {
         super(context);
         setMessage(title);
         setCancelable(false);
-        setButton(AlertDialog.BUTTON_NEGATIVE, "否", new OnClickListener() {
+        setButton(AlertDialog.BUTTON_NEGATIVE, "Cancle", new OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
         });
 
-        setButton(AlertDialog.BUTTON_POSITIVE, "是", new OnClickListener() {
+        setButton(AlertDialog.BUTTON_POSITIVE, "Set", new OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 clickSureListener.clickSure();

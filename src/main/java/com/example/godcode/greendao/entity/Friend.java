@@ -2,12 +2,8 @@ package com.example.godcode.greendao.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.Generated;
 
-/**
- * Created by Administrator on 2018/7/27.
- */
 @Entity
 public class Friend {
 

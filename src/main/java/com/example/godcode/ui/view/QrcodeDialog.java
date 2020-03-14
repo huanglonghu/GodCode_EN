@@ -24,7 +24,8 @@ public class QrcodeDialog extends Dialog {
         binding.setProductNum(productNumber);
         Bitmap logo = BitmapFactory.decodeResource(context.getResources(), R.drawable.logo);
         Bitmap assetBitmap = EncodingHandler.createQRCode(str, 1000, 1000, null);
-        Bitmap bitmap = BitmapUtil.getInstance().drawTextToBitmap(assetBitmap, "机器编码:"+productNumber);
+        String jqbm = context.getResources().getString(R.string.jqbm);
+        Bitmap bitmap = BitmapUtil.getInstance().drawTextToBitmap(assetBitmap, jqbm+":"+productNumber);
         binding.ivAssetCode.setBackground(new BitmapDrawable(context.getResources(),bitmap));
         binding.icon.setImageBitmap(logo);
         binding.saveCode.setOnClickListener(new View.OnClickListener() {

@@ -17,13 +17,13 @@
 
     <include
         layout="@layout/layout_toolbar1"
-        bind:title="@{title}" />
+        bind:title="@{@string/fx}" />
 
     <TextView
         android:id="@+id/noNews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="暂无公告消息"
+        android:text="@string/noNews"
         android:textSize="17sp"
         android:gravity="center"
         android:layout_marginTop="30dp"

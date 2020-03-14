@@ -53,11 +53,11 @@ public class AirkissConfigDialog extends Dialog implements NetUtil.WifiCOnfigRes
             public void onClick(View v) {
                 String psd = binding.wifiPsw.getText().toString();
                 if (!networkInfo.isConnected()) {
-                    Toast.makeText(context, "请先连上wifi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Please connect wifi first", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(psd)) {
-                    Toast.makeText(context, "请输入wifi密码", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Please enter wifi password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 netUtil.airKissConfig(context, wifiSsid, psd);

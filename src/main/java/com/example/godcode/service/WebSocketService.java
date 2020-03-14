@@ -53,7 +53,7 @@ public class WebSocketService extends Service {
     public class MyBinder extends Binder {
         public void connectWebSocket(BaseActivity activity) {
             webSocketUtil = new WebSocketUtil();
-            webSocketUtil.connect(Constant.webSocketUrl + "?userId=" + Constant.userId);
+            webSocketUtil.connect(Constant.webSocketUrl + "?userId="+Constant.userId );
         }
     }
 

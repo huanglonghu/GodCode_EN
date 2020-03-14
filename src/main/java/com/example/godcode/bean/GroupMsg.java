@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by Administrator on 2018/11/9.
  */
 
-public class  GroupMsg {
+public class GroupMsg {
 
     /**
      * result : {"normalCount":0,"errorCount":2,"dividedMoney":0,"coinCount":0,"data":{"ifelse":{"fK_UserID":40,"scanCodeIncome":0,"divideIncome":0,"onlineCount":0,"offlineCount":1},"穷开":{"fK_UserID":11,"scanCodeIncome":0,"divideIncome":0,"onlineCount":0,"offlineCount":1}}}
@@ -76,7 +76,7 @@ public class  GroupMsg {
         this.__abp = __abp;
     }
 
-    public static class ResultBean implements Serializable{
+    public static class ResultBean implements Serializable {
 
 
         private int normalCount;
@@ -85,7 +85,25 @@ public class  GroupMsg {
         private int coinCount;
         private int count;
         private int sumAwardCount;
+        private double paperCoinCount;
+        private double coinDividedMoney;
 
+
+        public double getCoinDividedMoney() {
+            return coinDividedMoney;
+        }
+
+        public void setCoinDividedMoney(double coinDividedMoney) {
+            this.coinDividedMoney = coinDividedMoney;
+        }
+
+        public double getPaperCoinCount() {
+            return paperCoinCount;
+        }
+
+        public void setPaperCoinCount(double paperCoinCount) {
+            this.paperCoinCount = paperCoinCount;
+        }
 
         public int getSumAwardCount() {
             return sumAwardCount;
@@ -95,7 +113,7 @@ public class  GroupMsg {
             this.sumAwardCount = sumAwardCount;
         }
 
-        private Map<String,bean> data;
+        private Map<String, bean> data;
 
         public int getCount() {
             return count;
@@ -121,9 +139,8 @@ public class  GroupMsg {
             this.errorCount = errorCount;
         }
 
-        public String getDividedMoney() {
-            String a = FormatUtil.getInstance().get2double(dividedMoney);
-            return a;
+        public double getDividedMoney() {
+            return dividedMoney;
         }
 
         public void setDividedMoney(double dividedMoney) {
@@ -138,15 +155,15 @@ public class  GroupMsg {
             this.coinCount = coinCount;
         }
 
-        public Map<String,bean>  getData() {
+        public Map<String, bean> getData() {
             return data;
         }
 
-        public void setData(Map<String,bean> data) {
+        public void setData(Map<String, bean> data) {
             this.data = data;
         }
 
-        public static class  bean {
+        public static class bean {
             /**
              * fK_UserID : 11
              * scanCodeIncome : 0.0
@@ -161,6 +178,24 @@ public class  GroupMsg {
             private int onlineCount;
             private int offlineCount;
             private String headImgUrl;
+            private int todayCoin;
+            private double todayBanknote;
+
+            public int getTodayCoin() {
+                return todayCoin;
+            }
+
+            public void setTodayCoin(int todayCoin) {
+                this.todayCoin = todayCoin;
+            }
+
+            public double getTodayBanknote() {
+                return todayBanknote;
+            }
+
+            public void setTodayBanknote(double todayBanknote) {
+                this.todayBanknote = todayBanknote;
+            }
 
             public String getHeadImgUrl() {
                 return headImgUrl;

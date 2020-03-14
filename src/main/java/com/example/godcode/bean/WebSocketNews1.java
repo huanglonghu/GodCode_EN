@@ -63,6 +63,15 @@ public class WebSocketNews1 implements Serializable{
         private String MerchantUserIds;
         private String AwardPosition;
         private String AwardCount;
+        private double CoinDivedeMoney;
+
+        public double getCoinDivedeMoney() {
+            return CoinDivedeMoney;
+        }
+
+        public void setCoinDivedeMoney(double coinDivedeMoney) {
+            CoinDivedeMoney = coinDivedeMoney;
+        }
 
         public String getProductNumber() {
             return ProductNumber;

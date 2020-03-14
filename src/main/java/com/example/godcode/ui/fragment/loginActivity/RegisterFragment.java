@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.GetVerification;
 import com.example.godcode.bean.LoginBody;
@@ -25,24 +25,19 @@ import com.example.godcode.ui.activity.MainActivity;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.utils.GsonUtil;
-import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 import com.google.gson.Gson;
-
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-
 
 public class RegisterFragment extends BaseFragment {
 
     private FragmentRegisterBinding binding;
     private RegisterBody registerBody;
     private boolean isEmail;
-
 
     @Nullable
     @Override
@@ -57,7 +52,6 @@ public class RegisterFragment extends BaseFragment {
         binding.setRegisterBody(registerBody);
         return binding.getRoot();
     }
-
 
     private void initListener() {
 
@@ -76,24 +70,31 @@ public class RegisterFragment extends BaseFragment {
                 binding.setIsEmail(isEmail);
             }
         });
+
+        binding.yzm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getYzCode();
+            }
+        });
     }
 
     public void getYzCode() {
         String phoneNumber = registerBody.getPhoneNumber();
         if (isEmail) {
             if (TextUtils.isEmpty(registerBody.getEmailAddress())) {
-                Toast.makeText(activity, "请输入邮箱", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Please enter email", Toast.LENGTH_SHORT).show();
                 return;
             } else {
                 if (!registerBody.getEmailAddress().contains("@")) {
-                    Toast.makeText(activity, "邮箱格式有误", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Wrong email format", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
         }
 
-        if (TextUtils.isEmpty(registerBody.getPhoneNumber())) {
-            Toast.makeText(activity, "请输入手机号", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(phoneNumber)) {
+            Toast.makeText(activity, "Please enter your phone numer or email number", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -108,18 +109,11 @@ public class RegisterFragment extends BaseFragment {
                     YZM yzm = GsonUtil.getInstance().fromJson(yzmStr, YZM.class);
                     String result = yzm.getResult();
                     if (result.equals("OK")) {
-                        yzmCountDoownTime();
-                        binding.yzm2.setEnabled(false);
-                    } else if (result.equals("触发小时级流控Permits:5")) {
-                        Toast.makeText(activity, "一小时内只能发5次验证码", Toast.LENGTH_SHORT).show();
-                        binding.yzm2.setEnabled(false);
-                    } else if (result.equals("触发天级流控Permits:10")) {
-                        Toast.makeText(activity, "一天内只能发10次验证码", Toast.LENGTH_SHORT).show();
-                        binding.yzm2.setEnabled(false);
-                    } else if (result.equals("True")) {
-                        LogUtil.log("----------YZ-------" + result);
-                        yzmCountDoownTime();
-                        binding.yzm1.setEnabled(false);
+                        yzmCountDownTime(binding.yzm);
+                        binding.yzm.setEnabled(false);
+                    } else {
+                        Toast.makeText(activity, result, Toast.LENGTH_SHORT).show();
+                        binding.yzm.setEnabled(false);
                     }
                 }
         );
@@ -127,7 +121,7 @@ public class RegisterFragment extends BaseFragment {
     }
 
 
-    public void yzmCountDoownTime() {
+    public void yzmCountDownTime(TextView tv) {
         Observable.interval(0, 1, TimeUnit.SECONDS, Schedulers.io())
                 .take(60).observeOn(AndroidSchedulers.mainThread()).map(new Function<Long, Long>() {
             @Override
@@ -136,21 +130,10 @@ public class RegisterFragment extends BaseFragment {
             }
         }).subscribe(
                 time -> {
-                    if (isEmail) {
-                        binding.yzm1.setText(time + "秒后重发");
-                    } else {
-                        binding.yzm2.setText(time + "秒后重发");
-                    }
-
+                    tv.setText(time + "s");
                     if (time == 0) {
-                        if (isEmail) {
-                            binding.yzm1.setEnabled(true);
-                            binding.yzm1.setText("获取验证码");
-                        } else {
-                            binding.yzm2.setEnabled(true);
-                            binding.yzm2.setText("获取验证码");
-                        }
-
+                        tv.setEnabled(true);
+                        tv.setText("Send");
                     }
                 }
         );
@@ -160,16 +143,21 @@ public class RegisterFragment extends BaseFragment {
     public void register() {
         if (isEmail) {
             if (TextUtils.isEmpty(registerBody.getEmailAddress())) {
-                Toast.makeText(activity, "邮箱不能为空", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "E-mail cannot be empty", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
         if (TextUtils.isEmpty(registerBody.getPhoneNumber())) {
-            Toast.makeText(activity, "手机号不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "The phone number cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(registerBody.getVerificationCode())) {
-            Toast.makeText(activity, "验证码不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "The Verification code cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(registerBody.getPassword())) {
+            Toast.makeText(getContext(), "The password cannotbe empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -179,8 +167,6 @@ public class RegisterFragment extends BaseFragment {
         }
         HttpUtil.getInstance().register(registerBody).subscribe(
                 registerStr -> {
-                    Toast.makeText(activity, "注册成功", Toast.LENGTH_SHORT).show();
-                    LogUtil.log("-------openId------" + registerBody.getOpenID());
                     if (registerBody.getOpenID() == null) {
                         LoginFragment loginFragment = new LoginFragment();
                         presenter.step2Fragment(loginFragment, "login");
@@ -217,7 +203,6 @@ public class RegisterFragment extends BaseFragment {
     @Override
     protected void lazyLoad() {
     }
-
 
 
     public void initData(RegisterBody registerBody) {

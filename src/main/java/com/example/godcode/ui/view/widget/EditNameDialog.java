@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.EditGroupItemName;
 import com.example.godcode.databinding.LayoutEditGroupBinding;
@@ -40,12 +39,13 @@ public class EditNameDialog extends Dialog {
                 dismiss();
             }
         });
+        String hint = context.getResources().getString(R.string.hint2);
         binding.sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Editable text = binding.etGroupName.getText();
                 if (TextUtils.isEmpty(text)) {
-                    Toast.makeText(context, "请输入分组名称", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, hint, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 EditGroupItemName editGroupItemName = new EditGroupItemName();
@@ -57,7 +57,7 @@ public class EditNameDialog extends Dialog {
                 HttpUtil.getInstance().editGroupItemName(editGroupItemName).subscribe(
                         editGroupStr -> {
                             tvGroupName.setText(text);
-                            Toast.makeText(context, "分组名称修改成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Group name changed successfully", Toast.LENGTH_SHORT).show();
                             dismiss();
                         }
                 );

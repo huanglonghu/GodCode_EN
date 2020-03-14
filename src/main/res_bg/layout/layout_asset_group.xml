@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectPosition"
+            type="int" />
+
+        <variable
+            name="fcArray"
+            type="String[]" />
+
+        <variable
+            name="tbArray"
+            type="String[]" />
+
+        <variable
+            name="zcArray"
+            type="String[]" />
+
+        <variable
+            name="fragment"
+            type="com.example.godcode.ui.fragment.asset.BaseAssetFragment" />
+
+        <variable
+            name="assetData"
+            type="com.example.godcode.ui.fragment.asset.AssetData" />
+
+
+    </data>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <include
+            android:id="@+id/asset1_toolbar"
+            layout="@layout/layout_toolbar4"
+            bind:title="@{@string/myAsset}" />
+
+        <include
+            layout="@layout/asset_head"
+            bind:assetData="@={assetData}"
+            bind:fcArray="@{fcArray}"
+            bind:fragment="@{fragment}"
+            bind:selectPosition="@{selectPosition}"
+            bind:tbArray="@{tbArray}"
+            bind:zcArray="@{zcArray}" />
 
         <ListView
             android:id="@+id/lv_group"

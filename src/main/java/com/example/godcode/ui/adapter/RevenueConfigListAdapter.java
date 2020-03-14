@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import com.example.godcode.R;
 import com.example.godcode.bean.RevenueDivideItem;
 import com.example.godcode.databinding.ItemLvRevenueconfigBinding;
-import com.example.godcode.ui.fragment.deatailFragment.RevenueConfigFragment;
+import com.example.godcode.ui.fragment.asset.RevenueConfigFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;

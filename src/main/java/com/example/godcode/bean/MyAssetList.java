@@ -89,7 +89,25 @@ public class MyAssetList {
         private int coinCount;
         private int count;
         private int sumAwardCount;
+        private double paperCoinCount;
+        private double coinDividedMoney;
         private List<DataBean> data;
+
+        public double getPaperCoinCount() {
+            return paperCoinCount;
+        }
+
+        public void setPaperCoinCount(double paperCoinCount) {
+            this.paperCoinCount = paperCoinCount;
+        }
+
+        public double getCoinDividedMoney() {
+            return coinDividedMoney;
+        }
+
+        public void setCoinDividedMoney(double coinDividedMoney) {
+            this.coinDividedMoney = coinDividedMoney;
+        }
 
         public int getSumAwardCount() {
             return sumAwardCount;
@@ -115,9 +133,8 @@ public class MyAssetList {
             this.errorCount = errorCount;
         }
 
-        public String getDividedMoney() {
-            String aDouble = FormatUtil.getInstance().get2double(dividedMoney);
-            return aDouble;
+        public double getDividedMoney() {
+            return dividedMoney;
         }
 
         public void setDividedMoney(double dividedMoney) {
@@ -211,6 +228,15 @@ public class MyAssetList {
             private int commodityRoadCount;
             private int currentStock;
             private int sumStock;
+            private double coinDivideIncome;
+
+            public double getCoinDivideIncome() {
+                return coinDivideIncome;
+            }
+
+            public void setCoinDivideIncome(double coinDivideIncome) {
+                this.coinDivideIncome = coinDivideIncome;
+            }
 
             public int getCurrentStock() {
                 return currentStock;

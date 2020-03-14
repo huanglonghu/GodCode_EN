@@ -24,10 +24,12 @@ import com.example.godcode.greendao.option.VersionMsgOption;
 import com.example.godcode.observable.EventType;
 import com.example.godcode.observable.RxBus;
 import com.example.godcode.observable.RxEvent;
+import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.ui.base.GodCodeApplication;
 import com.example.godcode.ui.fragment.deatailFragment.PresonalFragment;
+import com.example.godcode.ui.fragment.deatailFragment.YSJLFragment2;
 import com.example.godcode.utils.LogUtil;
 
 import io.reactivex.Observer;
@@ -47,7 +49,6 @@ public class MineFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mine, container, false);
             binding.setPresenter(presenter);
             view = binding.getRoot();
-            binding.setTitle("我");
             initListener();
         }
         return view;
@@ -68,10 +69,7 @@ public class MineFragment extends BaseFragment {
 
         RxBus.getInstance().toObservable(RxEvent.class).subscribe(new Observer<RxEvent>() {
             @Override
-            public void onSubscribe(Disposable disposable) {
-
-            }
-
+            public void onSubscribe(Disposable disposable) {}
             @Override
             public void onNext(RxEvent rxEvent) {
                 switch (rxEvent.getEventType()) {
@@ -79,14 +77,13 @@ public class MineFragment extends BaseFragment {
                         WsHeart wsHeart = (WsHeart) rxEvent.getBundle().getSerializable("heart");
                         String androidVer = wsHeart.getData().getAndroidVer();
                         try {
-                            String versionName = GodCodeApplication.getInstance().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+                            String versionName = GodCodeApplication.getInstance().getPackageManager().getPackageInfo(GodCodeApplication.getInstance().getPackageName(), 0).versionName;
                             int version1 = Integer.parseInt(versionName.replace(".", ""));
                             int version2 = Integer.parseInt(androidVer.replace(".", ""));
-                            LogUtil.log(version1 + "==========收到心跳============" + version2);
                             if (version2 > version1) {
                                 String androidVerDes = wsHeart.getData().getAndroidVerDes();
                                 VersionMsgOption.getInstance().updateVersion(androidVer, androidVerDes);
-                                binding.versionMsg.setText("新版本 " + androidVer);
+                                binding.versionMsg.setText("Version " + androidVer);
                                 binding.newImg.setVisibility(View.VISIBLE);
                                 MainFragment main = (MainFragment) getParentFragment();
                                 main.getBinding().setUpdate(true);
@@ -106,6 +103,14 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onComplete() {
 
+            }
+        });
+
+        binding.ysfc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YSJLFragment2 ysjlFragment2 = new YSJLFragment2();
+                Presenter.getInstance().step2Fragment(ysjlFragment2,"ysjl2");
             }
         });
 
@@ -140,7 +145,6 @@ public class MineFragment extends BaseFragment {
                 RxImageLoader.with(activity).getBitmap(headImageUrl).subscribe(
                         imageBean -> {
                             if (imageBean.getBitmap() != null) {
-                                LogUtil.log("======HHHHHHHHEEEEEEEEEEE==========");
                                 Bitmap bitmap = imageBean.getBitmap();
                                 RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
                                 roundedBitmapDrawable.setCircular(true);

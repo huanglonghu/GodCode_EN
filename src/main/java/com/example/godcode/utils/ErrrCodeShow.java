@@ -16,97 +16,99 @@ public class ErrrCodeShow {
                 }
                 break;
             case 2000:
-                content = "用户不存在！";
+                content = "User Not Found";
                 break;
             case 2001:
-                content = "余额不足！";
+                content = "Balance is not enough";
                 break;
             case 2002:
-                content = "此手机号用户已存在，请勿重复注册！";
+                content = "This number has been registered";
                 break;
             case 2003:
-                content = "银行卡号格式错误！";
+                content = "Invalid card number";
                 break;
             case 2004:
-                content = "手机号格式错误！";
+                content = "Invalid phone number";
                 break;
             case 2005:
-                content = "货币类型错误！";
+                content = "Invalid currency type";
                 break;
             case 2006:
-                content = "提现状态错误！";
+                content = "Balance status error";
                 break;
             case 2007:
-                content = "用户未设置支付密码或者未绑定银行卡！";
+                content = "Payment password has not been set";
                 break;
             case 2008:
-                content = "密码输入错误！";
+                content = "Invalid password";
                 break;
             case 2009:
-                content = "支付订单不存在！";
+                content = "Payment order does not exist";
                 break;
             case 2010:
-                content = "支付订单不属于此用户！";
+                content = "This payment order does not belong to this user";
                 break;
             case 2011:
                 content = "当前用户余额不足！";
                 break;
             case 2012:
-                content = "当前订单已超过退款时间！";
+                content = "Refund order timeout";
                 break;
             case 2013:
-                content = "此用户名已存在！";
+                content = "Username already exist";
                 break;
             case 2014:
-                content = "密码长度最少为6位！";
+                content = "Invalid password length(at least six letters)";
                 break;
             case 2015:
-                content = "金额必须大于0";
+                content = "Balance must be greater than 0";
                 break;
             case 2016:
-                content="传入参数错误！";
+                content="Invalid parameter transmitted";
                 break;
             case 2018:
-                content="退款失败！";
+                content="Refund failed";
                 break;
             case 2019:
-                content="暂无可提取金额！";
+                content="No available withdraw balance";
                 break;
             case 2020:
-                content = "金额错误，绑定失败！";
+                content = "Balance error, binding failed";
                 break;
             case 2021:
-                content="银行卡已绑定";
+                content="This card already been used";
                 break;
             case 2022:
-                content="验证码已过期或错误！";
+                content="Verification code timeout/error";
                 break;
             case 2023:
-                content="交易记录不存在！";
+                content="Transaction not exist";
                 break;
             case 3000:
-                content = "此产品类别不存在！";
+                content = "Product type does not exist";
                 break;
             case 3001:
-                content = "产品已存在,无需重复添加！";
+                content = "Product already exist";
                 break;
             case 3002:
-                content = "产品不存在！";
+                content = "This product does not exist";
                 break;
             case 3003:
-                content = "此产品非当前用户所有！";
+                content = "This product does not belong to the current user";
                 break;
             case 3004:
-                content = "营收分成不合法！";
+                content = "Invalid setup";
                 break;
             case 3005:
-                content = "产品价格已存在，无需重复添加！";
+                content = "Product price already configured";
                 break;
             case 3006:
-                content = "当前产品未绑定商户！";
+                content = "Current product has not been bind to a host";
                 break;
             case 3007:
-                content = "已经退款成功请勿重复退款！";
+                content = "Refund success, please do not repeat";
+                break;
+            case 3008:
                 break;
             case 3009:
                 content = "此设备已被绑定";

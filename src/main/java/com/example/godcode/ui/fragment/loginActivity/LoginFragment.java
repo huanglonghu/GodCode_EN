@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.godcode.R;
@@ -61,12 +62,21 @@ public class LoginFragment extends BaseFragment {
     }
 
     private void initListener() {
+
+        binding.logByPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PwdLoginFragment pwdLoginFragment = new PwdLoginFragment();
+                Presenter.getInstance().step2Fragment(pwdLoginFragment, "pwdLogin");
+            }
+        });
+
         binding.loginGetyzm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phoneNumber = binding.etAccount.getText().toString();
                 if (TextUtils.isEmpty(phoneNumber)) {
-                    Toast.makeText(activity, "账号不能为空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "The account cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 GetVerification getVerification = new GetVerification();
@@ -82,18 +92,12 @@ public class LoginFragment extends BaseFragment {
                             String result = yzm.getResult();
                             if (result.equals("OK")) {
                                 binding.loginGetyzm.setEnabled(false);
-                                yzmCountDoownTime();
-                            } else if (result.equals("触发小时级流控Permits:5")) {
-                                Toast.makeText(activity, "一小时内只能发5次验证码", Toast.LENGTH_SHORT).show();
-                            } else if (result.equals("触发天级流控Permits:10")) {
-                                Toast.makeText(activity, "一天内只能发10次验证码", Toast.LENGTH_SHORT).show();
-                            } else if (result.equals("True")) {
-                                binding.loginGetyzm.setEnabled(false);
-                                yzmCountDoownTime();
+                                yzmCountDownTime(binding.loginGetyzm);
+                            } else {
+                                Toast.makeText(activity, result, Toast.LENGTH_SHORT).show();
                             }
                         }
                 );
-
 
             }
         });
@@ -110,7 +114,7 @@ public class LoginFragment extends BaseFragment {
     public void login() {
         String account = binding.etAccount.getText().toString();
         if (TextUtils.isEmpty(account)) {
-            Toast.makeText(activity, "账号不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "The account cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
         loginBody.setUserName(account);
@@ -127,7 +131,6 @@ public class LoginFragment extends BaseFragment {
                             Constant.toDayMoney = result.getToDayMoney();
                             Constant.yesterDayMoney = result.getYesterDayMoney();
                             Constant.uniquenessToken = result.getUniquenessToken();
-                            LogUtil.log("111==============babababa================"+Constant.balances);
                             loginResult.setUniquenessToken(Constant.uniquenessToken);
                             LoginResultOption.getInstance().insertLoginResult(loginResult);
                             Constant.expireInSeconds = result.getExpireInSeconds();
@@ -141,13 +144,11 @@ public class LoginFragment extends BaseFragment {
                     }
             );
         } else {
-            Toast.makeText(activity, "验证码格式有误", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Incorrect captcha format", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
-    public void yzmCountDoownTime() {
+    public void yzmCountDownTime(TextView tv) {
         Observable.interval(0, 1, TimeUnit.SECONDS, Schedulers.io())
                 .take(60).observeOn(AndroidSchedulers.mainThread()).map(new Function<Long, Long>() {
             @Override
@@ -156,10 +157,10 @@ public class LoginFragment extends BaseFragment {
             }
         }).subscribe(
                 time -> {
-                    binding.loginGetyzm.setText(time + "秒后重发");
+                    tv.setText(time + "s");
                     if (time == 0) {
-                        binding.loginGetyzm.setEnabled(true);
-                        binding.loginGetyzm.setText("获取验证码");
+                        tv.setEnabled(true);
+                        tv.setText("Send");
                     }
                 }
         );

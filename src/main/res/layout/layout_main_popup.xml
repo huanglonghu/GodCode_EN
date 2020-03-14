@@ -10,21 +10,17 @@
 
     <LinearLayout
         android:id="@+id/main_popup"
-        android:layout_width="150dp"
-        android:layout_height="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_popupwindow"
         android:divider="@drawable/divider_3"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:showDividers="middle">
+        android:showDividers="middle|end">
 
         <com.example.godcode.ui.view.customview.ImageTextView
             android:id="@+id/mainPopup_addFriend"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="375pt"
+            android:layout_height="225pt"
             android:drawablePadding="10dp"
             android:gravity="center_vertical|left"
             android:text="@string/addFriend"
@@ -39,9 +35,8 @@
 
         <com.example.godcode.ui.view.customview.ImageTextView
             android:id="@+id/mainPopup_sys"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="375pt"
+            android:layout_height="225pt"
             android:drawablePadding="10dp"
             android:gravity="center_vertical|left"
             android:text="@string/sys"
@@ -49,23 +44,6 @@
             android:textSize="15sp"
             app:direcation="0"
             app:drawable="@drawable/sys2"
-            app:drawableHeight="8dp"
-            app:drawableWidth="8dp"
-            android:onClick="@{(view)->fragment.config(view)}"
-            />
-
-        <com.example.godcode.ui.view.customview.ImageTextView
-            android:id="@+id/mainPopup_gathering"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical|left"
-            android:text="@string/sk"
-            android:textColor="#fff"
-            android:textSize="15sp"
-            app:direcation="0"
-            app:drawable="@drawable/sk2"
             app:drawableHeight="8dp"
             app:drawableWidth="8dp"
             android:onClick="@{(view)->fragment.config(view)}"

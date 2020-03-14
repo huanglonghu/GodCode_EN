@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="温馨提醒"
+        android:text="Warm reminder"
         android:textColor="#000"
         android:textSize="17sp" />
 
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="当前网络不可用,请检查您的网络设置。"
+        android:text="The network is currently unavailable. Please check your network Settings"
         android:textColor="#000" />
 
 
@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="取消"
+            android:text="Cancle"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -49,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="确定"
+            android:text="Set"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="15sp"
             android:textStyle="bold" />

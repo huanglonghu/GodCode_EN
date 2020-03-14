@@ -74,11 +74,12 @@ public class BindProduct1Fragment extends BaseFragment implements TypeSelect.Sel
             }
         });
 
+        String xzlx = getContext().getResources().getString(R.string.xzlx);
         binding.productPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (bindProductBody.getFK_ProductCategoryID() == 0) {
-                    ToastUtil.getInstance().showToast("请先选择产品类型", 1500, getContext());
+                    ToastUtil.getInstance().showToast(xzlx, 1500, getContext());
                     return;
                 }
                 LogUtil.log("===========categoryId============="+bindProductBody.getFK_ProductCategoryID());
@@ -129,7 +130,7 @@ public class BindProduct1Fragment extends BaseFragment implements TypeSelect.Sel
             HttpUtil.getInstance().bindProduct(bindProductBody).subscribe(
                     bindProductStr -> {
                         if (bindProductStr.contains("\"success\":true")) {
-                            Toast.makeText(activity, "绑定成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Binding success", Toast.LENGTH_SHORT).show();
                             bindProductBody = new BindProduct();
                             binding.setBody(bindProductBody);
                             packageStrMap.clear();
@@ -138,7 +139,7 @@ public class BindProduct1Fragment extends BaseFragment implements TypeSelect.Sel
                             binding.productType.setText("");
                             parentFragment.back();
                         } else {
-                            Toast.makeText(activity, "绑定失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Binding failure", Toast.LENGTH_SHORT).show();
                         }
                     }
             );
@@ -147,27 +148,27 @@ public class BindProduct1Fragment extends BaseFragment implements TypeSelect.Sel
 
     private boolean checkData(BindProduct body) {
         if (TextUtils.isEmpty(body.getProductNumber())) {
-            Toast.makeText(activity, "请输入产品编号", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter the product number", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (TextUtils.isEmpty(body.getPrice())) {
-            Toast.makeText(activity, "请输入产品价格", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter the product price", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (TextUtils.isEmpty(body.getMachineAddress())) {
-            Toast.makeText(activity, "请输入产品地址", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter the product address", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (TextUtils.isEmpty(body.getProductName())) {
-            Toast.makeText(activity, "请输入产品名称", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter the product name", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (TextUtils.isEmpty(binding.productType.getText().toString())) {
-            Toast.makeText(activity, "请选择产品类型", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please select product type", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

@@ -37,8 +37,8 @@ public class RemarkSettingFragment extends BaseFragment {
     }
 
     private void initView() {
-        binding.remarkSettingToolBar.title.setText("设置备注");
-        binding.remarkSettingToolBar.tvOption.setText("确定");
+        binding.remarkSettingToolBar.title.setText("Set the note");
+        binding.remarkSettingToolBar.tvOption.setText("Sure");
         if(!TextUtils.isEmpty(friend.getUserName())){
             binding.remark.setText(friend.getUserName());
             binding.remark.setSelection(friend.getUserName().length());
@@ -77,7 +77,7 @@ public class RemarkSettingFragment extends BaseFragment {
                     );
 
                 } else {
-                    Toast.makeText(activity, "请设置备注", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Please set notes", Toast.LENGTH_SHORT).show();
                 }
 
             }

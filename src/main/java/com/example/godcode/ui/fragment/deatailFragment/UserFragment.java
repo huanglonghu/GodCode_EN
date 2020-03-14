@@ -38,7 +38,7 @@ public class UserFragment extends BaseFragment {
     }
 
     private void initView() {
-        binding.userDetailToolbar.title.setText("详细资料");
+        binding.userDetailToolbar.title.setText("Detailed information on");
 
         Friend friend = FriendOption.getInstance(activity).querryFriend(id);
         if (friend == null) {
@@ -82,7 +82,7 @@ public class UserFragment extends BaseFragment {
                 addFriend.setFriends(friendsBean);
                 HttpUtil.getInstance().addFriend(addFriend).subscribe(
                         addFriendStr -> {
-                            Toast.makeText(activity, "已发送好友请求", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "A friend request has been sent", Toast.LENGTH_SHORT).show();
                         }
                 );
             }

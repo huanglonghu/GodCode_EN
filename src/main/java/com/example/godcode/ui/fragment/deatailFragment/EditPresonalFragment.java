@@ -45,29 +45,29 @@ public class EditPresonalFragment extends BaseFragment implements TypeSelect.Sel
             binding.setPresenter(presenter);
             binding.setFragment(this);
             view = binding.getRoot();
-            binding.editPresonalToolbar.tvOption.setText("保存");
+            binding.editPresonalToolbar.tvOption.setText("Save");
         }
         initView();
         return view;
     }
 
-    private String[] sexArray = {"男", "女"};
+    private String[] sexArray = {"Man", "Woman"};
 
     private void initView() {
         binding.setEditBean(editBean);
         binding.etContent.setText(content);
         switch (editBean.type.get()) {
             case 1:
-                binding.editPresonalToolbar.title.setText("修改用户名");
+                binding.editPresonalToolbar.title.setText("Change user name");
                 break;
             case 2:
-                binding.editPresonalToolbar.title.setText("修改性别");
+                binding.editPresonalToolbar.title.setText("Modify the gender");
                 TypeSelect bankTypeSelect = new TypeSelect(activity, sexArray);
                 bankTypeSelect.setSelectResponse(EditPresonalFragment.this);
                 bankTypeSelect.show();
                 break;
             case 3:
-                binding.editPresonalToolbar.title.setText("修改地区");
+                binding.editPresonalToolbar.title.setText("Modify the area");
                 initPickerData();
                 pickerView.show(view);
                 pickerView.setOnPickerClickListener(new OnPickerClickListener() {
@@ -105,7 +105,7 @@ public class EditPresonalFragment extends BaseFragment implements TypeSelect.Sel
                             editPresonal.setNickName(editBean.content.get());
                             break;
                         case 2:
-                            if (editBean.content.get().equals("女")) {
+                            if (editBean.content.get().equals("Woman")) {
                                 editPresonal.setSex("2");
                             } else {
                                 editPresonal.setSex("1");
@@ -122,7 +122,7 @@ public class EditPresonalFragment extends BaseFragment implements TypeSelect.Sel
                             }
                     );
                 } else {
-                    Toast.makeText(activity, "内容不能为空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "The content cannot be empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });

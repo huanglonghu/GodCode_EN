@@ -52,7 +52,7 @@ public class BitmapUtil {
                 out.close();
                 MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getAbsolutePath(), bitName, null);
             }
-            Toast.makeText(context, "二维码已经保存到手机相册中", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "The qr code has been saved in the phone album", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

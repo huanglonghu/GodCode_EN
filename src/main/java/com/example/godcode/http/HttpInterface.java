@@ -6,6 +6,7 @@ import com.example.godcode.bean.BatchSettingBody;
 import com.example.godcode.bean.BatchTransfer;
 import com.example.godcode.bean.BindPackage;
 import com.example.godcode.bean.ChangePsd;
+import com.example.godcode.bean.DivideIncome;
 import com.example.godcode.bean.EditBankCard;
 import com.example.godcode.bean.EditGroupItemName;
 import com.example.godcode.bean.EditPackage;
@@ -38,9 +39,12 @@ import com.example.godcode.bean.TransationDetail;
 import com.example.godcode.bean.TransferBody;
 import com.example.godcode.bean.TransferDivide;
 import com.example.godcode.bean.Tx;
+import com.example.godcode.bean.TxSyBody;
 import com.example.godcode.bean.UnLockMc;
 import com.example.godcode.bean.UpdateFriend;
 import com.example.godcode.bean.WxPay;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,7 +80,6 @@ public interface HttpInterface {
     @GET("api/services/app/Product/GetProductByIdAsync")
     Call<ResponseBody> getProductById(@Query("Id") int Id);
 
-
     @GET("api/services/app/MerchantOwner/GetPagedMobileMerchantOwners")
     Call<ResponseBody> getProductByType(@QueryMap Map<String, String> map);
 
@@ -101,17 +104,14 @@ public interface HttpInterface {
     @POST("api/services/app/MerchantOwner/BindOrRelieveBindMerchantOwner")
     Call<ResponseBody> bindProduct(@Body BindProduct body);
 
-
     @POST("api/services/app/MerchantOwner/BindOrRelieveBindMerchantOwner")
     Call<ResponseBody> bindProduct2(@Body BindProduct bindProduct);
 
     @GET("api/services/app/Balance/GetBalanceByUserIdAsync")
     Call<ResponseBody> queryBalance(@Query("Id") int Id);
 
-
     @GET("api/services/app/RevenueDivide/GetRevenueDivideByPitureIdAsync")
     Call<ResponseBody> getRevenueDivideById(@Query("Id") int Id);
-
 
     @POST("api/services/app/RevenueDivide/CreateOrUpdateRevenueDivide")
     Call<ResponseBody> createRevenueDivide(@Body CreateDivide createDivide);
@@ -188,7 +188,6 @@ public interface HttpInterface {
     @POST("api/services/app/CommonPaymentAppServices/TerracePayment")
     Call<ResponseBody> payByBanlance(@Body PayByBalance payByBalance);
 
-
     @GET("api/services/app/Product/GetProductByNumberAsync")
     Call<ResponseBody> querryProduct(@Query("ProductID") Integer ProductID, @Query("ProductNumber") String produceNumber);
 
@@ -204,24 +203,19 @@ public interface HttpInterface {
     @POST("api/services/app/TransactionReport/QueryTransationDetail")
     Call<ResponseBody> getTransactionDetail(@Body TransationDetail transationDetail);
 
-
     @DELETE("api/services/app/BankCard/DeleteBankCard")
     Call<ResponseBody> deleteBankCard(@Query("Id") int id);
-
 
     @POST("api/TokenAuth/MobileLoginOut")
     Call<ResponseBody> exit(@Query("UserId") int UserId, @Query("UniquenessToken") String diviceToken);
 
-
     @POST("api/services/app/User/MoblieUpdateUser")
     Call<ResponseBody> editPresonal(@Body EditPresonal editPresonal);
-
 
     @Multipart
     @POST("/api/PictureApi/UploadPicture")
         //1产品图片 2 用户头像 3产品类别图片
     Call<ResponseBody> uploadPicture(@Query("type") int type, @Part MultipartBody.Part file);
-
 
     @GET("api/services/app/Notice/GetNoticeByIdAsync")
     Call<ResponseBody> getNoticeById(@Query("Id") long id);
@@ -373,5 +367,17 @@ public interface HttpInterface {
     @GET("/api/services/app/SystemSettings/GetSystemSettings")
     Call<ResponseBody> getSystemSetting();
 
+    @POST("/api/services/app/WithdrawMoneyProxy/QueryPagedWitharawMoneyProxyIncomes")
+    Call<ResponseBody> getTxSy(@Body TxSyBody txSyBody);
+
+    @GET("/api/services/app/DivideIncome/GetMobliePagedCoinDivideIncome")
+    Call<ResponseBody> getCoinDivide(@Query("StratTime") String time, @Query("EndTime") String time2, @Query("UserID") long userId, @Query("page") int page, @Query("limit") int limit);
+
+
+    @POST("/api/services/app/Balance/ClearCoinBalanceByUserID")
+    Call<ResponseBody> clearCoinBalance(@Body HashMap<String, Integer> map);
+
+    @POST("/api/services/app/User/ResetUserPassword")
+    Call<ResponseBody> resetPwd(@Body HashMap<String, String> map);
 
 }

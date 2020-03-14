@@ -2,6 +2,7 @@ package com.example.godcode.ui.adapter;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,24 @@ public class TransationRecordListAdapter extends BaseListAdapter {
            transationName="购买积分";
         } else  {
             transationName = TransationOption.getInstance().getTransationName(transactionType);
+            if("提现".equals(transationName)){
+                int putStatus = dataBean.getPutStatus();
+                switch (putStatus){
+                    case 0:
+                        binding.status.setText("（审核中）");
+                        binding.status.setTextColor(Color.BLUE);
+                        break;
+                    case 2:
+                        binding.status.setText("（成功）");
+                        binding.status.setTextColor(Color.GREEN);
+                        break;
+                    case 4:
+                        binding.status.setText("（失败）");
+                        binding.status.setTextColor(Color.RED);
+                        break;
+
+                }
+            }
         }
         binding.setType(transationName);
         String time = DateUtil.getInstance().formatDate(dataBean.getAddTime());

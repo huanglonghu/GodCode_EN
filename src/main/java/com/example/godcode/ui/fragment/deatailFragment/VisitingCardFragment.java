@@ -32,7 +32,7 @@ public class VisitingCardFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_visitingcard, container, false);
             binding.setPresenter(presenter);
             view = binding.getRoot();
-            binding.visitingCardToolbar.title.setText("我的二维码");
+            binding.visitingCardToolbar.title.setText("My qr code");
             initView();
         }
         return view;

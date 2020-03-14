@@ -85,7 +85,7 @@
             android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="忘记密码?找回并完成支付"
+            android:text="Forget your password? Retrieve and complete the payment"
             android:textColor="@color/theme_color"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"

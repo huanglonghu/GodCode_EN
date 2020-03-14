@@ -86,12 +86,10 @@ public class ContactAdapter extends BaseAdapter {
             if (charcterMap2.get(firstChar) == friend) {
                 binding.setCharacter(firstChar);
             }
-
             if (!TextUtils.isEmpty(headImageUrl)) {
                 if (!headImageUrl.contains("http")) {
                     headImageUrl = Constant.baseUrl + headImageUrl;
                 }
-                LogUtil.log(headImageUrl+"=========headurl=========="+friend.getUserName());
                 RxImageLoader.with(context).load(headImageUrl).into(binding.friendPhoto);
             } else {
                 binding.friendPhoto.setBackgroundResource(R.drawable.contact_normal);

@@ -1,14 +1,11 @@
 package com.example.godcode.bean;
 
-/**
- * Created by Administrator on 2018/7/5.
- */
 
 public class DivideIncome {
 
 
     /**
-     * result : {"toDayMoney":0,"yesterDayMoney":0,"balances":0.44}
+     * result : {"toDayMoney":0,"yesterDayMoney":0,"balances":3.05,"yesterDayCoinMoney":0,"toDayCoinMoney":0,"coinBalances":0}
      * targetUrl : null
      * success : true
      * error : null
@@ -75,12 +72,18 @@ public class DivideIncome {
         /**
          * toDayMoney : 0.0
          * yesterDayMoney : 0.0
-         * balances : 0.44
+         * balances : 3.05
+         * yesterDayCoinMoney : 0.0
+         * toDayCoinMoney : 0.0
+         * coinBalances : 0.0
          */
 
         private double toDayMoney;
         private double yesterDayMoney;
         private double balances;
+        private double yesterDayCoinMoney;
+        private double toDayCoinMoney;
+        private double coinBalances;
 
         public double getToDayMoney() {
             return toDayMoney;
@@ -104,6 +107,30 @@ public class DivideIncome {
 
         public void setBalances(double balances) {
             this.balances = balances;
+        }
+
+        public double getYesterDayCoinMoney() {
+            return yesterDayCoinMoney;
+        }
+
+        public void setYesterDayCoinMoney(double yesterDayCoinMoney) {
+            this.yesterDayCoinMoney = yesterDayCoinMoney;
+        }
+
+        public double getToDayCoinMoney() {
+            return toDayCoinMoney;
+        }
+
+        public void setToDayCoinMoney(double toDayCoinMoney) {
+            this.toDayCoinMoney = toDayCoinMoney;
+        }
+
+        public double getCoinBalances() {
+            return coinBalances;
+        }
+
+        public void setCoinBalances(double coinBalances) {
+            this.coinBalances = coinBalances;
         }
     }
 }

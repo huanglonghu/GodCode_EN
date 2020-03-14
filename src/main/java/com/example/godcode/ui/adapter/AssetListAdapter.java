@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.MyAssetList;
 import com.example.godcode.catche.Loader.RxImageLoader;
@@ -17,7 +16,6 @@ import com.example.godcode.presenter.Presenter;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.utils.FormatUtil;
 import com.example.godcode.utils.LogUtil;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -28,7 +26,6 @@ public class AssetListAdapter extends BaseAdapter {
     private List<MyAssetList.ResultBean.DataBean> assetList;
     private Context context;
     private HashMap<Integer, Integer> categoryMap;
-    private String[] incomeType = {"今日", "昨日", "本周", "本月", "总"};
 
 
     public AssetListAdapter(Context context, List<MyAssetList.ResultBean.DataBean> assetList, HashMap<Integer, Integer> categoryMap) {
@@ -58,7 +55,6 @@ public class AssetListAdapter extends BaseAdapter {
         if (viewMap.get(position) == null) {
             ItemLvMyassetBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.item_lv_myasset, parent, false);
             binding.setPresenter(Presenter.getInstance());
-            String periodType = incomeType[this.periodType - 1];
             MyAssetList.ResultBean.DataBean dataBean = assetList.get(position);
             if (dataBean.getFK_UserID() == Constant.userId) {
                 binding.setIsMaster(true);
@@ -73,58 +69,6 @@ public class AssetListAdapter extends BaseAdapter {
                 RxImageLoader.with(context).load(productImgUrl).into(binding.ivZc);
             }
             initData(binding, dataBean);
-            Integer purView = categoryMap.get(dataBean.getProductCategoryID());
-
-
-            TextView v2 = (TextView) layoutInflater.inflate(R.layout.item_assetdetail_tv, binding.container1, false);
-            v2.setText(periodType + "扫码:" + dataBean.getScanCodeIncome());
-            binding.container1.addView(v2);
-
-            TextView v5 = (TextView) layoutInflater.inflate(R.layout.item_assetdetail_tv, binding.container2, false);
-            v5.setText("我的分成:" + dataBean.getDivideIncome());
-            binding.container2.addView(v5);
-
-
-            TextView v6 = (TextView) layoutInflater.inflate(R.layout.item_assetdetail_tv, binding.container1, false);
-            v6.setText("广告收入:" + dataBean.getAdIncome());
-            binding.container1.addView(v6);
-
-
-            if ((1 & purView) != 0) {
-                TextView v3 = (TextView) layoutInflater.inflate(R.layout.item_assetdetail_tv, binding.container2, false);
-                v3.setText(periodType + "投币:" + dataBean.getTodayCoin());
-                binding.container2.addView(v3);
-            }
-
-
-            if ((1 << 1 & purView) != 0) {
-                TextView v1 = (TextView) layoutInflater.inflate(R.layout.item_assetdetail_tv, binding.container1, false);
-                v1.setText(periodType + "纸币:" + dataBean.getTodayBanknote());
-                if (binding.container2.getChildCount() == 1) {
-                    binding.container2.addView(v1);
-                } else {
-                    binding.container1.addView(v1);
-                }
-            }
-
-
-            if ((1 << 2 & purView) != 0) {
-                TextView v4 = (TextView) layoutInflater.inflate(R.layout.item_assetdetail_tv, binding.container1, false);
-                v4.setText(periodType + "退礼:" + dataBean.getTodayAwardCount());
-                if (binding.container1.getChildCount() + binding.container2.getChildCount() == 3) {
-                    binding.container2.addView(v4);
-                }
-
-                if (binding.container1.getChildCount() + binding.container2.getChildCount() == 4) {
-                    binding.container1.addView(v4);
-                }
-
-                if (binding.container1.getChildCount() + binding.container2.getChildCount() == 5) {
-                    binding.container2.addView(v4);
-                }
-
-            }
-
 
             convertView = binding.getRoot();
             convertView.setTag(binding);
@@ -152,10 +96,14 @@ public class AssetListAdapter extends BaseAdapter {
     }
 
 
-    public void refreshData(int position, MyAssetList.ResultBean.DataBean dataBean) {
+    public void refreshData(int position,int coin,double paper,double divideMoney) {
         View view = getView(position, null, null);
         ItemLvMyassetBinding binding = (ItemLvMyassetBinding) view.getTag();
-        initData(binding, dataBean);
+        MyAssetList.ResultBean.DataBean dataBean = assetList.get(position);
+        dataBean.setCoinDivideIncome(divideMoney+dataBean.getCoinDivideIncome());
+        dataBean.setTodayBanknote((int)paper+dataBean.getTodayBanknote());
+        dataBean.setTodayCoin(coin+dataBean.getTodayCoin());
+        binding.setAssetBean(dataBean);
     }
 
 }

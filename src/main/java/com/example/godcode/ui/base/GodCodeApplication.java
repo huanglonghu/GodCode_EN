@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.multidex.MultiDex;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+
 import com.example.godcode.constant.Constant;
 import com.example.godcode.greendao.gen.DaoMaster;
 import com.example.godcode.greendao.gen.DaoSession;
@@ -14,6 +15,7 @@ import com.example.godcode.service.PushIntentService;
 import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.RemberPsd;
 import com.example.godcode.utils.RudenessScreenHelper;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
@@ -32,14 +34,15 @@ public class GodCodeApplication extends Application {
         setDatabase();
         initWindowSize();
         initUmeng();
-        int designWidth =1080;
+        CrashReport.initCrashReport(this, "6876c53e79", true);
+        int designWidth = 1080;
         new RudenessScreenHelper(this, designWidth).activate();
     }
 
     private void requestPermission() {
         AndPermission.with(this)
                 .runtime()
-                .permission(Permission.ACCESS_FINE_LOCATION,Permission.WRITE_EXTERNAL_STORAGE,Permission.CAMERA,Permission.READ_CONTACTS)
+                .permission(Permission.ACCESS_FINE_LOCATION, Permission.WRITE_EXTERNAL_STORAGE, Permission.CAMERA, Permission.READ_CONTACTS)
                 .onGranted(permissions -> {
                     // Storage permission are allowed.
                 })
@@ -73,7 +76,7 @@ public class GodCodeApplication extends Application {
 
             @Override
             public void onFailure(String s, String s1) {
-                LogUtil.log(s+"-------faile--------"+s1);
+                LogUtil.log(s + "-------faile--------" + s1);
                 regiser(mPushAgent);
             }
         });
@@ -102,11 +105,13 @@ public class GodCodeApplication extends Application {
     public static GodCodeApplication getInstance() {
         return instance;
     }
+
     /**
      * 设置greenDao
      */
     private DaoSession mDaoSession;
     private SQLiteDatabase db;
+
     private void setDatabase() {
         // 通过 DaoMaster 的内部类 DevOpenHelper，你可以得到一个便利的 SQLiteOpenHelper 对象。
         // 可能你已经注意到了，你并不需要去编写「CREATE TABLE」这样的 SQL 语句，因为 greenDAO 已经帮你做了。

@@ -144,5 +144,8 @@ public static java.lang.String TABLENAME;
    public static final int *;
 }
 
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+
 
 

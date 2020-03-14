@@ -31,8 +31,6 @@ public class ServiceRemainderFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_servicereaminder, container, false);
             binding.setPresenter(presenter);
             view = binding.getRoot();
-            String title = StringUtil.getString(activity, R.string.fwtx);
-            binding.serviceRemainderToolbar.title.setText(title);
             lazyLoad();
             initListener();
         }

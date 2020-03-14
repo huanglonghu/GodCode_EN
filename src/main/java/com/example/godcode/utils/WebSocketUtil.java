@@ -2,6 +2,7 @@ package com.example.godcode.utils;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
 import com.example.godcode.bean.WebSocketNews1;
 import com.example.godcode.bean.WebSocketNews2;
 import com.example.godcode.bean.WebSocketNews3;
@@ -15,8 +16,11 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONObject;
+
 import java.net.URI;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -31,16 +35,16 @@ public class WebSocketUtil {
     private static Disposable subscribe;
     private Subscription heartSubscribe;
 
-    public WebSocketUtil() {
-
-    }
+    public WebSocketUtil() {}
 
     @SuppressLint("CheckResult")
     public void connect(String url) {
         Observable.create(new ObservableOnSubscribe<WebSocketNewsHandler.Builder>() {
             @Override
             public void subscribe(ObservableEmitter<WebSocketNewsHandler.Builder> e) throws Exception {
-                mSocketClient = new WebSocketClient(new URI(url), new Draft_6455()) {
+                HashMap<String, String> map = new HashMap<>();
+                map.put("Language", "enUS");
+                mSocketClient = new WebSocketClient(new URI(url), map) {
                     @Override
                     public void onOpen(ServerHandshake handshakedata) {
                         LogUtil.log(TAG + "打开通道" + handshakedata.getHttpStatus());
@@ -53,10 +57,8 @@ public class WebSocketUtil {
 
                     @Override
                     public void onMessage(String message) {
-                        //message="{\"EventType\":22,\"Data\":{\"msg\":\"'13250554787'向您申请'100'积分！\"},\"Flag\":\"78a31ef8-5f59-4f06-8da6-073eab619628\",\"SendTime\":\"2019-06-27T16:59:26.184+08:00\"}";
-                        // message = "{\"EventType\":6,\"Data\":{\"msg\":\"您有新的二维码收款入账！\",\"RelatedKey\":10055,\"Id\":10291,\"TransationType\":2}}";
-                        // message="{\"EventType\":9,\"Data\":{\"msg\":\"该账户已在其他设备登录！\"}}";
-                        // message="{\"EventType\":19,\"Data\":{\"ProductNumber\":\"4G4\",\"CoinCount\":0,\"PaperMoney\":0.0,\"ScanQRMoney\":0.04,\"DivedeMoney\":0.04,\"MerchantUserIds\":null,\"AwardPosition\":0,\"AwardCount\":1},\"Flag\":\"9022cd79-9c90-46a7-95e4-548423e48cd0\"}";
+                     //   message="{\"EventType\":19,\"Data\":{\"ProductNumber\":\"T2\",\"CoinCount\":0,\"PaperMoney\":5.00,\"ScanQRMoney\":0.0,\"DivedeMoney\":0.0,\"CoinDivedeMoney\":5.00,\"MerchantUserIds\":\"26-11\",\"AwardPosition\":0,\"AwardCount\":0},\"Flag\":\"f8a9494b-010f-4ccf-a8bd-6f7f419f10bf\",\"SendTime\":\"2019-12-03T14:12:01.5160006+08:00\"}\n";
+
                         LogUtil.log(message);
                         WebSocketNewsHandler.Builder builder = new WebSocketNewsHandler.Builder();
                         String type = message.substring(message.indexOf("\"EventType\":") + "\"EventType\":".length(), message.indexOf(","));
@@ -87,6 +89,7 @@ public class WebSocketUtil {
                     @Override
                     public void onError(Exception ex) {
                         LogUtil.log(TAG + "链接错误" + ex.toString());
+
                     }
                 };
 
@@ -137,6 +140,7 @@ public class WebSocketUtil {
             case "25":
             case "26":
             case "27":
+            case "28":
                 WebSocketNews3 webSocketNews3 = GsonUtil.getInstance().fromJson(message, WebSocketNews3.class);
                 builder.webSocketNews3(webSocketNews3);
                 break;
@@ -147,7 +151,7 @@ public class WebSocketUtil {
         }
     }
 
-
+    // {"EventType":28,"Data":{"msg":"设备'SY3F5'电量过低，请充电！"},"Flag":"5f25d516-edf0-4ae0-ac06-989815245164","SendTime":"2019-09-21T11:26:40.203539+08:00"}
     public void getStrategyByType(WebSocketNewsHandler webSocketNewsHandler) {
         switch (webSocketNewsHandler.getEventType()) {
             case "2":
@@ -161,6 +165,7 @@ public class WebSocketUtil {
             case "16":
             case "17":
             case "18":
+            case "28":
                 RxBus.getInstance().post(new RxEvent(EventType.EVENTTYPE_REFRESH_NOTIFICATION));
                 break;
             case "9":
@@ -177,7 +182,7 @@ public class WebSocketUtil {
             case "19":
                 RxEvent rxEvent2 = new RxEvent(EventType.EVENTTYPE_DIVIDE_MSG);
                 Bundle bundle1 = new Bundle();
-                bundle1.putSerializable("dataBean",webSocketNewsHandler.getWebSocketNews1().getData());
+                bundle1.putSerializable("dataBean", webSocketNewsHandler.getWebSocketNews1().getData());
                 rxEvent2.setBundle(bundle1);
                 RxBus.getInstance().post(rxEvent2);
                 break;
@@ -192,7 +197,7 @@ public class WebSocketUtil {
             case "21":
                 RxEvent rxEvent1 = new RxEvent(EventType.EVENTTYPE_HEART);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("heart",webSocketNewsHandler.getWsHeart());
+                bundle.putSerializable("heart", webSocketNewsHandler.getWsHeart());
                 rxEvent1.setBundle(bundle);
                 RxBus.getInstance().post(rxEvent1);
                 break;

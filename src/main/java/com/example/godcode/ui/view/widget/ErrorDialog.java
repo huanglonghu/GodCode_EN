@@ -24,7 +24,7 @@ public class ErrorDialog extends AlertDialog {
         super.show();
         TextView textView = new TextView(context);
         textView.setPadding(40,40,40,40);
-        textView.setText("产品正在升级，请稍后");
+        textView.setText("The product is being upgraded. Please wait");
         textView.setTextSize(18);
         textView.setGravity(Gravity.CENTER);
         setContentView(textView);

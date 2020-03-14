@@ -34,7 +34,7 @@
             android:id="@+id/scanner_toolbar_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="相册"
+            android:text="@string/xc"
             android:layout_gravity="right|center_vertical"
             android:gravity="center"
             android:textColor="#fff"

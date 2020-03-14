@@ -18,22 +18,24 @@ import com.example.godcode.ui.view.widget.EditNameDialog;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by Administrator on 2018/11/9.
- */
-
 public class GroupListAdapter extends BaseAdapter {
     private ArrayList<GroupMsg.ResultBean.bean> groupList;
     private Context context;
     private LayoutInflater layoutInflater;
     private HashMap<Integer, View> viewMap = new HashMap<>();
     private int periodType;
-    private String[] incomeType = {"今日", "昨日", "本周", "本月", "总"};
+    private final String[] fcArray;
+    private final String[] tbArray;
+    private final String[] zcArray;
 
     public GroupListAdapter(Context context, ArrayList<GroupMsg.ResultBean.bean> groupList) {
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
         this.groupList = groupList;
+        fcArray = context.getResources().getStringArray(R.array.fcArray);
+        tbArray = context.getResources().getStringArray(R.array.tbArray);
+        zcArray = context.getResources().getStringArray(R.array.zcArray);
+
     }
 
     @Override
@@ -58,7 +60,10 @@ public class GroupListAdapter extends BaseAdapter {
             ItemLvGroupBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.item_lv_group, null, false);
             convertView = binding.getRoot();
             convertView.setTag(binding);
-            binding.setPeriodType(incomeType[periodType - 1]);
+            binding.setFcArray(fcArray);
+            binding.setTbArray(tbArray);
+            binding.setZcArray(zcArray);
+            binding.setPeriodType(periodType);
             GroupMsg.ResultBean.bean bean = groupList.get(position);
             String headImgUrl = bean.getHeadImgUrl();
             if (!TextUtils.isEmpty(headImgUrl)) {
@@ -66,7 +71,7 @@ public class GroupListAdapter extends BaseAdapter {
                     headImgUrl = Constant.baseUrl + headImgUrl;
                 }
                 RxImageLoader.with(context).load(headImgUrl).into(binding.ivPhoto);
-            }else {
+            } else {
                 binding.ivPhoto.setImageResource(R.drawable.contact_normal);
             }
             binding.setBean(bean);
@@ -89,21 +94,18 @@ public class GroupListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int getGroupId(int position) {
-        GroupMsg.ResultBean.bean bean = groupList.get(position);
-        return bean.getFK_UserID();
-    }
 
-    public String getGroupName(int position) {
-        GroupMsg.ResultBean.bean bean = groupList.get(position);
-        return bean.getUserName();
-    }
-
-
-    public void refreshData(int position, GroupMsg.ResultBean.bean bean) {
-        View view = getView(position, null, null);
-        ItemLvGroupBinding binding = (ItemLvGroupBinding) view.getTag();
-        binding.setBean(bean);
-
+    public void refreshDataByGroupId(int groupId, int coin, double paper) {
+        for (int i = 0; i < groupList.size(); i++) {
+            GroupMsg.ResultBean.bean bean = groupList.get(i);
+            if (bean.getFK_UserID() == groupId) {
+                View view = getView(i, null, null);
+                ItemLvGroupBinding binding = (ItemLvGroupBinding) view.getTag();
+                bean.setTodayCoin(bean.getTodayCoin() + coin);
+                bean.setTodayBanknote(bean.getTodayBanknote() + paper);
+                binding.setBean(bean);
+                break;
+            }
+        }
     }
 }

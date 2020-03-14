@@ -41,7 +41,7 @@ public class SelectPackageFragment extends BaseFragment {
     }
 
     private void initView() {
-        binding.selectPackageToolbar.title.setText("选择套餐");
+        binding.selectPackageToolbar.title.setText("Choose package");
         Bundle bundle = getArguments();
         productScanResult = (ProductScan.ResultBean) bundle.getSerializable("productScanResult");
         boolean isFree = bundle.getBoolean("isFree");

@@ -27,8 +27,6 @@ public class BindProductFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_bindproduct, container, false);
-            String title = StringUtil.getString(activity, R.string.bindProduct);
-            binding.bindproductToolbar.title.setText(title);
             view = binding.getRoot();
             initChild();
             binding.bindproductToolbar.toolbar4Back.setOnClickListener(new View.OnClickListener() {

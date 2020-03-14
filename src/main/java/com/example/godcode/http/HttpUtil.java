@@ -43,6 +43,7 @@ import com.example.godcode.bean.TransationDetail;
 import com.example.godcode.bean.TransferBody;
 import com.example.godcode.bean.TransferDivide;
 import com.example.godcode.bean.Tx;
+import com.example.godcode.bean.TxSyBody;
 import com.example.godcode.bean.UnLockMc;
 import com.example.godcode.bean.UpdateFriend;
 import com.example.godcode.bean.WxPay;
@@ -53,6 +54,9 @@ import com.example.godcode.ui.view.widget.ErrorDialog;
 import com.example.godcode.utils.ErrrCodeShow;
 import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,6 +107,7 @@ public class HttpUtil {
                 HttpUrl oldHttpUrl = request.url();
                 Request.Builder builder = request.newBuilder();
                 String path = oldHttpUrl.encodedPath();
+                request = builder.addHeader("Language", "enUS").build();
                 if (!path.contains("RegisterMobileUser") && !path.contains("MoblieWXAuthToken") && !path.contains("Authenticate")) {
                     String accessToken = SharepreferenceUtil.getInstance().getAccessToken();
                     String loginToken = SharepreferenceUtil.getInstance().getLoginToken();
@@ -378,7 +383,7 @@ public class HttpUtil {
     }
 
     public Observable<String> getYSRecord(String time, String time2, int page) {
-        Call<ResponseBody> call = httpInterface.getYSRecord(time, time2, Constant.userId, page, 10);
+        Call<ResponseBody> call = httpInterface.getYSRecord(time, time2, Constant.userId, page, 20);
         return enqueueCall(call);
     }
 
@@ -718,6 +723,34 @@ public class HttpUtil {
         return enqueueCall(ca);
     }
 
+    public Observable<String> querryTxSy(TxSyBody txSyBody) {
+        Call<ResponseBody> call = httpInterface.getTxSy(txSyBody);
+        return enqueueCall(call);
+    }
+
+    public Observable<String> getCoinDivide(String startTime, String endTime, int page) {
+        Call<ResponseBody> call = httpInterface.getCoinDivide(startTime, endTime, Constant.userId, page, 20);
+        return enqueueCall(call);
+    }
+
+
+    public Observable<String> clearCoinBalance(int id) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("id", id);
+        Call<ResponseBody> call = httpInterface.clearCoinBalance(map);
+        return enqueueCall(call);
+    }
+
+    public Observable<String> resetPwd(String phone, String code, String pwd) {
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("phoneNumberOrEmail", phone);
+        map.put("verificationCode", code);
+        map.put("newPassword", pwd);
+        Call<ResponseBody> call = httpInterface.resetPwd(map);
+        return enqueueCall(call);
+    }
+
 
     HashMap<Call<ResponseBody>, NetLoading> map = new HashMap<>();
 
@@ -744,9 +777,7 @@ public class HttpUtil {
                     netLoading = null;
                     map.remove(netLoading);
                 }
-
                 try {
-                    LogUtil.log(response.isSuccessful() + "--QQQQQQQQQQQ---==============" + response.toString());
                     if (response.isSuccessful()) {
                         String body = response.body().string();
                         observableEmitter.onNext(body);
@@ -757,8 +788,12 @@ public class HttpUtil {
                         if (!TextUtils.isEmpty(errorBody) && errorBody.contains("message")) {
                             String errorCodeStr = errorBody.substring(errorBody.indexOf("\"code\":") + "\"code\":".length(), errorBody.indexOf(",\"message\""));
                             int errorCode = Integer.parseInt(errorCodeStr.trim());
-
-                            ErrrCodeShow.showToast(errorCode, context, errorBody);
+                            JSONObject jsonObject = new JSONObject(errorBody);
+                            JSONObject error = jsonObject.getJSONObject("error");
+                            if (error != null) {
+                                String errorMessage = error.getString("message");
+                                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show();
+                            }
                             if (errorCode == 2008 || errorCode == 2000 || errorCode == 3002 || errorCode == 4006 || errorCode == 6004) {
                                 if (errorCode == 4006) {
                                     Presenter.getInstance().exit(context);
@@ -789,7 +824,7 @@ public class HttpUtil {
                 if (s.contains("java.net.ConnectException")) {
                     showErrorDialog();
                 } else {
-                    Toast.makeText(context, "网络异常,请重试", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Network exception, please try again", Toast.LENGTH_SHORT).show();
                 }
 
 

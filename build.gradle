@@ -3,7 +3,7 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'org.greenrobot.greendao'
 
 greendao {
-    schemaVersion 4//指定数据库版本号，更新操作会用到;
+    schemaVersion 5//指定数据库版本号，更新操作会用到;
     daoPackage 'com.example.godcode.greendao.gen'//自动生成的dao的包名，包名默认是entity所在的包；
     targetGenDir 'src/main/java'//生成数据库文件的目录
 }
@@ -31,7 +31,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "2.6.5"
+        versionName "2.7.6"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
@@ -52,6 +52,11 @@ android {
             res.srcDirs +=  'src/main/res/layout/dm'
             res.srcDirs +=  'src/main/res/layout/main'
             res.srcDirs +=  'src/main/res/layout/adapter'
+            res.srcDirs +=  'src/main/res/layout/activity'
+            res.srcDirs +=  'src/main/res/layout/fragment'
+            res.srcDirs +=  'src/main/res/layout/widget'
+            res.srcDirs +=  'src/main/res/layout/toolbar'
+            res.srcDirs +=  'src/main/res/layout/divider'
             res.srcDirs +=  'src/main/res/layout/authentication'
         }
     }
@@ -113,6 +118,9 @@ dependencies {
     compile 'com.yanzhenjie:permission:2.0.0-rc12'
 
     compile 'com.mcxiaoke.volley:library:1.0.19'
+
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'com.tencent.bugly:crashreport:latest.release'
 
 
 }

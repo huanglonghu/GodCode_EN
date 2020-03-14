@@ -63,12 +63,12 @@ public class SearchFragment extends BaseFragment {
                                     datas.add(result);
                                     adaPter.notifyDataSetChanged();
                                 } else {
-                                    Toast.makeText(activity, "没有查询到用户", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(activity, "No user was found", Toast.LENGTH_SHORT).show();
                                 }
                             }
                     );
                 } else {
-                    Toast.makeText(activity, "请输入要查询的内容", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Please enter what you want to query", Toast.LENGTH_SHORT).show();
                 }
 
                 return true;

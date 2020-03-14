@@ -98,15 +98,13 @@ public class YSJLDetailFragment extends BaseFragment {
 
 
     public void initView() {
-        if (!bean.isIsCapableRefund() || bean.isIsRefund() || !bean.getProductOwnerName().equals(Constant.syNum)) {
+        if (!bean.isIsCapableRefund() || bean.isIsRefund() || !Constant.syNum.equals(bean.getProductOwnerName())) {
             binding.tk.setVisibility(View.GONE);
         }
     }
 
     @Override
-    protected void lazyLoad() {
-    }
-
+    protected void lazyLoad() {}
 
     public void toCheck(String psd) {
         PayByBalance payByBalance = new PayByBalance();

@@ -64,7 +64,7 @@ public class CheckPayPsdFragment extends BaseFragment {
                             if (back.contains("\"success\":false")) {
                                 keyBoard.clearPsd();
                                 binding.checkPsdPsdView.setPsLength(0);
-                                Toast.makeText(activity, "密码输入错误，请重新输入", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, "The password was entered incorrectly, please re-enter it", Toast.LENGTH_SHORT).show();
                             } else {
                                 LogUtil.log("===============EventType============"+eventType);
                                 presenter.back();

@@ -6,8 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-
 import com.example.godcode.R;
 import com.example.godcode.databinding.FragmentFriendBinding;
 import com.example.godcode.databinding.ItemHeadBinding;
@@ -30,7 +28,6 @@ public class FriendFragment extends BaseFragment {
     private ContactAdapter adapter;
     private MenuWindow menuWindow;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +35,6 @@ public class FriendFragment extends BaseFragment {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_friend, container, false);
             view = binding.getRoot();
-            binding.setTitle("朋友");
             initData();
             initView();
             initListener();
@@ -79,7 +75,7 @@ public class FriendFragment extends BaseFragment {
         binding.friendToolBar.ivMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuWindow = new MenuWindow(activity);
+                menuWindow = new MenuWindow(getContext());
                 LayoutMainPopupBinding binding = menuWindow.getBinding1();
                 binding.setFragment(FriendFragment.this);
                 menuWindow.show(v);
@@ -135,9 +131,6 @@ public class FriendFragment extends BaseFragment {
                 break;
             case R.id.mainPopup_sys:
                 presenter.sys();
-                break;
-            case R.id.mainPopup_gathering:
-                presenter.step2Fragment("gathering");
                 break;
         }
         menuWindow.dismiss();

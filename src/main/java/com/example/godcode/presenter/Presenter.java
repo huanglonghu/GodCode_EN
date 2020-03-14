@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
+
 import com.example.godcode.R;
 import com.example.godcode.databinding.FragmentMainBinding;
 import com.example.godcode.greendao.entity.Friend;
@@ -15,13 +16,14 @@ import com.example.godcode.observable.RxEvent;
 import com.example.godcode.ui.activity.BaseActivity;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.ui.base.GodCodeApplication;
+import com.example.godcode.ui.fragment.asset.AssetGroupFragment;
 import com.example.godcode.ui.fragment.bindproduct.BindProductFragment;
 import com.example.godcode.ui.fragment.deatailFragment.AddFriendFragment;
-import com.example.godcode.ui.fragment.deatailFragment.Asset_1_Fragment;
 import com.example.godcode.ui.fragment.deatailFragment.BalanceFragment;
 import com.example.godcode.ui.fragment.deatailFragment.BankCardFragment;
 import com.example.godcode.ui.fragment.deatailFragment.ContactDetailFragment;
 import com.example.godcode.ui.fragment.deatailFragment.GatheringFragment;
+import com.example.godcode.ui.fragment.deatailFragment.MyAgent;
 import com.example.godcode.ui.fragment.deatailFragment.NewFriendFragment;
 import com.example.godcode.ui.fragment.deatailFragment.PayMentFragment;
 import com.example.godcode.ui.fragment.deatailFragment.PresonalFragment;
@@ -39,6 +41,7 @@ import com.example.godcode.ui.view.widget.ExitDialog;
 import com.example.godcode.ui.view.QrcodeDialog;
 import com.example.godcode.utils.CommonUtil;
 import com.google.zxing.activity.CaptureActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -181,7 +184,7 @@ public class Presenter {
             BaseFragment fragment = null;
             switch (name) {
                 case "myAsset":
-                    fragment = new Asset_1_Fragment();
+                    fragment = new AssetGroupFragment();
                     break;
                 case "productCenter":
                     fragment = new ProductCenterFragment();
@@ -228,6 +231,9 @@ public class Presenter {
                 case "bindProduct":
                     fragment = new BindProductFragment();
                     break;
+                case "myAgent":
+                    fragment = new MyAgent();
+                    break;
             }
             fragmentMap.put(name, fragment);
             return fragment;
@@ -241,7 +247,6 @@ public class Presenter {
         if (CommonUtil.isCameraCanUse()) {
             Intent intent = new Intent(activity, CaptureActivity.class);
             new ActivityResultHandler.Builder().activity(activity).intent(intent).requestCode(ActivityResultHandler.REQUEST_SCAN).build().startActivityForResult();
-
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 activity.requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);

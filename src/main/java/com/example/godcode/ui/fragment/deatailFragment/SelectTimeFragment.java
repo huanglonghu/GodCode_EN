@@ -31,8 +31,7 @@ public class SelectTimeFragment extends BaseFragment {
             binding.setPresenter(presenter);
             binding.setFragment(this);
             view = binding.getRoot();
-            binding.selectTimeToolBar.title.setText("选择时间");
-            binding.selectTimeToolBar.tvOption.setText("完成");
+            binding.selectTimeToolBar.tvOption.setText("Complete");
             binding.setSelectPosition(selectPosition);
             initView();
             initListener();
@@ -47,9 +46,9 @@ public class SelectTimeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(binding.getDate1())) {
-                    Toast.makeText(activity, "请选择开始时间", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Please select the start time", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(binding.getDate2())) {
-                    Toast.makeText(activity, "请选择结束时间", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Please select the end time", Toast.LENGTH_SHORT).show();
                 } else {
                     timeSelect.setDate(binding.getDate1(), binding.getDate2());
                     presenter.back();

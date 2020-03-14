@@ -72,7 +72,7 @@ public class PsdPopupWindow extends PopupWindow {
                             Presenter.getInstance().step2Fragment(selectAuthWay, "selectAuthWay");
                             exit();
                         } else {
-                            ToastUtil.getInstance().showToast("您还未设置支付密码,请前往设置界面设置密码", 1000, activity);
+                            ToastUtil.getInstance().showToast("You have not set the payment password, please go to the Settings screen to set the password", 1000, activity);
                         }
                     }
                 });

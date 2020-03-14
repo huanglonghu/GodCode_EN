@@ -22,6 +22,7 @@ import com.example.godcode.observable.RxEvent;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
+import com.example.godcode.ui.base.GodCodeApplication;
 import com.example.godcode.ui.fragment.pwd.CheckPayPsdFragment;
 import com.example.godcode.ui.fragment.pwd.SetPayPsdFragment;
 import com.example.godcode.ui.view.UpdateDialog;
@@ -45,8 +46,6 @@ public class SettingFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setting, container, false);
             binding.setPresenter(presenter);
             view = binding.getRoot();
-            String title = StringUtil.getString(activity, R.string.setting);
-            binding.settingToolbar.title.setText(title);
             initView();
             initListener();
         }
@@ -73,15 +72,27 @@ public class SettingFragment extends BaseFragment {
             }
         });
 
+        binding.toZero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HttpUtil.getInstance().clearCoinBalance(Constant.userId).subscribe(
+                        str -> {
+                            Constant.balances = 0;
+                        }
+                );
+            }
+        });
+
         binding.exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 HttpUtil.getInstance().exit(Constant.userId, Constant.uniquenessToken).subscribe(
                         exitStr -> {
-                            LoginResultOption.getInstance().exit();
-                            System.exit(0);
+
                         }
                 );
+                LoginResultOption.getInstance().exit();
+                System.exit(0);
             }
         });
 
@@ -94,7 +105,7 @@ public class SettingFragment extends BaseFragment {
                     String versionDes = versionMsg.getVersionDes();
                     createUpdateDialog(versionDes, versionCode);
                 } else {
-                    Toast.makeText(activity, "当前版本是最新版本", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "The current version is the latest", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -111,7 +122,7 @@ public class SettingFragment extends BaseFragment {
                     String originalPayPass = rxEvent.getBundle().getString("OriginalPayPass");
                     SetPayPsdFragment setPayPsdFragment = new SetPayPsdFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("title", "请设置新密码");
+                    bundle.putString("title", "Please set a new password");
                     bundle.putString("OriginalPayPass", originalPayPass);
                     setPayPsdFragment.setArguments(bundle);
                     Presenter.getInstance().step2Fragment(setPayPsdFragment, "setPwd");
@@ -127,14 +138,13 @@ public class SettingFragment extends BaseFragment {
             }
         });
 
-//        binding.LanguageConfig.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                LanguageConfigDialog languageConfigDialog = new LanguageConfigDialog(activity);
-//                languageConfigDialog.show();
-//            }
-//        });
-
+        binding.LanguageConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageConfigDialog languageConfigDialog = new LanguageConfigDialog(activity);
+                languageConfigDialog.show();
+            }
+        });
 
     }
 
@@ -146,7 +156,7 @@ public class SettingFragment extends BaseFragment {
 
     public void initView() {
         try {
-            String versionName = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0).versionName;
+            String versionName = activity.getPackageManager().getPackageInfo(GodCodeApplication.getInstance().getPackageName(), 0).versionName;
             binding.versionCode.setText(versionName);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

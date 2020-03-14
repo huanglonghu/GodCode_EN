@@ -1,23 +1,31 @@
 package com.example.godcode.bean;
 
-/**
- * Created by Administrator on 2018/5/17.
- */
 
 public class LoginBody {
 
-
-    /**
-     * userName : string
-     * deviceToken : string
-     * openID : string
-     * verificationCode : string
-     */
 
     private String userName;
     private String deviceToken;
     private String openID;
     private String verificationCode;
+    private String Language="enUS";
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLanguage() {
+        return "enUS";
+    }
+
+    public void setLanguage(String language) {
+        Language = language;
+    }
 
     public String getUserName() {
         return userName;

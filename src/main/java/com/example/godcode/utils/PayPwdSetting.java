@@ -62,7 +62,7 @@ public class PayPwdSetting {
                         if (isPayPsdSetStr.equals("no")) {
                             SetPayPsdFragment setPayPsdFragment = new SetPayPsdFragment();
                             Bundle bundle = new Bundle();
-                            bundle.putString("title","请设置支付密码");
+                            bundle.putString("title","Please set the payment password");
                             setPayPsdFragment.setArguments(bundle);
                             Presenter.getInstance().step2Fragment(setPayPsdFragment, "setPwd");
                         } else {

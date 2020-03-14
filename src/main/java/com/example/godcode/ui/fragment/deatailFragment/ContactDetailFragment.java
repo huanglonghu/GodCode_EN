@@ -32,7 +32,6 @@ public class ContactDetailFragment extends BaseFragment implements RemarkSetting
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_contacter_detail, container, false);
             binding.setPresenter(presenter);
             view = binding.getRoot();
-            binding.contacterDetailToolbar.title.setText("详细资料");
             initView();
             initListener();
         }
@@ -51,14 +50,14 @@ public class ContactDetailFragment extends BaseFragment implements RemarkSetting
         binding.deleteFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DeleteDialog deleteDialog = new DeleteDialog(activity, "确定要删除" + friend.getUserName() + "吗？", new ClickSureListener() {
+                DeleteDialog deleteDialog = new DeleteDialog(activity, "Make sure to delete" + friend.getUserName() + "吗？", new ClickSureListener() {
                     @Override
                     public void clickSure() {
                         HttpUtil.getInstance().deleteFriend(Constant.userId, id)
                                 .subscribe(
                                         deleteStr -> {
                                             FriendOption.getInstance(activity).deleteFriend(id);
-                                            Toast.makeText(activity, "删除成功", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(activity, "Delete the success", Toast.LENGTH_SHORT).show();
                                             presenter.back();
                                         }
                                 );

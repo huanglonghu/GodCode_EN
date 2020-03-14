@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.YSRecord;
 import com.example.godcode.databinding.FragmentYsjlBinding;
@@ -20,15 +19,10 @@ import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.ui.view.MyListView;
 import com.example.godcode.utils.DateUtil;
 import com.example.godcode.utils.FormatUtil;
-import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.StringUtil;
 import com.google.gson.Gson;
-
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -39,7 +33,6 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
     private List<YSRecord.ResultBean.DataBean> data;
     private YsjlListAdapter ysjlListAdapter;
     private CompositeDisposable compositeDisposable;
-
 
     @Nullable
     @Override
@@ -55,7 +48,6 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
             initListener();
             refreshData(1);
         }
-
         return view;
     }
 
@@ -71,7 +63,7 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
             binding.tvDate1.setText(time1);
             binding.tvDate2.setText(time2);
             String title = StringUtil.getString(activity, R.string.totalYs);
-            binding.ysjlToolbar.title.setText(title);
+            binding.setTitle(title);
         }
         ysjlListAdapter = new YsjlListAdapter(activity, data, R.layout.item_lv_ysjl);
         binding.lvYsjl.setAdapter(ysjlListAdapter);
@@ -106,7 +98,7 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
             }
 
             @Override
-            public void onNext(RxEvent rxEvent) {
+            public void onNext(RxEvent rxEvent){
                 //处理事件
                 if (rxEvent.getEventType() == EventType.EVENTTYPE_DIVIDE_MSG || rxEvent.getEventType() == EventType.EVENTTYPE_REFRESH_YSJL) {
                     data.clear();
@@ -116,14 +108,10 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
             }
 
             @Override
-            public void onError(Throwable e) {
-
-            }
+            public void onError(Throwable e) {}
 
             @Override
-            public void onComplete() {
-
-            }
+            public void onComplete() {}
         });
 
     }
@@ -159,7 +147,6 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
         this.type = type;
     }
 
-
     @Override
     public void refreshData(int page) {
         HttpUtil.getInstance().getYSRecord(time1, time2, page).subscribe(
@@ -169,7 +156,7 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
                     double allSumMoney = ysRecord.getResult().getAllSumMoney();
                     binding.divideIncomeTotal.setText(FormatUtil.getInstance().get2double(allSumMoney));
                     String incomeSumMoney = FormatUtil.getInstance().get2double(ysRecord.getResult().getIncomeSumMoney());
-                    binding.sz.setText("收入¥  " + incomeSumMoney);
+                    binding.sz.setText(incomeSumMoney);
                     if (list != null && list.size() > 0) {
                         data.addAll(list);
                         ysjlListAdapter.notifyDataSetChanged();

@@ -67,7 +67,6 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
 
     public void setState(int currentState) {
         this.currentState = currentState;
-        LogUtil.log(currentState+"===========setState============="+page);
         switch (currentState) {
             case STATE_LOADING:
                 page++;
@@ -83,7 +82,6 @@ public class MyListView extends ListView implements AbsListView.OnScrollListener
                 refreshData.refreshData(page);
                 break;
         }
-        LogUtil.log("===========setState============="+page);
 
     }
 

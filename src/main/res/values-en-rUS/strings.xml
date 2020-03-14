@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SY云管家</string>
+    <string name="app_name">SY Cloud</string>
     <string name="encode_qrcode">Generating two-dimensional codes</string>
     <string name="dencode_qrcode">扫描二维码</string>
     <string name="code_text">请输入生成二维码的文本信息</string>
     <string name="qrcodetext">这里显示扫描结果</string>
 
     <string name="ci">次</string>
-    <string name="jqdz">Machine address:</string>
+    <string name="jqdz">Machine address</string>
     <string name="jqzt1">机器状态:正常</string>
     <string name="jqzt2">机器状态:不正常</string>
     <string name="cplb">Product category:</string>
@@ -22,47 +22,43 @@
     <string name="loading">Loading</string>
     <string name="loadCompleted">No more data</string>
     <string name="text_no_song">No data</string>
-
     <string name="authentication">身份验证</string>
-
-
+    <string name="myAgent">我的代理</string>
     <string name="startDate">Start Time</string>
     <string name="endDate">End Time</string>
-
-
-    <string name="wxdl">SIGN IN WITH WECHAT</string>
-    <string name="zhdl">SIGN IN WITH ACCOUNT</string>
-    <string name="zczh">CREAT A NEW ACCOUNT</string>
-    <string name="home">HOME</string>
-    <string name="sys">SCAN BARCODE</string>
+    <string name="txsy">提现收益</string>
+    <string name="totalIncome">Total Income</string>
+    <string name="todayCoin">Coin Received Today</string>
+    <string name="wxdl">WeChat Login</string>
+    <string name="zhdl">Account Login</string>
+    <string name="zczh">Create a new account</string>
+    <string name="home">Home</string>
+    <string name="sys">Scan</string>
     <string name="sk">REQUEST PAYMENT</string>
     <string name="balance">BALANCE</string>
-    <string name="syygjfw">SY CLOUD SERVICE</string>
-    <string name="myAsset">MY PROPERTY</string>
+    <string name="syygjfw">SY Could Services</string>
+    <string name="myAsset">My Product</string>
     <string name="cpzx">PRODUCTS CENTER</string>
     <string name="sjcz">PHONE RECHARGE</string>
     <string name="ykkg">REMOTE CONTROL</string>
     <string name="more">MORE</string>
-    <string name="friends">FRIENDS</string>
-    <string name="fx">DISCOVERY</string>
+    <string name="friends">Friends</string>
+    <string name="fx">News</string>
     <string name="smy">SCAN</string>
     <string name="fh">RETURN</string>
     <string name="ewm">QR CODE</string>
-    <string name="xc">PHOTO ALBUM</string>
+    <string name="xc">Photo Album</string>
     <string name="xzlx">PRODUCT TYPE</string>
     <string name="packageConfig">套餐设置</string>
-    <string name="jqbm">PRDCUT CODE:</string>
+    <string name="jqbm">Product ID:</string>
+    <string name="update">Update</string>
     <string name="ddje">ORDER AMOUNT</string>
-    <string name="revenueSetting">PROFIT SHARING SETTING</string>
-    <string name="search">SEARCH</string>
-    <string name="jrtb">Coin throw today(枚):</string>
-    <string name="jrtl">今日退礼:</string>
-    <string name="wdfc">My Division:</string>
+    <string name="revenueSetting">Income Share Setting</string>
     <string name="sysfq">SCAN TO PAY</string>
     <string name="moneySetting">AMOUNT SETTING</string>
     <string name="moneyClear">DELET AMOUNT</string>
     <string name="savePhoto">SAVE PHOTO</string>
-    <string name="cancle">CANCEL</string>
+    <string name="cancle">Cancle</string>
     <string name="confirm">CONFIRM</string>
     <string name="details">DETAILS</string>
     <string name="recharge">RECHARGE</string>
@@ -71,7 +67,7 @@
     <string name="transactionsDetail">TRANSACTIONS DETAIL</string>
     <string name="transactionType">TRANSACTIONS TYPE</string>
     <string name="zhichu">Expenditure</string>
-    <string name="fwtx">SERVICE REMINDER</string>
+    <string name="fwtx">Service Reminder</string>
     <string name="save">SAVE</string>
     <string name="sx">SELECT</string>
     <string name="cpys">PRODUCT REVENUE</string>
@@ -79,26 +75,23 @@
     <string name="qrcodeGather">Request Payment With QR Code</string>
     <string name="selectTransferType">SELECT TRANSACTION TYPE</string>
     <string name="all">ALL</string>
-    <string name="editPrice">EDIT PRICE</string>
     <string name="transfer">TRANSFER</string>
     <string name="checkpaypsd">ENTER PASSWORD OF PAYMENT(VERIFIED IDENTITY)</string>
     <string name="qrPayAndgather">QR CODE PAYMENT</string>
     <string name="cztx">RECHARGE/WITHDRAW</string>
     <string name="orderRefund">ORDER REFUND</string>
-    <string name="bindProduct">BINDING PRODUCT</string>
+    <string name="bindProduct">Bind Product</string>
     <string name="srbh">SERIAL NUMBER</string>
     <string name="srjg">PRICE</string>
-    <string name="srdz">ADDRESS</string>
-    <string name="srmc">ITME NAME</string>
     <string name="selectTpe">Please choose the product type.</string>
     <string name="mine">MINE</string>
-    <string name="me">ME</string>
+    <string name="me">My Profile</string>
     <string name="syNumber">SY A/C NUMBER:</string>
-    <string name="wdsyfc">MY PROFIT SHARING RATIO</string>
-    <string name="setting">SETTING</string>
-    <string name="payPsd">PASSWORD OF PAYMENT</string>
-    <string name="versionInfo">VERSION INFO</string>
-    <string name="loginOut">LOG OUT</string>
+    <string name="wdsyfc">My Shared Income</string>
+    <string name="setting">Setting</string>
+    <string name="payPsd">Payment Password</string>
+    <string name="versionInfo">Version</string>
+    <string name="loginOut">Login Out</string>
     <string name="service_name">SERVICE REMINDER</string>
     <string name="withDrawSuccess">WITHDRAW SUCCEED </string>
     <string name="withDrawFailed">你的提现已失败</string>
@@ -107,35 +100,28 @@
     <string name="txsqbh">WITHDRAW APPLICATION FAILED</string>
     <string name="cpysdz">RECEIVED YOUR PRODUCT REVENUE </string>
     <string name="xzzcfc">ADD PROPORTY SHARING RATIO</string>
-
-
+    <string name="zhi">To</string>
     <string name="addBankCard">LINK A NEW CARD</string>
     <string name="bindBankCard">BINDING A CRDEIT/DEBIT CARD</string>
-
     <string name="accountNum">ACCOUNT NUMBER</string>
     <string name="bankName">BANK NAME</string>
     <string name="bankType">TYPE OF CARD</string>
     <string name="next">NEXT</string>
-    <string name="zsj">(主商家)</string>
-    <string name="fsj">(副商家)</string>
+    <string name="zsj">(Main Operator)</string>
+    <string name="fsj">(Sub Operator)</string>
     <string name="receivedRefund">Your refund has arrived</string>
     <string name="tytjhy">Agree to add friends</string>
     <string name="zhye">Account balance</string>
     <string name="zrsm">YESTERDAYS TURNOVER:</string>
     <string name="jrsm">TODAY SCAN(￥):</string>
     <string name="sr">Income</string>
-    <string name="tk">REFUND-</string>
+    <string name="tk">Refund-</string>
     <string name="cpsyjl">PRODUCT REVENUE RECORD </string>
     <string name="orderNumber">ORDER NUMBER:</string>
     <string name="editDivide">EDIT PROPORTY SHARING RATIO</string>
-
-    <string name="zrfc">昨日分成(元)</string>
-    <string name="jrfc">今日分成(元)</string>
-
-    <string name="allAsset">TOTAL PRODUCT:</string>
-    <string name="normal">ONL INE:</string>
-    <string name="abnormal">OFF-LINE:</string>
-
+    <string name="allAsset">Total Product</string>
+    <string name="normal">Online</string>
+    <string name="abnormal">Offline</string>
     <string name="sj">price</string>
     <string name="yuan">元</string>
     <string name="fc">分成:</string>
@@ -145,32 +131,31 @@
     <string name="fenc">分成</string>
     <string name="et_voice">Volume Setting</string>
     <string name="et_jv">Probability Setting</string>
-    <string name="et_coin">几币一玩</string>
+    <string name="et_coin">Product Operation Price</string>
     <string name="parameter1">0-10</string>
     <string name="parameter2">0-255</string>
     <string name="yjpw">WiFi configuration</string>
-    <string name="newfriend">NEW FRIEND</string>
-    <string name="deleteFriend">DELETE FRIEND</string>
+    <string name="newfriend">New Friend</string>
+    <string name="deleteFriend">Delete Friend</string>
     <string name="bankCard">DEBIT CARD</string>
     <string name="binding">BINDING</string>
-    <string name="totalYs">TOTAL REVENUE</string>
+    <string name="totalYs">Total Income</string>
     <string name="accountName">ACCOUNT NAME</string>
     <string name="add">Add</string>
-    <string name="unbindAsset">UNBIND PRODUCT</string>
-    <string name="editProductInfo">EDIT PRODUCT INFO</string>
-
+    <string name="unbindAsset">Unbind</string>
+    <string name="editProductInfo">Product Detail</string>
     <string name="today">Today</string>
-    <string name="yesterday">YesterDay</string>
-    <string name="week">Week</string>
-    <string name="month">Month</string>
-    <string name="total">Total</string>
-    <string name="addFriend">ADD Friend</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="week">This Week</string>
+    <string name="month">This Month</string>
+    <string name="total">Total Income</string>
+
 
     <string name="cpbh">Serial Number</string>
     <string name="jg">Price</string>
     <string name="dz">Address</string>
     <string name="mc">Item Name</string>
-    <string name="qxzlx">Product Type</string>
+    <string name="qxzlx">Select Product Type</string>
     <string name="selectBankCard">CHOOSE CREDIT/DEBIT CARD</string>
     <string name="note">Note</string>
     <string name="area">Area</string>
@@ -185,13 +170,13 @@
     <string name="txsj">WITHDRAW TIME</string>
     <string name="zzje">TRASFER AMOUNT</string>
 
-    <string name="payWay">PAYMENT METHOD</string>
-    <string name="friendNum">CONTACTS</string>
+    <string name="payWay">Payment Method</string>
+    <string name="friendNum">Contacts</string>
     <string name="tjlp">添加礼品</string>
 
     <string name="spcsjg">商品出售价格:</string>
     <string name="hddj">货道(游戏)单价:</string>
-    <string name="xykc">现有库存:</string>
+    <string name="xykc">Existing inventory</string>
     <string name="hdsphdgl">货道商品获得概率:</string>
     <string name="hdrl">货道容量:</string>
 
@@ -211,9 +196,9 @@
     <string name="cancle_clean">取消清货</string>
 
 
-    <string name="commodityNumber">货道总数</string>
-    <string name="sumStock">库存总容量:</string>
-    <string name="tlbl">退礼比例(局/个)</string>
+    <string name="commodityNumber">Commodity Number</string>
+    <string name="sumStock">库存总容量</string>
+    <string name="tlbl">退礼比例</string>
     <string name="currentStock">现有库存</string>
     <string name="bi">币</string>
 
@@ -232,4 +217,170 @@
     <string name="selectAuthWay">选择验证方式</string>
     <string name="zb">纸币:</string>
     <string name="freeMode">免费模式</string>
+    <string name="parameterChange">参数调整</string>
+
+
+    <string name="search">Search</string>
+
+
+    <string name="jrtl">今日退礼:</string>
+    <string name="wdfc">My Shared Income</string>
+    <string name="addFriend">ADD Friend</string>
+
+
+    <string name="jtbm">Product ID</string>
+    <string name="jtdz">Product Location</string>
+    <string name="wdsyh">My ID</string>
+    <string name="szysfc">Income Share Setting</string>
+    <string name="ggjg">Pricing</string>
+    <string name="xgspxx">Product Detail</string>
+    <string name="ylsz">Volume</string>
+    <string name="jlsz">Product Probability</string>
+    <string name="bzsz">Currency</string>
+    <string name="blsz">Proportion</string>
+    <string name="gzyy">Maintenance Status</string>
+    <string name="jcsp">Unbind</string>
+    <string name="fcsj">ncome Shared Operator(s)</string>
+    <string name="qr">Set</string>
+    <string name="editPrice">Price</string>
+    <string name="qsrjg">Please Enter Price</string>
+    <string name="xgzcxx">Product Detail</string>
+    <string name="srmc">Product Name</string>
+    <string name="srdz">Product Location</string>
+    <string name="qbsp">All Products</string>
+    <string name="zsjcp">Main Operator’s Product(s)</string>
+    <string name="fsjcp">Sub Operator’s Product(s)</string>
+    <string name="searchHint">Product Name/Product ID/Product Location</string>
+
+
+    <string name="kfdh">Customer Service Number</string>
+
+    <string-array name="fcArray">
+        <item>Today’s Shared Income</item>
+        <item>Yesterday’s Shared Income</item>
+        <item>Week’s Shared Income</item>
+        <item>Moth’s Shared Income</item>
+        <item>Total Shared Income</item>
+    </string-array>
+
+    <string-array name="tbArray">
+        <item>Coin Received Today</item>
+        <item>Coin Received Yesterday</item>
+        <item>Coin Received Week</item>
+        <item>Coin Received Month</item>
+        <item>Coin Received Total</item>
+    </string-array>
+
+    <string-array name="zcArray">
+        <item>Note Received Today</item>
+        <item>Note Received Yesterday</item>
+        <item>Note Received Week</item>
+        <item>Note Received Month</item>
+        <item>Note Received Total</item>
+    </string-array>
+    <string name="jrfc">Today’s Shared Income</string>
+    <string name="zrfc">Yesterday’s Shared Income</string>
+    <string name="bzfc">Week’s Shared Income</string>
+    <string name="byfc">Moth’s Shared Income</string>
+    <string name="zfc">Total Shared Income</string>
+
+    <string name="jrtb">Coin Received Today</string>
+    <string name="zrtb">Coin Received Yesterday</string>
+    <string name="bztb">Coin Received Week</string>
+    <string name="bytb">Coin Received Month</string>
+    <string name="ztb">Coin Received Total</string>
+
+    <string name="jrzc">Note Received Today</string>
+    <string name="zrzc">Note Received Yesterday</string>
+    <string name="bzzc">Note Received Week</string>
+    <string name="byzc">Note Received Month</string>
+    <string name="zzc">Note Received Total</string>
+
+
+    <string name="test">Test</string>
+    <string name="ndj">Gacha</string>
+    <string name="amy">Massage Chair</string>
+    <string name="bbd">Motion Child Seat</string>
+    <string name="ybj">Kiddy Ride</string>
+    <string name="kfj">Coffee Machine</string>
+    <string name="wwj">Crane Machine</string>
+    <string name="dqj">Shooting Game Machine</string>
+    <string name="dds">General Arcade Machine</string>
+
+
+    <string-array name="gameArray">
+        <item>Test</item>
+        <item>Gacha</item>
+        <item>Massage Chair</item>
+        <item>Motion Child Seat</item>
+        <item>Kiddy Ride</item>
+        <item>Coffee Machine</item>
+        <item>Crane Machine</item>
+        <item>Shooting Game Machine</item>
+        <item>General Arcade Machine</item>
+    </string-array>
+
+
+    <string-array name="proportionArray">
+        <item>1 Coin 1 Signal</item>
+        <item>1 Coin 2 Signal</item>
+        <item>1 Coin 5 Signal</item>
+        <item>1 Coin 10 Signal</item>
+        <item>1 Coin 20 Signal</item>
+        <item>1 Coin 50 Signal</item>
+    </string-array>
+
+    <string name="saveQrcode">Save the qr code</string>
+
+    <string name="selectDate">Select Date</string>
+
+    <string-array name="currencyArray">
+        <item>€ EUR</item>
+        <item>$ USD</item>
+        <item>¥ CNY</item>
+        <item>£ GBP</item>
+    </string-array>
+
+    <string name="wifiName">wifi name</string>
+    <string name="wifi_input_hint">Please enter wifi password</string>
+
+    <string name="friendDetail">Friend’s Detail</string>
+
+    <string name="sendMessage">Send Message</string>
+
+    <string name="grxx">Personal Information</string>
+
+    <string name="head">Head</string>
+
+    <string name="sex">Sex</string>
+
+    <string name="myQrcode">My Qrcode</string>
+
+    <string name="noNews">No News</string>
+
+    <string name="fhgq">Return Divide</string>
+
+
+    <string name="language">Language</string>
+
+    <string name="bjfzmc">Edit group name</string>
+
+
+    <string name="hint2">Please enter group name</string>
+
+    <string name="hint3">Please enter Proportion</string>
+
+    <string name="gl">Reset</string>
+
+    <string name="cn">Chinese</string>
+    <string name="en">English</string>
+
+    <string name="dqsy">Currrent Income</string>
+
+    <string name="sqsy">Period Income</string>
+
+    <string name="zbcspz">Parameter settingParameter setting</string>
+    <string name="hdxq">Product Shelf Detail</string>
+
+
 </resources>

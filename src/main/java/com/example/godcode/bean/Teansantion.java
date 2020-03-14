@@ -87,6 +87,15 @@ public class Teansantion {
         private int relatedKey;
         private String addTime;
         private int id;
+        private int putStatus;
+
+        public int getPutStatus() {
+            return putStatus;
+        }
+
+        public void setPutStatus(int putStatus) {
+            this.putStatus = putStatus;
+        }
 
         public int getFK_UserID() {
             return fK_UserID;

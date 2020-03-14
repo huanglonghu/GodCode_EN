@@ -34,11 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_alignParentTop="true"
-            android:background="@color/theme_color"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="20dp">
+            android:background="@color/theme_color">
 
 
             <TextView
@@ -68,7 +64,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="总资产(元)"
+                        android:text="@string/totalIncome"
                         android:textColor="#000" />
 
                     <ImageView
@@ -87,22 +83,24 @@
                     android:textColor="#000"
                     android:textSize="20sp" />
 
+
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10pt"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="今日营收"
-                    android:textColor="@color/c5" />
+                    android:text="@string/todayCoin"
+                    android:textColor="@color/c5"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/todayDivide"
@@ -114,19 +112,23 @@
             </LinearLayout>
 
 
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginRight="10pt"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="昨日营收"
-                    android:textColor="@color/c5" />
+                    android:text="@string/zrtb"
+                    android:textColor="@color/c5"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/yesterdayDivide"
@@ -253,60 +255,27 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/ykkg"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:onClick="@{()->presenter.step2Fragment(&quot;gathering&quot;)}"
+                        android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/sk" />
+                            android:src="@drawable/asset" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center"
-                            android:text="@string/sk"
+                            android:text="@string/myAsset"
                             android:textColor="#000" />
+
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:onClick="@{()->presenter.step2Fragment(&quot;balance&quot;)}"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/balance" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="@string/balance"
-                            android:textColor="#000" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/bg1"
-                    android:divider="@drawable/divider2"
-                    android:orientation="horizontal"
-                    android:showDividers="middle">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -330,89 +299,6 @@
                             android:textColor="#000" />
 
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/asset" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="@string/myAsset"
-                            android:textColor="#000" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/phone_recharge"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/sjcz" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="@string/sjcz"
-                            android:textColor="#000" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/bg1"
-                    android:divider="@drawable/divider2"
-                    android:orientation="horizontal"
-                    android:showDividers="middle|end"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:id="@+id/dm"
-                        android:layout_width="0dp"
-                        android:layout_height="100dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:visibility="@{isMakeCode?View.VISIBLE:View.GONE}">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/jfgl" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="积分管理"
-                            android:textColor="#000" />
-
-                    </LinearLayout>
-
 
                 </LinearLayout>
 

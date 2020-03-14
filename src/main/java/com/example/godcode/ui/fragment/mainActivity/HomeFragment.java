@@ -14,7 +14,6 @@ import com.example.godcode.bean.DivideIncome;
 import com.example.godcode.databinding.FragmentHomeBinding;
 import com.example.godcode.greendao.entity.Notification;
 import com.example.godcode.greendao.option.NotificationOption;
-import com.example.godcode.handler.WebSocketNewsHandler;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.interface_.EtStrategy;
 import com.example.godcode.observable.EventType;
@@ -61,7 +60,7 @@ public class HomeFragment extends BaseFragment {
                     if (eventType == EventType.EVENTTYPE_REFRESH_NOTIFICATION || eventType == EventType.EVENTTYPE_BALANCE_CHANGE || eventType == EventType.EVENTTYPE_ADDFRIEND) {
                         refreshNotification();
                     }
-                    if(eventType ==EventType.EVENTTYPE_DIVIDE_MSG||eventType == EventType.EVENTTYPE_BALANCE_CHANGE ){
+                    if (eventType == EventType.EVENTTYPE_DIVIDE_MSG || eventType == EventType.EVENTTYPE_BALANCE_CHANGE) {
                         refreshDivideIncome();
                     }
                 }
@@ -95,9 +94,9 @@ public class HomeFragment extends BaseFragment {
                 divideStr -> {
                     DivideIncome divideIncome = GsonUtil.getInstance().fromJson(divideStr, DivideIncome.class);
                     DivideIncome.ResultBean result = divideIncome.getResult();
-                    Constant.toDayMoney = result.getToDayMoney();
-                    Constant.yesterDayMoney = result.getYesterDayMoney();
-                    Constant.balances = result.getBalances();
+                    Constant.toDayMoney = result.getToDayCoinMoney();
+                    Constant.yesterDayMoney = result.getYesterDayCoinMoney();
+                    Constant.balances = result.getCoinBalances();
                     initBalanceMsg();
                 }
         );
@@ -141,26 +140,7 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
-        binding.phoneRecharge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
-        binding.ykkg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(activity, "功能尚未开放,敬请期待", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        binding.phoneRecharge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MobileRechargeFragment mobileRechargeFragment = new MobileRechargeFragment();
-                presenter.step2Fragment(mobileRechargeFragment, "mobileRecharge");
-            }
-        });
 
         binding.toggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,13 +159,6 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
-        binding.dm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyScore myScore = new MyScore();
-                presenter.step2Fragment(myScore, "myScore");
-            }
-        });
     }
 
     @Override

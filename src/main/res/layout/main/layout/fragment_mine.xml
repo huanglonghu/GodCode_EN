@@ -17,6 +17,8 @@
             name="title"
             type="String" />
 
+        <import type="android.view.View" />
+
 
     </data>
 
@@ -27,7 +29,7 @@
 
         <include
             layout="@layout/layout_toolbar1"
-            bind:title="@{title}" />
+            bind:title="@{@string/me}" />
 
         <include layout="@layout/layout_divider" />
 
@@ -62,58 +64,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:background="@color/bg1"
             android:divider="@drawable/divider2"
             android:orientation="vertical"
             android:showDividers="middle">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_item"
-                android:onClick="@{()->presenter.step2Fragment(&quot;bankCard&quot;)}"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/card" />
-
-                <TextView
-                    style="@style/text2"
-                    android:layout_marginLeft="20dp"
-                    android:text="@string/bankAccount" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_item"
-                android:onClick="@{()->presenter.step2Fragment(&quot;transationRecord&quot;)}"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/record_fill" />
-
-                <TextView
-                    style="@style/text2"
-                    android:layout_marginLeft="20dp"
-                    android:text="@string/transactionsDetail" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:background="@drawable/bg_item"
                 android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}"
                 android:paddingLeft="20dp"
@@ -132,11 +92,10 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ysfc"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:background="@drawable/bg_item"
-                android:onClick="@{()->presenter.step2Ysjl(4)}"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
 
@@ -151,6 +110,8 @@
                     android:layout_marginLeft="20dp"
                     android:text="@string/wdsyfc" />
             </LinearLayout>
+
+
 
 
         </LinearLayout>

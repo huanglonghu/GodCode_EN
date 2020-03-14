@@ -5,9 +5,7 @@
 
     <data>
 
-        <variable
-            name="title"
-            type="String"/>
+
     </data>
 
     <LinearLayout
@@ -18,7 +16,7 @@
         <include
             android:id="@+id/friend_toolBar"
             layout="@layout/layout_toolbar"
-            bind:title="@{title}" />
+            bind:title="@{@string/friends}" />
 
         <FrameLayout
             android:layout_width="match_parent"

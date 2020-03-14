@@ -49,10 +49,10 @@ public class EditAssetFragment extends BaseFragment {
                     if (!TextUtils.isEmpty(binding.productAddress.getText())) {
                         editAsset(binding.productName.getText().toString(), binding.productAddress.getText().toString());
                     } else {
-                        Toast.makeText(activity, "请输入产品地址", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, "Please enter the product address", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(activity, "请输入产品名称", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Please enter the product name", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -72,7 +72,7 @@ public class EditAssetFragment extends BaseFragment {
         HttpUtil.getInstance().editProduct(editProduct).subscribe(
                 editProductStr -> {
                     assetUpdate.assetUpdate(productName,adress);
-                    Toast.makeText(activity, "修改成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Modify the success", Toast.LENGTH_SHORT).show();
                     presenter.back();
                 }
         );
@@ -86,8 +86,7 @@ public class EditAssetFragment extends BaseFragment {
 
 
     public void initView() {
-        binding.editAssetToolbar.title.setText("修改资产信息");
-        binding.editAssetToolbar.tvOption.setText("保存");
+        binding.editAssetToolbar.tvOption.setText("Save");
     }
 
 

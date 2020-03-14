@@ -16,8 +16,6 @@ public class ServiceRemainderListAdapter extends BaseAdapter{
     private HashMap<Integer,View> viewMap=new HashMap<>();
     private List<Notification> notifications;
     private final LayoutInflater layoutInflater;
-    private String[] typeArray = {"", "转账支出", "二维码收款", "二维码付款", "商户消费", "充值", "提现", "退款", "转账收入", "商户收入"};
-
 
     public ServiceRemainderListAdapter(List<Notification> notifications, Context context){
         this.notifications=notifications;

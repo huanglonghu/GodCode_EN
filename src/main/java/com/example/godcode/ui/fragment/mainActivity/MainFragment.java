@@ -78,6 +78,7 @@ public class MainFragment extends BaseFragment {
                                 user.setPhoneNumer(result.getPhoneNumber());
                                 user.setIsMakeCode(result.isMakeCode());
                                 user.setEmailAddress(result.getEmailAddress());
+                                user.setIsProxy(result.isProxy());
                                 if (result.getSex() == 1) {
                                     user.setSex("男");
                                 } else {

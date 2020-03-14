@@ -3,9 +3,7 @@ package com.example.godcode.constant;
 public class AppConfiguration {
     private AppConfiguration() {
     }
-
     private static AppConfiguration defaultInstance;
-
     public static AppConfiguration getDefault() {
         AppConfiguration appConfiguration = defaultInstance;
         if (defaultInstance == null) {

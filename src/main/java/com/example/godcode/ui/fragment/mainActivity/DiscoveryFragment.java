@@ -38,7 +38,6 @@ public class DiscoveryFragment extends BaseFragment {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_discovery, container, false);
             view = binding.getRoot();
-            binding.setTitle("发现");
             initView();
             initListener();
             registerReceiver();

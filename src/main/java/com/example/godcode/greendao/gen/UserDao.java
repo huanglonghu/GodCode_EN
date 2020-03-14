@@ -35,6 +35,7 @@ public class UserDao extends AbstractDao<User, Long> {
         public final static Property SetPwd = new Property(8, boolean.class, "setPwd", false, "SET_PWD");
         public final static Property IsMakeCode = new Property(9, boolean.class, "isMakeCode", false, "IS_MAKE_CODE");
         public final static Property EmailAddress = new Property(10, String.class, "emailAddress", false, "EMAIL_ADDRESS");
+        public final static Property IsProxy = new Property(11, boolean.class, "isProxy", false, "IS_PROXY");
     }
 
 
@@ -60,7 +61,8 @@ public class UserDao extends AbstractDao<User, Long> {
                 "\"PHONE_NUMER\" TEXT," + // 7: phoneNumer
                 "\"SET_PWD\" INTEGER NOT NULL ," + // 8: setPwd
                 "\"IS_MAKE_CODE\" INTEGER NOT NULL ," + // 9: isMakeCode
-                "\"EMAIL_ADDRESS\" TEXT);"); // 10: emailAddress
+                "\"EMAIL_ADDRESS\" TEXT," + // 10: emailAddress
+                "\"IS_PROXY\" INTEGER NOT NULL );"); // 11: isProxy
     }
 
     /** Drops the underlying database table. */
@@ -115,6 +117,7 @@ public class UserDao extends AbstractDao<User, Long> {
         if (emailAddress != null) {
             stmt.bindString(11, emailAddress);
         }
+        stmt.bindLong(12, entity.getIsProxy() ? 1L: 0L);
     }
 
     @Override
@@ -163,6 +166,7 @@ public class UserDao extends AbstractDao<User, Long> {
         if (emailAddress != null) {
             stmt.bindString(11, emailAddress);
         }
+        stmt.bindLong(12, entity.getIsProxy() ? 1L: 0L);
     }
 
     @Override
@@ -183,7 +187,8 @@ public class UserDao extends AbstractDao<User, Long> {
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // phoneNumer
             cursor.getShort(offset + 8) != 0, // setPwd
             cursor.getShort(offset + 9) != 0, // isMakeCode
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10) // emailAddress
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // emailAddress
+            cursor.getShort(offset + 11) != 0 // isProxy
         );
         return entity;
     }
@@ -201,6 +206,7 @@ public class UserDao extends AbstractDao<User, Long> {
         entity.setSetPwd(cursor.getShort(offset + 8) != 0);
         entity.setIsMakeCode(cursor.getShort(offset + 9) != 0);
         entity.setEmailAddress(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setIsProxy(cursor.getShort(offset + 11) != 0);
      }
     
     @Override

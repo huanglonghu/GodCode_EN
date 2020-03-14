@@ -195,7 +195,7 @@ public class ActivityResultHandler {
                     cursor.close();
                     result = scanningImage(path);
                     if (result == null) {
-                        ToastUtil.getInstance().showToast("未识别到二维码", 2000, activity);
+                        ToastUtil.getInstance().showToast("Qr code not recognized", 2000, activity);
                     } else {
                         String scanResult = result.getText();
                         Intent resultIntent = new Intent();

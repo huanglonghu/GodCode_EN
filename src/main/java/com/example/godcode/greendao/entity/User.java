@@ -21,10 +21,12 @@ public class User {
     private boolean setPwd;
     private boolean isMakeCode;
     private String emailAddress;
-    @Generated(hash = 168504241)
+    private boolean isProxy;
+    @Generated(hash = 1207013593)
     public User(Long id, String area, String sex, String headImageUrl,
             String userName, int userId, String syNumber, String phoneNumer,
-            boolean setPwd, boolean isMakeCode, String emailAddress) {
+            boolean setPwd, boolean isMakeCode, String emailAddress,
+            boolean isProxy) {
         this.id = id;
         this.area = area;
         this.sex = sex;
@@ -36,6 +38,7 @@ public class User {
         this.setPwd = setPwd;
         this.isMakeCode = isMakeCode;
         this.emailAddress = emailAddress;
+        this.isProxy = isProxy;
     }
     @Generated(hash = 586692638)
     public User() {
@@ -106,18 +109,13 @@ public class User {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
+    public boolean getIsProxy() {
+        return this.isProxy;
+    }
+    public void setIsProxy(boolean isProxy) {
+        this.isProxy = isProxy;
+    }
 
     
-
-
-
-
-
-    
-
-
-
-
-
 
 }

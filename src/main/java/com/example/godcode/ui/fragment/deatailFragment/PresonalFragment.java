@@ -41,7 +41,6 @@ public class PresonalFragment extends BaseFragment implements EditPresonalFragme
             binding.setPresenter(presenter);
             view = binding.getRoot();
             initView();
-            binding.personalToolbar.title.setText("个人信息");
             initListener();
         }
         return view;

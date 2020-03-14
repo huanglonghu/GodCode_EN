@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">SY云管家</string>
+    <string name="app_name">SY Cloud</string>
     <string name="encode_qrcode">生成二维码</string>
     <string name="dencode_qrcode">扫描二维码</string>
     <string name="code_text">请输入生成二维码的文本信息</string>
     <string name="qrcodetext">这里显示扫描结果</string>
-    <string name="jqdz">机器地址:</string>
+    <string name="jqdz">机器地址</string>
     <string name="jqzt1">机器状态:正常</string>
     <string name="jqzt2">机器状态:不正常</string>
     <string name="cplb">产品类别:</string>
@@ -20,6 +20,11 @@
     <string name="loading">正在加载</string>
     <string name="loadCompleted">没有更多数据</string>
     <string name="text_no_song">无数据</string>
+
+    <string name="myAgent">我的代理</string>
+
+
+    <string name="txsy">提现收益</string>
 
 
     <string name="startDate">开始时间</string>
@@ -51,10 +56,10 @@
     <string name="jqbm">机器编码:</string>
     <string name="ddje">订单金额</string>
     <string name="revenueSetting">设置营收分成</string>
-    <string name="search">搜索</string>
-    <string name="jrtb">今日投币(枚):</string>
+
+
     <string name="jrtl">今日退礼:</string>
-    <string name="wdfc">我的分成:</string>
+
     <string name="sysfq">扫一扫,向我付钱</string>
     <string name="moneySetting">设置金额</string>
     <string name="moneyClear">清除金额</string>
@@ -81,6 +86,7 @@
     <string name="orderRefund">订单退款</string>
 
     <string name="checkpaypsd">请输入支付密码,以验证身份</string>
+    <string name="saveQrcode">保存二维码</string>
 
     <string name="bindProduct">绑定商品</string>
     <string name="cpbh">产品编号</string>
@@ -89,8 +95,6 @@
     <string name="srjg">请输入产品价格</string>
     <string name="xzlx">选择类型</string>
     <string name="packageConfig">套餐设置</string>
-    <string name="srdz">请输入产品地址</string>
-    <string name="srmc">请输入产品名称</string>
     <string name="selectTpe">请选择产品类型</string>
     <string name="mine">我的</string>
     <string name="me">我</string>
@@ -108,6 +112,10 @@
     <string name="txsqbh">您的提现申请审核失败已驳回  </string>
     <string name="cpysdz">您的产品营收已到账</string>
     <string name="xzzcfc">新增资产分成</string>
+
+    <string name="zhi">至</string>
+
+    <string name="update">版本更新</string>
 
 
     <string name="addBankCard">添加银行卡</string>
@@ -133,16 +141,96 @@
     <string name="cpsyjl">产品收益记录</string>
     <string name="orderNumber">订单号:</string>
     <string name="editDivide">修改资产分成</string>
-    <string name="editPrice">修改价格</string>
+
     <string name="editProductInfo">修改商品信息</string>
 
 
-    <string name="zrfc">昨日分成(元)</string>
-    <string name="jrfc">今日分成(元)</string>
+    <string-array name="fcArray">
+        <item>今日分成</item>
+        <item>昨日分成</item>
+        <item>本周分成</item>
+        <item>本月分成</item>
+        <item>总分成</item>
+    </string-array>
 
-    <string name="allAsset">总产品:</string>
-    <string name="normal">在线:</string>
-    <string name="abnormal">离线:</string>
+    <string-array name="tbArray">
+        <item>今日投币</item>
+        <item>昨日投币</item>
+        <item>本周投币</item>
+        <item>本月投币</item>
+        <item>总投币</item>
+    </string-array>
+
+    <string-array name="zcArray">
+        <item>今日纸钞</item>
+        <item>昨日纸钞</item>
+        <item>本周纸钞</item>
+        <item>本月纸钞</item>
+        <item>总纸钞</item>
+    </string-array>
+
+
+    <string name="zrfc">昨日分成</string>
+    <string name="jrfc">今日分成</string>
+    <string name="bzfc">本周分成</string>
+    <string name="byfc">本月分成</string>
+    <string name="zfc">总分成</string>
+
+    <string name="jrtb">今日投币</string>
+    <string name="zrtb">昨日投币</string>
+    <string name="bztb">本周投币</string>
+    <string name="bytb">本月投币</string>
+    <string name="ztb">总投币</string>
+
+
+    <string name="jrzc">今日纸钞</string>
+    <string name="zrzc">昨日纸钞</string>
+    <string name="bzzc">本周纸钞</string>
+    <string name="byzc">本月纸钞</string>
+    <string name="zzc">总纸钞</string>
+
+    <string name="jtbm">机台编码</string>
+    <string name="wdfc">我的分成</string>
+    <string name="jtdz">机台地址</string>
+    <string name="search">搜索</string>
+    <string name="addFriend">添加朋友</string>
+    <string name="wdsyh">我的SY号</string>
+    <string name="szysfc">设置营收分成</string>
+    <string name="ggjg">更改价格</string>
+    <string name="xgspxx">修改商品信息</string>
+    <string name="ylsz">音量设置</string>
+    <string name="jlsz">机率设置</string>
+    <string name="bzsz">币种设置</string>
+    <string name="blsz">比例设置</string>
+    <string name="gzyy">故障原因</string>
+    <string name="jcsp">解除商品</string>
+    <string name="fcsj">分成商家</string>
+    <string name="add">添加</string>
+    <string name="qr">确认</string>
+    <string name="editPrice">修改价格</string>
+    <string name="qsrjg">请输入价格</string>
+    <string name="xgzcxx">修改资产信息</string>
+    <string name="srmc">输入名称</string>
+    <string name="srdz">输入地址</string>
+    <string name="qbsp">全部产品</string>
+    <string name="zsjcp">主商家产品</string>
+    <string name="fsjcp">副商家产品</string>
+    <string name="searchHint">产品名称/产品编码/地址/</string>
+    <string name="test">测试</string>
+    <string name="ndj">扭蛋机</string>
+    <string name="amy">按摩椅</string>
+    <string name="bbd">BB凳</string>
+    <string name="ybj">摇摆机</string>
+    <string name="kfj">咖啡机</string>
+    <string name="wwj">娃娃机</string>
+    <string name="dqj">打枪机</string>
+    <string name="dds">打地鼠</string>
+    <string name="kfdh">客服电话</string>
+
+
+    <string name="allAsset">总产品</string>
+    <string name="normal">在线</string>
+    <string name="abnormal">离线</string>
 
     <string name="sj">售价</string>
     <string name="yuan">元</string>
@@ -164,8 +252,12 @@
     <string name="bankCard">银行卡</string>
     <string name="binding">绑定</string>
     <string name="totalYs">总营收(元)</string>
-    <string name="add">添加</string>
+
     <string name="unbindAsset">解除资产</string>
+
+    <string name="totalIncome">总资产</string>
+
+    <string name="todayCoin">今日币数</string>
 
 
     <string name="today">今日</string>
@@ -173,7 +265,7 @@
     <string name="week">本周</string>
     <string name="month">本月</string>
     <string name="total">总营收</string>
-    <string name="addFriend">添加朋友</string>
+
     <string name="dz">产品地址</string>
     <string name="mc">产品名称</string>
     <string name="qxzlx">请选择产品类型</string>
@@ -216,7 +308,7 @@
     <string name="cancle_clean">取消清货</string>
 
     <string name="commodityNumber">货道总数:</string>
-    <string name="sumStock">库存总容量:</string>
+    <string name="sumStock">库存总容量</string>
     <string name="tlbl">退礼比例(局/个):</string>
     <string name="currentStock">现有库存:</string>
 
@@ -233,6 +325,97 @@
 
     <string name="selectAuthWay">选择验证方式</string>
     <string name="freeMode">免费模式</string>
+    <string name="parameterChange">参数调整</string>
 
+
+
+
+    <string-array name="gameArray">
+        <item>测试</item>
+        <item>扭蛋机</item>
+        <item>按摩椅</item>
+        <item>BB凳</item>
+        <item>摇摆机</item>
+        <item>咖啡机</item>
+        <item>娃娃机</item>
+        <item>打枪机</item>
+        <item>打地鼠</item>
+    </string-array>
+    
+    <string-array name="proportionArray">
+
+        <item>1币1分</item>
+        <item>1币2分</item>
+        <item>1币5分</item>
+        <item>1币10分</item>
+        <item>1币20分</item>
+        <item>1币50分</item>
+
+
+    </string-array>
+
+
+    <string-array name="currencyArray">
+           <item>€ EUR</item>
+           <item>$ USD</item>
+           <item>¥ CNY</item>
+           <item>£ GBP</item>
+    </string-array>
+
+    <string name="wifiName">wifi名称</string>
+    <string name="wifi_input_hint">请输入wifi密码</string>
+
+    <string name="selectDate">选择日期</string>
+
+
+
+    <string name="friendDetail">详细资料</string>
+
+    <string name="sendMessage">发送消息</string>
+
+    <string name="grxx">个人信息</string>
+
+    <string name="head">头像</string>
+
+    <string name="sex">性别</string>
+
+    <string name="myQrcode">我的二维码</string>
+
+    <string name="noNews">暂无公告</string>
+
+    <string name="fhgq">返还股权</string>
+
+    <string name="language">多语言</string>
+
+    <string name="bjfzmc">编辑分组名称</string>
+
+
+
+    <string name="hint2">请输入分组名称</string>
+    <string name="hint3">请输入比例</string>
+
+    <string name="gl">归零</string>
+
+
+    <string name="cn">中文</string>
+    <string name="en">英文</string>
+    
+    <string name="dqsy">当期收益</string>
+    
+    <string name="sqsy">上期收益</string>
+
+    <string name="zbcspz">主板参数配置</string>
+    <string name="hdxq">货道详情</string>
+
+
+
+
+
+
+
+
+
+    
+    
 
 </resources>

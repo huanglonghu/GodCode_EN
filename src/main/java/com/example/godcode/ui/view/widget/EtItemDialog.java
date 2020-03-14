@@ -59,7 +59,7 @@ public class EtItemDialog extends Dialog{
                     etStragety.etComplete(valueStr,position);
                     dismiss();
                 } else {
-                    Toast.makeText(context, "请输入" + hint, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Please enter the " + hint, Toast.LENGTH_SHORT).show();
                 }
             }
         });

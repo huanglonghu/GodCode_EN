@@ -97,6 +97,15 @@ public class User {
         private int id;
         private double balance;
         private boolean isMakeCode;
+        private boolean isProxy;
+
+        public boolean isProxy() {
+            return isProxy;
+        }
+
+        public void setProxy(boolean proxy) {
+            isProxy = proxy;
+        }
 
         public boolean isMakeCode() {
             return isMakeCode;

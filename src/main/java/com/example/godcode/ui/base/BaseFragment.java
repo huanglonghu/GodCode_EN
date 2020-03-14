@@ -29,7 +29,7 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 自定义抽象加载数据方法
      */
-    protected abstract void lazyLoad();
+    protected  void lazyLoad(){};
 
 
 

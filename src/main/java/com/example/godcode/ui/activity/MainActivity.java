@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -14,7 +13,6 @@ import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.RefreshDiviceToken;
 import com.example.godcode.bean.WsHeart;
@@ -30,11 +28,9 @@ import com.example.godcode.presenter.Presenter;
 import com.example.godcode.service.WebSocketService;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.base.GodCodeApplication;
 import com.example.godcode.ui.fragment.auth.SelectAuthWay;
 import com.example.godcode.ui.fragment.bindproduct.BindProductFragment;
 import com.example.godcode.ui.fragment.deatailFragment.AddBankCardFragment;
-import com.example.godcode.ui.fragment.deatailFragment.Asset_1_Fragment;
 import com.example.godcode.ui.fragment.deatailFragment.MobileRechargeFragment;
 import com.example.godcode.ui.fragment.deatailFragment.OrderDetailFragment;
 import com.example.godcode.ui.fragment.deatailFragment.PaySuccessFragment;
@@ -51,9 +47,7 @@ import com.example.godcode.ui.view.PsdPopupWindow;
 import com.example.godcode.ui.view.UpdateDialog;
 import com.example.godcode.utils.PayPwdSetting;
 import com.example.godcode.utils.SharepreferenceUtil;
-
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Flowable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -66,10 +60,10 @@ public class MainActivity extends BaseActivity {
     private WebSocketService.MyBinder myBinder;
     private DeviceTokenReceiver deviceTokenReceiver;
 
-
     @Override
     public void init() {
         HttpUtil.getInstance().init(this);
+        changeAppLanguage();
         PayPwdSetting.getInstance().initContext(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainFragment mainFragment = new MainFragment();
@@ -80,7 +74,6 @@ public class MainActivity extends BaseActivity {
         //开启websocket服务
         Intent intent = new Intent(this, WebSocketService.class);
         bindService(intent, serviceConnection, BIND_AUTO_CREATE);
-
         if (deviceTokenReceiver == null) {
             deviceTokenReceiver = new DeviceTokenReceiver();
             IntentFilter intentFilter = new IntentFilter();
@@ -117,7 +110,6 @@ public class MainActivity extends BaseActivity {
                     case EventType.EVENTTYPE_ADDFRIEND:
                         Presenter.getInstance().showNew(1);
                         break;
-
                 }
 
             }
@@ -202,7 +194,7 @@ public class MainActivity extends BaseActivity {
                     || fragment instanceof TxFragment || fragment instanceof TransferAccountDetailFragment
                     || fragment instanceof OrderDetailFragment || fragment instanceof YSJLDetailFragment
                     || fragment instanceof PresonalFragment || fragment instanceof OrderDetailFragment
-                    || fragment instanceof Asset_1_Fragment || fragment instanceof PaySuccessFragment || fragment instanceof MobileRechargeFragment
+                    || fragment instanceof PaySuccessFragment || fragment instanceof MobileRechargeFragment
                     || fragment instanceof BindProductFragment || fragment instanceof SelectAuthWay || fragment instanceof ResetPwd) {
                 fragment.onKeyDown();
                 return true;
@@ -247,7 +239,7 @@ public class MainActivity extends BaseActivity {
                 Presenter.getInstance().step2Fragment("newFriend");
                 break;
             case 3:
-                Toast.makeText(this, "您的账号在其他设备上登录，请注意账号安全", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Your account is logged on other devices, please pay attention to account security", Toast.LENGTH_SHORT).show();
                 break;
             case 4:
 //                ContactDetailFragment cdf = new ContactDetailFragment();

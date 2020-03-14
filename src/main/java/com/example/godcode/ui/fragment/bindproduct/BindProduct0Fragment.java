@@ -33,15 +33,11 @@ public class BindProduct0Fragment extends BaseFragment {
                 public void onClick(View v) {
                     String productNumber = binding.etNumber.getText().toString();
                     if (TextUtils.isEmpty(productNumber)) {
-                        Toast.makeText(activity, "请输入产品编号", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, "Please enter the product number", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     parentFragment.setProductNumber(productNumber);
-                    if (FormatUtil.getInstance().isBeginWith4G(productNumber)) {//以4G开头
-                        parentFragment.toggleChild(2);
-                    } else {
-                        parentFragment.toggleChild(1);
-                    }
+                    parentFragment.toggleChild(1);
                 }
             });
         }
