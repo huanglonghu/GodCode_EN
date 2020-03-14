@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataBean"
+            type="com.example.godcode.bean.DmGroupMsg.ResultBean.DataBean" />
+
+        <variable
+            name="showNews"
+            type="boolean" />
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="190pt"
+        android:paddingLeft="34pt"
+        android:paddingRight="34pt">
+
+        <RelativeLayout
+            android:layout_width="140pt"
+            android:layout_height="140pt"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="120pt"
+                android:layout_height="120pt"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true" />
+
+            <com.example.godcode.ui.view.NewsView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:visibility="@{showNews?View.VISIBLE:View.GONE}"
+                app:reduis="6dp" />
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="350pt"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataBean.goruoName}"
+                android:textColor="#000"
+                android:textSize="40pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22pt"
+                android:text="@{String.valueOf(dataBean.count)}"
+                android:textColor="#00a1ed"
+                android:textSize="35pt" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="剩余积分"
+                android:textColor="#6c6c6c"
+                android:textSize="40pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30pt"
+                android:text="@{String.valueOf(dataBean.overMCFration)}"
+                android:textColor="#7c7c7c"
+                android:textSize="45pt" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

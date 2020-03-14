@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="dataBean"
+            type="com.example.godcode.bean.McUnlockDetail.ResultBean.DataBean" />
+
+        <variable
+            name="isProfit"
+            type="boolean" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200pt"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="60pt">
+
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="42pt" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="42pt" />
+
+
+            <TextView
+                android:id="@+id/value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90pt"
+                android:textColor="@{isProfit?@color/c7:@color/picker_title_text_color}"
+                android:textSize="42pt" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

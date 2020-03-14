@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.example.godcode.presenter.Presenter" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <include
+            layout="@layout/layout_toolbar6"
+            bind:presenter="@{presenter}"
+            bind:title="@{@string/unLock}" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="188pt"
+            android:background="@color/theme_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="剩余积分"
+                android:textColor="#fff"
+                android:textSize="44pt" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="94pt" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="136pt"
+            android:layout_marginTop="208pt"
+            android:layout_marginRight="170pt"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="765pt"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="当期盈利"
+                    android:textColor="#000"
+                    android:textSize="60pt" />
+
+                <EditText
+                    android:id="@+id/currentProfit"
+                    android:layout_width="488pt"
+                    android:layout_height="100pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_et6"
+                    android:inputType="numberSigned"
+                    android:paddingLeft="20pt" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="765pt"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35pt"
+                android:layout_marginBottom="35pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="机台号码"
+                    android:textColor="#000"
+                    android:textSize="60pt" />
+
+                <EditText
+                    android:id="@+id/productNum"
+                    android:layout_width="488pt"
+                    android:layout_height="100pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_et6"
+                    android:inputType="number"
+                    android:paddingLeft="20pt" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="765pt"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="校验码"
+                    android:textColor="#000"
+                    android:textSize="60pt" />
+
+                <EditText
+                    android:id="@+id/verifyCode"
+                    android:layout_width="488pt"
+                    android:layout_height="100pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_et6"
+                    android:inputType="number"
+                    android:paddingLeft="20pt" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/commit"
+            android:layout_width="190pt"
+            android:layout_height="100pt"
+            android:layout_marginTop="125pt"
+            android:background="@drawable/bg_commit"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="#fff"
+            android:textSize="50pt" />
+
+        <RelativeLayout
+            android:layout_width="765pt"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="136pt"
+            android:layout_marginTop="130pt"
+            android:layout_marginRight="170pt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="密码"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="60pt" />
+
+            <EditText
+                android:id="@+id/pwd"
+                android:layout_width="488pt"
+                android:layout_height="100pt"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20pt"
+                android:background="@drawable/bg_et6"
+                android:inputType="number"
+                android:paddingLeft="15pt" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/parmerterChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_commit"
+                android:text="参数调整"
+                android:textColor="#fff" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

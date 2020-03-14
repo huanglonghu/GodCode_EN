@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="selectPosition"
+            type="int" />
+
+        <variable
+            name="fcArray"
+            type="String[]" />
+
+        <variable
+            name="tbArray"
+            type="String[]" />
+
+        <variable
+            name="zcArray"
+            type="String[]" />
+
+        <variable
+            name="fragment"
+            type="com.example.godcode.ui.fragment.asset.BaseAssetFragment" />
+
+        <variable
+            name="assetData"
+            type="com.example.godcode.ui.fragment.asset.AssetData" />
+
+
+    </data>
+
+    <LinearLayout xmlns:bind="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/theme_color"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->fragment.selectDate(1)}"
+                android:text="@string/today"
+                android:textColor="@{selectPosition==1?@color/bg1:@color/bg5}"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->fragment.selectDate(2)}"
+                android:text="@string/yesterday"
+                android:textColor="@{selectPosition==2?@color/bg1:@color/bg5}"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->fragment.selectDate(3)}"
+                android:text="@string/week"
+                android:textColor="@{selectPosition==3?@color/bg1:@color/bg5}"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->fragment.selectDate(4)}"
+                android:text="@string/month"
+                android:textColor="@{selectPosition==4?@color/bg1:@color/bg5}"
+                android:textSize="30pt" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->fragment.selectDate(5)}"
+                android:text="@string/total"
+                android:textColor="@{selectPosition==5?@color/bg1:@color/bg5}"
+                android:textSize="30pt" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/theme_color"
+            android:paddingLeft="30pt"
+            android:paddingRight="30pt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:id="@+id/fc"
+                android:text="@{fcArray[(selectPosition-1)]}"
+                android:textColor="#fff"
+                android:textSize="30pt" />
+
+
+            <TextView
+                android:id="@+id/divideIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/fc"
+                android:gravity="center_vertical"
+                android:text="@{String.valueOf(assetData.coinDivide)}"
+                android:textColor="#fff"
+                android:textSize="32sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text='@{tbArray[(selectPosition-1)]+" :"+assetData.coin}'
+                    android:textColor="#fff"
+                    android:textSize="30pt" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text='@{zcArray[(selectPosition-1)]+" :"+assetData.papaer}'
+                    android:textColor="#fff"
+                    android:textSize="30pt" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="center_vertical"
+                android:onClick="@{()->fragment.querryByStatus(2)}"
+                android:text='@{@string/allAsset+":"+assetData.sumCount}'
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->fragment.querryByStatus(1)}"
+                android:text='@{@string/normal+":"+assetData.normalCount}'
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:onClick="@{()->fragment.querryByStatus(0)}"
+                android:text='@{@string/abnormal+":"+assetData.errorCount}'
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
+
+

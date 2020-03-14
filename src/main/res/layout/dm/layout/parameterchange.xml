@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="presenter"
+            type="com.example.godcode.presenter.Presenter" />
+
+        <variable
+            name="score"
+            type="Integer" />
+
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <include
+            layout="@layout/layout_toolbar6"
+            bind:presenter="@{presenter}"
+            bind:title="@{@string/parameterChange}" />
+
+        <TextView
+            android:id="@+id/productNum"
+            android:layout_width="match_parent"
+            android:layout_height="70pt"
+            android:background="#5e5c5c"
+            android:gravity="center_vertical|right"
+            android:paddingRight="20dp"
+            android:textColor="#fff" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="188pt"
+            android:background="@color/theme_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:text="剩余积分"
+                android:textColor="#fff"
+                android:textSize="44pt" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text='@={score+""}'
+                android:textColor="#fff"
+                android:textSize="94pt" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="136pt"
+            android:layout_marginTop="208pt"
+            android:layout_marginRight="170pt"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="765pt"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="220pt"
+                    android:layout_height="70pt"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/shape3"
+                    android:gravity="center"
+                    android:text="机率调整"
+                    android:textColor="#000"
+                    android:textSize="38pt" />
+
+                <TextView
+                    android:id="@+id/jltz"
+                    android:layout_width="488pt"
+                    android:layout_height="100pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_et6"
+                    android:gravity="center_vertical"
+                    android:hint="请选择机率"
+                    android:paddingLeft="15pt" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="765pt"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35pt"
+                android:layout_marginBottom="35pt">
+
+                <TextView
+                    android:layout_width="220pt"
+                    android:layout_height="70pt"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/shape3"
+                    android:gravity="center"
+                    android:text="运行天数"
+                    android:textColor="#000"
+                    android:textSize="38pt" />
+
+                <TextView
+                    android:id="@+id/runTime"
+                    android:layout_width="488pt"
+                    android:layout_height="100pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_et6"
+                    android:gravity="center_vertical"
+                    android:hint="请选择运行天数"
+                    android:paddingLeft="15pt" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="765pt"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="220pt"
+                    android:layout_height="70pt"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/shape3"
+                    android:gravity="center"
+                    android:text="一币分数"
+                    android:textColor="#000"
+                    android:textSize="38pt" />
+
+                <TextView
+                    android:id="@+id/ybfs"
+                    android:layout_width="488pt"
+                    android:layout_height="100pt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_et6"
+                    android:gravity="center_vertical"
+                    android:hint="请选择一币分数"
+                    android:paddingLeft="15pt" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="125pt">
+
+
+            <Button
+                android:id="@+id/look"
+                android:layout_width="190pt"
+                android:layout_height="100pt"
+                android:background="@drawable/shape2"
+                android:gravity="center"
+                android:text="查看"
+                android:textColor="#fff"
+                android:textSize="50pt" />
+
+            <Button
+                android:id="@+id/commit"
+                android:layout_width="190pt"
+                android:layout_height="100pt"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/shape2"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="#fff"
+                android:textSize="50pt" />
+
+
+        </LinearLayout>
+
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="765pt"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="136pt"-->
+            <!--android:layout_marginTop="130pt"-->
+            <!--android:layout_marginRight="170pt">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:text="密码"-->
+                <!--android:textColor="@android:color/holo_red_light"-->
+                <!--android:textSize="60pt" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/pwd"-->
+                <!--android:layout_width="488pt"-->
+                <!--android:layout_height="100pt"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="20pt"-->
+                <!--android:background="@drawable/bg_et6"-->
+                <!--android:inputType="number"-->
+                <!--android:paddingLeft="15pt" />-->
+
+
+        <!--</RelativeLayout>-->
+
+
+    </LinearLayout>
+</layout>

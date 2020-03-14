@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.example.godcode.bean.CoinDivideRecord.ResultBean.DataBean" />
+
+        <variable
+            name="isIncome"
+            type="boolean" />
+
+        <variable
+            name="money"
+            type="String"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/bg1"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{@string/sr+"-"+bean.productName+"-"+bean.productNumber}'
+                android:textColor="@{isIncome?@color/picker_title_text_color:@color/c2}"
+                />
+
+            <TextView
+                android:id="@+id/ysjl_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@{isIncome?@color/picker_title_text_color:@color/c2}"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ysjl_item_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text='@{"+"+money}'
+            android:textColor="@{@color/picker_title_text_color}" />
+
+
+    </RelativeLayout>
+</layout>

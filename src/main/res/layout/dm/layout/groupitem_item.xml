@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="dataBean"
+            type="com.example.godcode.bean.GroupItemDetail.ResultBean.DataBean" />
+
+        <variable
+            name="option"
+            type="int" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="188pt"
+        android:orientation="horizontal"
+        android:paddingLeft="34pt"
+        android:paddingRight="34pt">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataBean.mcProductNumber}"
+                android:textColor="#000"
+                android:textSize="42pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20pt"
+                android:text="@{dataBean.mcProductName}"
+                android:textColor="#000"
+                android:textSize="42pt" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="解锁总积分 : "
+                    android:textColor="#000"
+                    android:textSize="42pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(0-dataBean.unlockFraction)}"
+                    android:textColor="#000"
+                    android:textSize="42pt" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="解锁次数 : "
+                    android:textColor="#000"
+                    android:textSize="42pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(dataBean.unlockCount)}"
+                    android:textColor="#000"
+                    android:textSize="42pt" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:visibility="@{option>0?View.VISIBLE:View.INVISIBLE}" />
+
+
+            <TextView
+                android:id="@+id/detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20pt"
+                android:text="明细"
+                android:textColor="#0314fb"
+                android:textSize="42pt" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

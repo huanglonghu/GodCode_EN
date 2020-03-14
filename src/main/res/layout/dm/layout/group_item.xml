@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataBean"
+            type="com.example.godcode.bean.DmGroupMsg.ResultBean.DataBean" />
+
+        <variable
+            name="presenter"
+            type="com.example.godcode.presenter.Presenter" />
+
+        <variable
+            name="applyBean"
+            type="com.example.godcode.bean.GetFractionRecord.ResultBean" />
+
+        <variable
+            name="returnBean"
+            type="com.example.godcode.bean.GetFractionRecord.ResultBean" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="option"
+            type="boolean" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/groupItemTitleBar"
+            layout="@layout/layout_toolbar5"
+            bind:presenter="@{presenter}"
+            bind:title="@{dataBean.goruoName}" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="340pt"
+            android:background="@color/theme_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80pt"
+                android:layout_marginTop="80pt"
+                android:text="剩余积分"
+                android:textColor="#fff"
+                android:textSize="44pt" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@{String.valueOf(dataBean.overMCFration)}"
+                android:textColor="#fff"
+                android:textSize="94pt" />
+
+            <TextView
+                android:id="@+id/detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/score"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="34pt"
+                android:text="明细"
+                android:textColor="#0314fb"
+                android:textSize="44pt" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="122pt"
+            android:paddingLeft="34pt"
+            android:paddingRight="34pt">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="产品:"
+                    android:textColor="#00a1ed"
+                    android:textSize="45pt" />
+
+                <TextView
+                    android:id="@+id/count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/transferMc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical"
+                android:text="移交机台"
+                android:textColor="#00a1ed"
+                android:textSize="45pt"
+                android:visibility="@{option?View.VISIBLE:View.GONE}" />
+
+
+            <TextView
+                android:id="@+id/returnMc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="返还机台"
+                android:textColor="#00a1ed"
+                android:textSize="45pt"
+                android:visibility="@{option?View.VISIBLE:View.GONE}" />
+
+
+        </RelativeLayout>
+
+        <com.example.godcode.ui.view.MyListView
+            android:id="@+id/lvGroupItem"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/theme_color"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:visibility="@{returnBean!=null?View.VISIBLE:View.GONE}">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="返还积分:"
+                    android:textColor="@android:color/holo_green_dark" />
+
+                <TextView
+                    android:id="@+id/returnScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(returnBean.fraction)}"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/confirmReturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="同意" />
+
+                <TextView
+                    android:id="@+id/refuseReturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="拒绝" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/theme_color"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:visibility="@{applyBean!=null?View.VISIBLE:View.GONE}">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="申请积分:"
+                    android:textColor="@android:color/holo_green_dark" />
+
+                <TextView
+                    android:id="@+id/applyScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(applyBean.fraction)}"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="同意" />
+
+                <TextView
+                    android:id="@+id/refuse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="拒绝" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/sure"
+            android:layout_width="255pt"
+            android:layout_height="120pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:background="@color/theme_color"
+            android:gravity="center"
+            android:text="确认"
+            android:visibility="@{option?View.VISIBLE:View.GONE}" />
+
+
+    </LinearLayout>
+</layout>

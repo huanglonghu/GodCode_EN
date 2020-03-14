@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="priceScale"
+            type="com.example.godcode.bean.PriceScale.ResultBean" />
+
+        <variable
+            name="presenter"
+            type="com.example.godcode.presenter.Presenter" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_toolbar6"
+            bind:presenter="@{presenter}"
+            bind:title="@{@string/getScore}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="340pt"
+            android:background="@color/theme_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80pt"
+                android:layout_marginTop="80pt"
+                android:text="剩余积分"
+                android:textColor="#fff"
+                android:textSize="44pt" />
+
+            <TextView
+                android:id="@+id/jf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="94pt" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="140pt"
+            android:text='@{"¥ "+priceScale.price+"="+priceScale.fraction}'
+            android:textColor="#000"
+            android:textSize="56pt" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="90pt"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="110pt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取积分:¥"
+                android:textColor="@color/theme_color"
+                android:textSize="64pt" />
+
+            <EditText
+                android:id="@+id/money"
+                android:layout_width="200pt"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15pt"
+                android:inputType="number"
+                android:gravity="center"
+                android:background="@drawable/bg_et5" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/theme_color"
+                android:textSize="50pt" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="190pt"
+            android:layout_height="100pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100pt"
+            android:background="@color/theme_color"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="#fff"
+            android:textSize="50pt" />
+
+
+    </LinearLayout>
+</layout>
