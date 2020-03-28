@@ -31,13 +31,15 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main"
+        >
 
         <LinearLayout xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="com.example.godcode.ui.activity.MainActivity">
+
+            android:orientation="vertical">
 
 
             <android.support.v4.view.ViewPager
@@ -194,13 +196,13 @@
                         android:id="@+id/newImg"
                         android:layout_width="106pt"
                         android:layout_height="50pt"
+                        android:layout_toRightOf="@id/r2"
                         android:background="@drawable/bg_new"
                         android:gravity="center"
                         android:text="NEW"
-                        android:layout_toRightOf="@id/r2"
-                        android:visibility="@{update?View.VISIBLE:View.GONE}"
                         android:textColor="#fff"
-                        android:textSize="24pt" />
+                        android:textSize="24pt"
+                        android:visibility="@{update?View.VISIBLE:View.GONE}" />
 
                 </RelativeLayout>
 

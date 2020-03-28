@@ -3,12 +3,9 @@ package com.example.godcode.ui.fragment.mainActivity;
 import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.DivideIncome;
 import com.example.godcode.databinding.FragmentHomeBinding;
@@ -20,29 +17,22 @@ import com.example.godcode.observable.EventType;
 import com.example.godcode.observable.RxBus;
 import com.example.godcode.observable.RxEvent;
 import com.example.godcode.service.NetStateReceiver;
-import com.example.godcode.ui.activity.MainActivity;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.deatailFragment.MobileRechargeFragment;
-import com.example.godcode.ui.fragment.dm.MyScore;
 import com.example.godcode.ui.view.widget.NetStateDialog;
 import com.example.godcode.utils.FormatUtil;
 import com.example.godcode.utils.GsonUtil;
 import com.google.gson.Gson;
-
 import java.util.List;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-
 
 public class HomeFragment extends BaseFragment {
 
     private FragmentHomeBinding binding;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
             binding.setPresenter(presenter);
@@ -50,10 +40,7 @@ public class HomeFragment extends BaseFragment {
             isMakeCode();
             RxBus.getInstance().toObservable(RxEvent.class).subscribe(new Observer<RxEvent>() {
                 @Override
-                public void onSubscribe(Disposable disposable) {
-
-                }
-
+                public void onSubscribe(Disposable disposable) {}
                 @Override
                 public void onNext(RxEvent rxEvent) {
                     int eventType = rxEvent.getEventType();
@@ -66,9 +53,7 @@ public class HomeFragment extends BaseFragment {
                 }
 
                 @Override
-                public void onError(Throwable throwable) {
-
-                }
+                public void onError(Throwable throwable) {}
 
                 @Override
                 public void onComplete() {

@@ -27,285 +27,229 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <RelativeLayout
+
+        <ImageView
+            android:layout_width="519pt"
+            android:layout_height="119pt"
+            android:layout_marginTop="150pt"
+            android:src="@drawable/title" />
+
+        <LinearLayout
             android:id="@+id/navigation"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentTop="true"
-            android:background="@color/theme_color">
-
+            android:layout_height="720pt"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="100pt"
+            android:layout_marginRight="60pt"
+            android:background="@drawable/shape_a1"
+            android:orientation="vertical"
+            android:paddingLeft="60pt"
+            android:paddingTop="60pt"
+            android:paddingRight="60pt">
 
             <TextView
-                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="@string/home"
-                android:textColor="@color/c5"
-                android:textSize="20sp" />
+                android:text="TOTAL INCOME"
+                android:textColor="@color/t2"
+                android:textSize="35pt"
+                android:textStyle="bold" />
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_balance"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="50pt"
+                android:text="3452"
+                android:textColor="@color/t3"
+                android:textSize="78pt" />
 
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/totalIncome"
-                        android:textColor="#000" />
-
-                    <ImageView
-                        android:id="@+id/toggle"
-                        android:layout_width="17dp"
-                        android:layout_height="17dp"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/bg_eye" />
-                </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/balance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:textSize="20sp" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10pt"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="100pt">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/todayCoin"
-                    android:textColor="@color/c5"
-                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/icon1"
+                    android:layout_width="112pt"
+                    android:layout_height="118pt"
+                    android:src="@drawable/coin_money" />
+
 
                 <TextView
                     android:id="@+id/todayDivide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#fff"
-                    android:textSize="20dp" />
+                    android:layout_alignTop="@id/icon1"
+                    android:layout_marginLeft="30pt"
+                    android:layout_toRightOf="@id/icon1"
+                    android:text="100"
+                    android:textColor="@color/t3"
+                    android:textSize="44pt" />
 
-            </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/icon1"
+                    android:layout_marginLeft="30pt"
+                    android:layout_toRightOf="@id/icon1"
+                    android:text="COIN RECEIVED TODAY"
+                    android:textColor="@color/t2"
+                    android:textSize="29pt" />
+
+            </RelativeLayout>
 
 
-
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="10pt"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="70pt">
+
+
+                <ImageView
+                    android:id="@+id/icon2"
+                    android:layout_width="112pt"
+                    android:layout_height="118pt"
+                    android:src="@drawable/note_money" />
+
+
+                <TextView
+                    android:id="@+id/noteMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/icon2"
+                    android:layout_marginLeft="30pt"
+                    android:layout_toRightOf="@id/icon2"
+                    android:text="100"
+                    android:textColor="@color/t3"
+                    android:textSize="44pt" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/zrtb"
-                    android:textColor="@color/c5"
-                    android:textSize="13sp" />
+                    android:layout_alignBottom="@id/icon2"
+                    android:layout_marginLeft="30pt"
+                    android:layout_toRightOf="@id/icon2"
+                    android:text="COIN RECEIVED TODAY"
+                    android:textColor="@color/t2"
+                    android:textSize="29pt" />
 
-                <TextView
-                    android:id="@+id/yesterdayDivide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#fff"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
+            </RelativeLayout>
 
 
-        </RelativeLayout>
-
-        <include layout="@layout/layout_divider" />
+        </LinearLayout>
 
 
         <LinearLayout
-            android:id="@+id/rl_news"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/bg1"
-            android:gravity="center_vertical"
-            android:padding="10dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="60pt"
+            android:background="@drawable/shape_a2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/iv_news"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/news" />
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_news"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginTop="80pt"
+                android:text="SY Cloud Services"
+                android:textColor="@color/t4"
+                android:textSize="42pt" />
 
-                <TextView
-                    android:id="@+id/news1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/news2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-
-            <com.example.godcode.ui.view.NewsView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:layout_centerVertical="true"
-                android:visibility="@{showNews?View.VISIBLE:View.GONE}"
-                app:reduis="6dp" />
-
-            <ImageView
-                android:id="@+id/news_back"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/back3" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/bg2"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:text="@string/syygjfw" />
-
-        <com.example.godcode.ui.view.customview.ObservableScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="250pt"
+                android:layout_marginLeft="60pt"
+                android:layout_marginTop="84pt"
+                android:layout_marginRight="60pt"
+                android:background="@color/bg1"
                 android:divider="@drawable/divider2"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:showDividers="middle">
 
+
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/bg1"
-                    android:divider="@drawable/divider2"
-                    android:orientation="horizontal"
-                    android:showDividers="middle">
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_a3"
+                    android:gravity="center"
+                    android:onClick="@{()->presenter.sys()}"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="105pt"
+                        android:layout_height="84pt"
+                        android:src="@drawable/scan" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38pt"
                         android:gravity="center"
-                        android:onClick="@{()->presenter.sys()}"
-                        android:orientation="vertical">
+                        android:text="Scan"
+                        android:textColor="@color/t5" />
+                </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/sys" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="27pt"
+                    android:layout_marginRight="27pt"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_a3"
+                    android:gravity="center"
+                    android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}"
+                    android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="@string/sys"
-                            android:textColor="#000" />
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="90pt"
+                        android:layout_height="84pt"
+                        android:src="@drawable/myproducts" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38pt"
                         android:gravity="center"
-                        android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/asset" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="@string/myAsset"
-                            android:textColor="#000" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:onClick="@{()->presenter.step2Fragment(&quot;bindProduct&quot;)}"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/bindproduct" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:text="@string/bindProduct"
-                            android:textColor="#000" />
-
-                    </LinearLayout>
+                        android:text="My Products"
+                        android:textColor="@color/t5" />
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_a3"
+                    android:gravity="center"
+                    android:onClick="@{()->presenter.step2Fragment(&quot;bindProduct&quot;)}"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="81pt"
+                        android:layout_height="81pt"
+                        android:src="@drawable/bindproducts" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38pt"
+                        android:gravity="center"
+                        android:text="Bind Product"
+                        android:textColor="@color/t5" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </com.example.godcode.ui.view.customview.ObservableScrollView>
+        </LinearLayout>
 
 
     </LinearLayout>

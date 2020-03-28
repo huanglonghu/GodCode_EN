@@ -35,7 +35,7 @@ public class GodCodeApplication extends Application {
         initWindowSize();
         initUmeng();
         CrashReport.initCrashReport(this, "6876c53e79", true);
-        int designWidth = 1080;
+        int designWidth = 1125;              //1125*2436
         new RudenessScreenHelper(this, designWidth).activate();
     }
 

@@ -2,26 +2,19 @@ package com.example.godcode.ui.fragment.mainActivity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.User;
 import com.example.godcode.databinding.FragmentMainBinding;
-import com.example.godcode.databinding.LayoutMainPopupBinding;
 import com.example.godcode.greendao.option.FriendOption;
 import com.example.godcode.greendao.option.UserOption;
 import com.example.godcode.http.HttpUtil;
-import com.example.godcode.observable.RxBus;
-import com.example.godcode.observable.RxEvent;
 import com.example.godcode.ui.adapter.MyViewPagerAdapter;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.ui.base.BaseFragment;
-import com.example.godcode.ui.view.MenuWindow;
-import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.StringUtil;
 import com.google.gson.Gson;
 
@@ -40,9 +33,8 @@ public class MainFragment extends BaseFragment {
         this.binding = binding;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
             presenter.setMainBinding(binding);
