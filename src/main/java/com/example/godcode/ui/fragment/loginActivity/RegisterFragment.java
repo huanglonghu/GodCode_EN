@@ -3,7 +3,6 @@ package com.example.godcode.ui.fragment.loginActivity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.godcode.R;
 import com.example.godcode.bean.GetVerification;
 import com.example.godcode.bean.LoginBody;
@@ -27,7 +27,9 @@ import com.example.godcode.constant.Constant;
 import com.example.godcode.utils.GsonUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 import com.google.gson.Gson;
+
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
@@ -39,9 +41,9 @@ public class RegisterFragment extends BaseFragment {
     private RegisterBody registerBody;
     private boolean isEmail;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false);
             binding.setFragment(this);

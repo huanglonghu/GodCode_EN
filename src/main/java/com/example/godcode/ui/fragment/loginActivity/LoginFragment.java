@@ -3,7 +3,6 @@ package com.example.godcode.ui.fragment.loginActivity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,6 @@ import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.utils.FormatUtil;
 import com.example.godcode.utils.GsonUtil;
-import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 import com.google.gson.Gson;
 
@@ -43,9 +41,8 @@ public class LoginFragment extends BaseFragment {
 
     private LoginBody loginBody;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
             binding.setPresenter(presenter);

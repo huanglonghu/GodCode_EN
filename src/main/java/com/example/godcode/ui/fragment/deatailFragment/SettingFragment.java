@@ -3,12 +3,10 @@ package com.example.godcode.ui.fragment.deatailFragment;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.databinding.FragmentSettingBinding;
 import com.example.godcode.greendao.entity.VersionMsg;
@@ -27,10 +25,7 @@ import com.example.godcode.ui.fragment.pwd.CheckPayPsdFragment;
 import com.example.godcode.ui.fragment.pwd.SetPayPsdFragment;
 import com.example.godcode.ui.view.UpdateDialog;
 import com.example.godcode.ui.view.widget.LanguageConfigDialog;
-import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.PayPwdSetting;
-import com.example.godcode.utils.StringUtil;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -39,9 +34,8 @@ public class SettingFragment extends BaseFragment {
     private FragmentSettingBinding binding;
     private View view;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setting, container, false);
             binding.setPresenter(presenter);

@@ -26,189 +26,204 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-
-        <ImageButton
-            android:id="@+id/exit"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/exit"
-            android:onClick="exit" />
+        android:background="@drawable/bg_main"
+        android:orientation="vertical">
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:src="@drawable/fanhui" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="Sign up"
-                android:textSize="60pt"
-                android:textStyle="bold" />
+                android:text="Register"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
 
-            <CheckBox
-                android:id="@+id/cb_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:checked="@{isEmail}"
-                android:text="Enable email registration"
-                android:textSize="40pt" />
+        </LinearLayout>
 
-        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="542pt"
+            android:layout_height="125pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="662pt"
+            android:src="@drawable/title" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@drawable/divider_a2"
+            android:layout_height="1464pt"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_a2"
             android:orientation="vertical"
-            android:showDividers="middle|beginning|end">
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130pt"
+                android:text="USERNAME"
+                android:textColor="#000"
+                android:textSize="30pt" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:divider="@drawable/divider_a2"
-                android:gravity="center_vertical"
-                android:showDividers="middle"
-                android:visibility="@{isEmail?View.VISIBLE:View.GONE}">
+                android:layout_height="180pt"
+                android:layout_marginTop="40pt"
+                android:background="@drawable/shape_a5"
+                android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Email"
-                    android:textColor="#000"
-                    android:textSize="40pt" />
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="52pt"
+                    android:layout_marginLeft="80pt"
+                    android:src="@drawable/ico_name" />
 
                 <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:background="@null"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="10dp"
-                    android:text="@={registerBody.emailAddress}"
-                    android:textSize="40pt" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:divider="@drawable/divider_a2"
-                android:gravity="center_vertical"
-                android:showDividers="middle">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Phone"
-                    android:textColor="#000"
-                    android:textSize="40pt" />
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:background="@null"
-                    android:hint="Enter phone"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:text="@={registerBody.phoneNumber}"
-                    android:textSize="40pt" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:divider="@drawable/divider_a2"
-                android:gravity="center_vertical"
-                android:showDividers="middle">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="SMS Code"
-                    android:textColor="#000"
-                    android:textSize="40pt" />
-
-                <LinearLayout
+                    android:id="@+id/et_account"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:gravity="center_vertical">
-
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:hint="Enter verification code"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:text="@={registerBody.verificationCode}"
-                        android:textSize="40pt" />
-
-                    <TextView
-                        android:id="@+id/yzm"
-                        android:layout_width="162pt"
-                        android:layout_height="86pt"
-                        android:background="@drawable/shape_tv"
-                        android:gravity="center"
-                        android:text="Send"
-                        android:textColor="#000"
-                        android:textSize="34pt" />
-
-                </LinearLayout>
+                    android:layout_marginLeft="62pt"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Username"
+                    android:textSize="33pt" />
 
 
             </LinearLayout>
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44pt"
+                android:text="EMAIL"
+                android:textColor="#000"
+                android:textSize="30pt" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:divider="@drawable/divider_a2"
-                android:gravity="center_vertical"
-                android:showDividers="middle">
+                android:layout_height="180pt"
+                android:layout_marginTop="44pt"
+                android:background="@drawable/shape_a5"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="52pt"
+                    android:layout_marginLeft="80pt"
+                    android:src="@drawable/ico_emall" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="62pt"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Email"
+                    android:textSize="33pt" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44pt"
+                android:text="USERNAME"
+                android:textColor="#000"
+                android:textSize="30pt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_marginTop="44pt"
+                android:background="@drawable/shape_a5"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="52pt"
+                    android:layout_marginLeft="80pt"
+                    android:src="@drawable/ico_pass" />
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="62pt"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Password"
+                    android:textSize="33pt" />
+
+
+                <ImageView
+                    android:layout_width="62pt"
+                    android:layout_height="60pt"
+                    android:layout_marginRight="64pt"
+                    android:src="@drawable/ico_pass3" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="60pt"
+                android:background="@drawable/btn_login2"
+                android:gravity="center"
+                android:text="REGISTER"
+                android:textColor="#fff"
+                android:textSize="33pt" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70pt">
+
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Password"
+                    android:text="Hava a Account ? "
                     android:textColor="#000"
                     android:textSize="40pt" />
 
-                <EditText
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/step2regiter"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:background="@null"
-                    android:hint="Enter Password"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:text="@={registerBody.password}"
-                    android:textSize="40pt" />
+                    android:text="Login"
+                    android:textColor="@color/b2"
+                    android:textSize="49pt" />
+
 
             </LinearLayout>
 
@@ -216,17 +231,6 @@
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_wxdl"
-            android:gravity="center"
-            android:text="Sign up"
-            android:textColor="#fff"
-            android:textSize="20sp" />
-
-    </LinearLayout>
+    </FrameLayout>
 
 </layout>

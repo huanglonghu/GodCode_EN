@@ -12,145 +12,183 @@
             type="com.example.godcode.presenter.Presenter" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:background="@drawable/bg_main"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/exit"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/exit"
-            android:onClick="exit" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="20dp"
-            android:text="Login By SMS Code"
-            android:textSize="60pt"
-            android:textStyle="bold" />
-
-        <include layout="@layout/layout_divider3" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:divider="@drawable/divider2"
-            android:gravity="center_vertical"
-            android:showDividers="middle">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130pt"
+            android:layout_marginLeft="60pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:src="@drawable/fanhui" />
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Account"
-                android:textColor="#000"
-                android:textSize="40pt" />
-
-            <EditText
-                android:id="@+id/et_account"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:background="@null"
-                android:hint="Enter phone number/email"
-                android:paddingLeft="10dp"
-                android:textSize="40pt" />
-
+                android:text="Login"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
 
         </LinearLayout>
 
-        <include layout="@layout/layout_divider3" />
+
+        <ImageView
+            android:layout_width="542pt"
+            android:layout_height="125pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="662pt"
+            android:src="@drawable/title" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:divider="@drawable/divider2"
-            android:gravity="center_vertical"
-            android:showDividers="middle">
+            android:layout_height="1248pt"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_a2"
+            android:orientation="vertical"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="SMS Code"
+                android:layout_marginTop="130pt"
+                android:text="USERNAME"
                 android:textColor="#000"
-                android:textSize="40pt" />
+                android:textSize="30pt" />
+
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_weight="3">
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_marginTop="40pt"
+                android:background="@drawable/shape_a5"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="52pt"
+                    android:layout_marginLeft="80pt"
+                    android:src="@drawable/ico_name" />
 
                 <EditText
-                    android:id="@+id/login_yzm"
+                    android:id="@+id/et_account"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="62pt"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:hint="Enter verification code"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:text="@={loginBody.verificationCode}"
-                    android:textSize="40pt" />
+                    android:hint="Username"
+                    android:textSize="33pt" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44pt"
+                android:text="USERNAME"
+                android:textColor="#000"
+                android:textSize="30pt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_marginTop="44pt"
+                android:background="@drawable/shape_a5"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="52pt"
+                    android:layout_marginLeft="80pt"
+                    android:src="@drawable/ico_pass" />
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="62pt"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Password"
+                    android:textSize="33pt" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="66pt"
+                android:text="Forgot Password"
+                android:textColor="#000"
+                android:textSize="42pt" />
+
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="60pt"
+                android:background="@drawable/btn_login2"
+                android:gravity="center"
+                android:text="LOGIN"
+                android:textColor="#fff"
+                android:textSize="33pt" />
+
+
+            <TextView
+                android:id="@+id/logByPwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Log in via password"
+                android:textColor="@color/t1"
+                android:textSize="40pt" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
 
 
                 <TextView
-                    android:id="@+id/login_getyzm"
-                    android:layout_width="162pt"
-                    android:layout_height="86pt"
-                    android:background="@drawable/shape_tv"
-                    android:gravity="center"
-                    android:text="Send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have account ? "
                     android:textColor="#000"
-                    android:textSize="34pt" />
+                    android:textSize="40pt" />
+
+                <TextView
+                    android:id="@+id/step2regiter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:textColor="@color/b2"
+                    android:textSize="49pt" />
+
+
             </LinearLayout>
 
 
         </LinearLayout>
 
 
-        <include layout="@layout/layout_divider3" />
-
-        <TextView
-            android:id="@+id/logByPwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Log in via password"
-            android:textColor="@color/t1"
-            android:textSize="40pt"
-            />
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/login"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/bg_wxdl"
-                android:gravity="center"
-                android:text="Log In"
-                android:textColor="#fff"
-                android:textSize="20sp" />
-
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
+    </FrameLayout>
 </layout>

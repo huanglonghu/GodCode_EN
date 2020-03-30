@@ -41,11 +41,6 @@ import java.util.Collection;
 import java.util.HashSet;
 
 
-/**
- * This view is overlaid on top of the camera preview. It adds the viewfinder rectangle and partial
- * transparency outside it, as well as the laser scanner animation and result points.
- * �Զ����View������ʱ�м���ʾ��
- */
 public final class ViewfinderView extends View {
 
   private static final int[]  SCANNER_ALPHA                 =   {0, 64, 128, 192, 255, 192, 128, 64};

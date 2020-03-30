@@ -22,150 +22,225 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/layout_toolbar1"
-            bind:title="@{@string/me}" />
-
-        <include layout="@layout/layout_divider" />
 
         <LinearLayout
             android:id="@+id/presenal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_item"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="30dp">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85pt"
+                android:layout_marginTop="200pt"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:src="@drawable/edit_person" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250pt"
+                    android:text="MY PROFILE"
+                    android:textColor="@color/t4"
+                    android:textSize="28pt" />
+
+
+            </LinearLayout>
+
 
             <ImageView
                 android:id="@+id/iv_user"
-                android:layout_width="70dp"
-                android:layout_height="70dp" />
+                android:layout_width="308pt"
+                android:layout_height="308pt"
+                android:layout_marginTop="66pt" />
 
             <TextView
                 android:id="@+id/tv_userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_user"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="64pt"
                 android:text="@{user.userName}"
                 android:textColor="#000"
-                android:textSize="15sp" />
-
+                android:textSize="57pt" />
 
         </LinearLayout>
 
-        <include layout="@layout/layout_divider" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/bg1"
-            android:divider="@drawable/divider2"
+            android:layout_height="1412pt"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_a4"
             android:orientation="vertical"
-            android:showDividers="middle">
+            android:paddingLeft="60pt">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_item"
-                android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84pt"
+                android:gravity="center_vertical"
+                android:onClick="@{()->presenter.step2Fragment(&quot;myAsset&quot;)}">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/account" />
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:src="@drawable/b_01" />
 
                 <TextView
-                    style="@style/text2"
-                    android:layout_marginLeft="20dp"
-                    android:text="@string/myAsset" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47pt"
+                    android:layout_weight="1"
+                    android:text="My Product"
+                    android:textColor="@color/t4"
+                    android:textSize="41pt" />
+
+                <ImageView
+                    android:layout_width="23pt"
+                    android:layout_height="26pt"
+                    android:layout_marginRight="100pt"
+                    android:src="@drawable/back_a1" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ysfc"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/bg_item"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65pt"
+                android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/myrevenue" />
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:src="@drawable/b_02" />
 
                 <TextView
-                    style="@style/text2"
-                    android:layout_marginLeft="20dp"
-                    android:text="@string/wdsyfc" />
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47pt"
+                    android:layout_weight="1"
+                    android:text="My Shared Income"
+                    android:textColor="@color/t4"
+                    android:textSize="41pt" />
+
+                <ImageView
+                    android:layout_width="23pt"
+                    android:layout_height="26pt"
+                    android:layout_marginRight="100pt"
+                    android:src="@drawable/back_a1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65pt"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:src="@drawable/b_03" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47pt"
+                    android:layout_weight="1"
+                    android:text="Settings"
+                    android:textColor="@color/t4"
+                    android:textSize="41pt" />
+
+                <ImageView
+                    android:layout_width="23pt"
+                    android:layout_height="26pt"
+                    android:layout_marginRight="100pt"
+                    android:src="@drawable/back_a1" />
             </LinearLayout>
 
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3pt"
+                android:layout_marginLeft="24pt"
+                android:layout_marginTop="33pt"
+                android:layout_marginRight="85pt"
+                android:background="@drawable/divider_a1" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33pt"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:src="@drawable/b_04" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47pt"
+                    android:layout_weight="1"
+                    android:text="Log out"
+                    android:textColor="@color/t4"
+                    android:textSize="41pt" />
+
+                <ImageView
+                    android:layout_width="23pt"
+                    android:layout_height="26pt"
+                    android:layout_marginRight="100pt"
+                    android:src="@drawable/back_a1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65pt"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:src="@drawable/b_05" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="47pt"
+                    android:layout_weight="1"
+                    android:text="Help"
+                    android:textColor="@color/t4"
+                    android:textSize="41pt" />
+
+                <ImageView
+                    android:layout_width="23pt"
+                    android:layout_height="26pt"
+                    android:layout_marginRight="100pt"
+                    android:src="@drawable/back_a1" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <include layout="@layout/layout_divider" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/bg_item"
-            android:gravity="center_vertical"
-            android:onClick="@{()->presenter.step2Fragment(&quot;setting&quot;)}"
-            android:paddingLeft="20dp">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/setting" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="@string/setting"
-                android:textSize="17sp" />
-
-
-            <TextView
-                android:id="@+id/newImg"
-                android:layout_width="106pt"
-                android:layout_height="50pt"
-                android:layout_marginLeft="25pt"
-                android:background="@drawable/bg_new"
-                android:gravity="center"
-                android:text="NEW"
-                android:textColor="#fff"
-                android:textSize="24pt"
-                android:visibility="gone" />
-
-
-            <TextView
-                android:id="@+id/versionMsg"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:textColor="@color/home_text2" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/bg2" />
-
-    </LinearLayout>
+    </FrameLayout>
 </layout>

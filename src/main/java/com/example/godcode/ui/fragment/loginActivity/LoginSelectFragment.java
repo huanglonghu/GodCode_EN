@@ -2,11 +2,9 @@ package com.example.godcode.ui.fragment.loginActivity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.RegisterBody;
 import com.example.godcode.databinding.FragmentLoginselectBinding;
@@ -19,9 +17,8 @@ public class LoginSelectFragment extends BaseFragment {
 
     private FragmentLoginselectBinding binding;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_loginselect, container, false);
             binding.setPresenter(presenter);

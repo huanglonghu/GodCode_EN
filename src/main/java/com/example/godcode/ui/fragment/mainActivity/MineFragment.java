@@ -3,17 +3,13 @@ package com.example.godcode.ui.fragment.mainActivity;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.User;
 import com.example.godcode.bean.WsHeart;
@@ -30,8 +26,6 @@ import com.example.godcode.constant.Constant;
 import com.example.godcode.ui.base.GodCodeApplication;
 import com.example.godcode.ui.fragment.deatailFragment.PresonalFragment;
 import com.example.godcode.ui.fragment.deatailFragment.YSJLFragment2;
-import com.example.godcode.utils.LogUtil;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -42,9 +36,8 @@ public class MineFragment extends BaseFragment {
     private User.ResultBean result;
     private com.example.godcode.greendao.entity.User user;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         if (view == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mine, container, false);
             binding.setPresenter(presenter);
