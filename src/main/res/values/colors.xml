@@ -44,7 +44,7 @@
     <color name="colorBackground">#f1f0f6</color>
     <color name="colorText">#9b9b9b</color>
 
-   <color name="netease_red">#d5a5b3</color>
+    <color name="netease_red">#d5a5b3</color>
 
     <color name="home_text2">#838588</color>
 
@@ -78,6 +78,24 @@
     <color name="t6">#4a4a4a</color>
     <color name="t7">#8d97a0</color>
     <color name="t8">#cccccc</color>
+    <color name="t9">#f9b34c</color>
+    <color name="t10">#47519e</color>
+
+
+    <color name="t11">#666d73</color>
+
+    <color name="t12">#575e65</color>
+    <color name="t13">#5f69ab</color>
+
+    <color name="t14">#e5ae21</color>
+
+    <color name="t15">#606b75</color>
+    <color name="t16">#5d67aa</color>
+
+    <color name="t17">#979797</color>
+
+    <color name="t18">#636363</color>
+    <color name="t19">#555f67</color>
 
 
     <color name="g1">#6971b0</color>
@@ -86,16 +104,20 @@
 
     <color name="s1">#f7f7f7</color>
     <color name="s2">#e9e9e9</color>
+    <color name="s3">#edf0f4</color>
+
 
     <color name="d1">#e2e3e6</color>
+    <color name="d2">#d9dee3</color>
+    <color name="d3">#dde3ea</color>
+    <color name="d4">#d2dce4</color>
+    <color name="d5">#5d67a9</color>
 
     <color name="b1">#2f8819</color>
     <color name="b2">#ef6c20</color>
-
-
-
-
-
+    <color name="b3">#647486</color>
+    <color name="b4">#fdf0e9</color>
+    <color name="b5">#f8f8f8</color>
 
 
 </resources>

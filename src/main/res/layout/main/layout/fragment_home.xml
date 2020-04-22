@@ -63,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50pt"
                 android:text="3452"
+                android:textStyle="bold"
                 android:textColor="@color/t3"
                 android:textSize="78pt" />
 
@@ -88,6 +89,7 @@
                     android:layout_marginLeft="30pt"
                     android:layout_toRightOf="@id/icon1"
                     android:text="100"
+                    android:textStyle="bold"
                     android:textColor="@color/t3"
                     android:textSize="44pt" />
 
@@ -125,6 +127,7 @@
                     android:layout_marginLeft="30pt"
                     android:layout_toRightOf="@id/icon2"
                     android:text="100"
+                    android:textStyle="bold"
                     android:textColor="@color/t3"
                     android:textSize="44pt" />
 
@@ -134,7 +137,7 @@
                     android:layout_alignBottom="@id/icon2"
                     android:layout_marginLeft="30pt"
                     android:layout_toRightOf="@id/icon2"
-                    android:text="COIN RECEIVED TODAY"
+                    android:text="Note RECEIVED TODAY"
                     android:textColor="@color/t2"
                     android:textSize="29pt" />
 
@@ -158,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80pt"
                 android:text="SY Cloud Services"
+                android:textStyle="bold"
                 android:textColor="@color/t4"
                 android:textSize="42pt" />
 
@@ -169,9 +173,7 @@
                 android:layout_marginTop="84pt"
                 android:layout_marginRight="60pt"
                 android:background="@color/bg1"
-                android:divider="@drawable/divider2"
-                android:orientation="horizontal"
-                android:showDividers="middle">
+                android:orientation="horizontal">
 
 
                 <LinearLayout

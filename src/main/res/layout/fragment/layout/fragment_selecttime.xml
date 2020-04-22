@@ -20,8 +20,14 @@
             type="String" />
 
         <variable
+            name="type"
+            type="int" />
+
+        <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.deatailFragment.SelectTimeFragment" />
+            type="com.example.godcode.ui.fragment.newui.SelectTimeFragment" />
+
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,16 +35,52 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/selectTime_toolBar"
-            layout="@layout/layout_toolbar2"
-            bind:presenter="@{presenter}"
-            bind:title="@{@string/selectDate}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170pt"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="50pt"
+                android:layout_height="74pt"
+                android:layout_centerVertical="true"
+                android:padding="10pt"
+                android:src="@drawable/back_a2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="56pt"
+                android:layout_toRightOf="@id/back"
+                android:text="Select Date"
+                android:textColor="@color/t6"
+                android:textSize="38pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="Complete"
+                android:textColor="@color/t6"
+                android:textSize="38pt"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60pt"
             android:padding="20dp">
 
             <RelativeLayout
@@ -67,7 +109,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/zhi" />
+                android:text="to"
+                android:visibility="@{type==0?View.VISIBLE:View.GONE}" />
 
             <RelativeLayout
                 android:layout_width="0dp"

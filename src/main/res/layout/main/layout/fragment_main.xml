@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -29,196 +28,90 @@
 
     </data>
 
-    <FrameLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_main"
-        >
+        android:orientation="vertical">
 
-        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:orientation="vertical">
+            android:layout_height="match_parent" />
 
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/main_viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="338pt"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_b7"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingTop="105pt">
 
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            <LinearLayout
-                android:id="@+id/navigation"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/frame_navigation"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:layout_centerInParent="true"
                     android:onClick="@{()->presenter.togglePager(0)}"
-                    android:orientation="vertical">
+                    android:src="@{position==0?@drawable/home2:@drawable/home1}" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@{position==0?@drawable/home2:@drawable/home1}" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home"
-                        android:textColor="@{position==0?@color/theme_color:@color/home_text2}"
-                        android:textSize="12sp" />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:layout_centerInParent="true"
+                    android:onClick="@{()->presenter.togglePager(1)}"
+                    android:src="@{position==1?@drawable/friends2:@drawable/friends1}" />
 
+            </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="@{()->presenter.togglePager(1)}">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                    <LinearLayout
-                        android:id="@+id/rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:orientation="vertical"
-
-                        >
-
-                        <ImageView
-                            android:id="@+id/iv_friend"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@{position==1?@drawable/friend2:@drawable/friend1}" />
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/friends"
-                            android:textColor="@{position==1?@color/theme_color:@color/home_text2}"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <com.example.godcode.ui.view.NewsView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_toRightOf="@id/rl"
-                        android:visibility="@{newsCount>0?View.VISIBLE:View.GONE}"
-                        app:numText='@{newsCount+""}'
-                        app:reduis="8dp" />
-
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/app_name"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:layout_centerInParent="true"
                     android:onClick="@{()->presenter.togglePager(2)}"
-                    android:orientation="vertical">
+                    android:src="@{position==2?@drawable/news2:@drawable/news1}" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@{position==2?@drawable/discovery2:@drawable/discovery1}" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fx"
-                        android:textColor="@{position==2?@color/theme_color:@color/home_text2}"
-                        android:textSize="12sp" />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="114pt"
+                    android:layout_height="114pt"
+                    android:layout_centerInParent="true"
+                    android:onClick="@{()->presenter.togglePager(3)}"
+                    android:src="@{position==3?@drawable/mine2:@drawable/mine1}" />
 
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="@{()->presenter.togglePager(3)}">
-
-                    <LinearLayout
-                        android:id="@+id/r2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@{position==3?@drawable/mine2:@drawable/mine1}" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/me"
-                            android:textColor="@{position==3?@color/theme_color:@color/home_text2}"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/newImg"
-                        android:layout_width="106pt"
-                        android:layout_height="50pt"
-                        android:layout_toRightOf="@id/r2"
-                        android:background="@drawable/bg_new"
-                        android:gravity="center"
-                        android:text="NEW"
-                        android:textColor="#fff"
-                        android:textSize="24pt"
-                        android:visibility="@{update?View.VISIBLE:View.GONE}" />
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/logo" />
-    </FrameLayout>
+
+    </RelativeLayout>
 
 
 </layout>

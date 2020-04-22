@@ -19,7 +19,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.loginActivity.RegisterFragment" />
+            type="com.example.godcode.ui.fragment.newui.login.RegisterFragment" />
 
         <import type="android.view.View" />
 
@@ -190,7 +190,7 @@
 
 
             <TextView
-                android:id="@+id/login"
+                android:id="@+id/register"
                 android:layout_width="match_parent"
                 android:layout_height="180pt"
                 android:layout_centerInParent="true"

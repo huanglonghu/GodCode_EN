@@ -1,6 +1,5 @@
 package com.example.godcode.ui.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +10,8 @@ import com.example.godcode.greendao.entity.LoginResult;
 import com.example.godcode.greendao.option.LoginResultOption;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.presenter.Presenter;
-import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.loginActivity.LoginSelectFragment;
-
-
+import com.example.godcode.ui.fragment.newui.login.LoginSelectFragment;
 
 public class LoginActivity extends BaseActivity {
 

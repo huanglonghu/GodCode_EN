@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/b3"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60pt"
+            android:layout_marginRight="60pt"
+            android:background="@drawable/shape_b2"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:background="@drawable/shape_b5"
+                android:gravity="center_vertical"
+                android:paddingLeft="85pt"
+                android:text="Proportion"
+                android:textColor="@color/t5"
+                android:textSize="60pt" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80pt"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 1 Signam"
+                    android:textColor="@color/t5"
+                    android:textSize="49pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 5 Signam"
+                    android:textColor="@color/t15"
+                    android:textSize="49pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 10 Signam"
+                    android:textColor="@color/t15"
+                    android:textSize="49pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 20 Signam"
+                    android:textColor="@color/t15"
+                    android:textSize="49pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 50 Signam"
+                    android:textColor="@color/t15"
+                    android:textSize="49pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 100 Signam"
+                    android:textColor="@color/t15"
+                    android:textSize="49pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85pt"
+                    android:text="1 Coin 200 Signam"
+                    android:textColor="@color/t15"
+                    android:textSize="49pt" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="77pt"
+                android:layout_marginBottom="120pt"
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt">
+
+                <TextView
+                    android:layout_width="410pt"
+                    android:layout_height="178pt"
+                    android:background="@drawable/shape_b3"
+                    android:gravity="center"
+                    android:text="CANCEL"
+                    android:textColor="@color/b2"
+                    android:textSize="34pt" />
+
+
+                <TextView
+                    android:layout_width="410pt"
+                    android:layout_height="178pt"
+                    android:layout_marginLeft="56pt"
+                    android:background="@drawable/shape_b4"
+                    android:gravity="center"
+                    android:text="DONE"
+                    android:textColor="@android:color/white"
+                    android:textSize="34pt" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

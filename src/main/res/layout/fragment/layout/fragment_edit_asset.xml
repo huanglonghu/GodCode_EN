@@ -13,85 +13,119 @@
             type="com.example.godcode.bean.MyAssetList.ResultBean.DataBean" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/editAsset_toolbar"
-            layout="@layout/layout_toolbar2"
-            bind:presenter="@{presenter}"
-            bind:title="@{@string/xgzcxx}"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170pt"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="50pt"
+                android:layout_height="74pt"
+                android:padding="10pt"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_a2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="56pt"
+                android:layout_toRightOf="@id/back"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:text="Product Detail"
+                android:textColor="@color/t6"
+                android:textSize="38pt" />
+
+            <TextView
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="Save"
+                android:textStyle="bold"
+                android:textColor="@color/t6"
+                android:textSize="38pt" />
+
+
+        </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@drawable/divider2"
+            android:layout_height="match_parent"
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a4"
             android:orientation="vertical"
-            android:showDividers="middle|end">
-            <LinearLayout
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="320pt"
+                android:layout_height="320pt"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="90pt" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160pt"
+                android:text="PRODUCT NAME"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="34pt" />
+
+
+            <EditText
+                android:id="@+id/product_name"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="180pt"
+                android:layout_marginTop="42pt"
+                android:background="@drawable/shape_a5"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp">
+                android:hint="Enter Product Name"
+                android:paddingLeft="60pt"
+                android:text="@{bean.productName}"
+                android:textSize="35pt" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text='@{@string/mc+":"}'
-                    android:textColor="#000"
-                    android:textSize="18sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="77pt"
+                android:text="PRODUCT LOCATION"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="34pt" />
 
-                <EditText
-                    android:id="@+id/product_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="请输入产品名称"
-                    android:text="@{bean.productName}"
-                    android:textSize="18sp" />
 
-            </LinearLayout>
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/product_address"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="180pt"
+                android:paddingLeft="60pt"
+                android:layout_marginTop="42pt"
+                android:background="@drawable/shape_a5"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text='@{@string/dz+":"}'
-                    android:textColor="#000"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/product_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="请输入产品地址"
-                    android:text="@{bean.machineAddress}"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-
-
+                android:hint="Enter Location"
+                android:text="@{bean.machineAddress}"
+                android:textSize="35pt" />
 
         </LinearLayout>
 
 
-    </LinearLayout>
+    </FrameLayout>
 </layout>

@@ -14,7 +14,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.asset.AssetConfigFragment" />
+            type="com.example.godcode.ui.fragment.newui.asset.AssetConfigFragment" />
 
         <variable
             name="isMaster"
@@ -26,67 +26,198 @@
     </data>
 
 
-    <com.southernbox.springscrollview.SpringScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:background="@drawable/bg_main">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:src="@drawable/fanhui" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{assetBean.productName}"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a10"
             android:orientation="vertical">
 
-            <include
-                android:id="@+id/asset2_toolbar"
-                layout="@layout/layout_toolbar2"
-                bind:presenter="@{presenter}"
-                bind:title="@{@string/myAsset}"/>
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_product_item"
-                android:padding="10dp">
+                android:layout_marginTop="50pt"
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt">
+
 
                 <ImageView
-                    android:id="@+id/iv_zc"
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_alignParentLeft="true" />
+                    android:id="@+id/ivZc"
+                    android:layout_width="186pt"
+                    android:layout_height="186pt"
+                    android:background="@drawable/shape_b9" />
+
 
                 <LinearLayout
-                    android:id="@+id/ll_right"
-                    android:layout_width="50dp"
-                    android:layout_height="80dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50pt"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{@string/price+assetBean.price}"
-                        android:textColor="#efb537"
-                        android:textSize="15sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <ImageView
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{assetBean.productName}"
+                                android:textColor="@color/t4"
+                                android:textSize="45pt" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{isMaster?@string/zsj:@string/fsj}"
+                                android:textColor="@color/t13"
+                                android:textSize="47pt" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{assetBean.divideRate+"%"}'
+                                android:textColor="@color/t12"
+                                android:textSize="37pt" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="176pt"
+                            android:text='@{"$"+assetBean.price}'
+                            android:textColor="@color/t14"
+                            android:textSize="44pt" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:onClick="@{()->presenter.showQrDialog(assetBean.productNumber)}"
-                        android:src="@drawable/qrcode" />
+                        android:layout_marginTop="40pt"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ID:"
+                                android:textColor="@color/t12"
+                                android:textSize="34pt" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{assetBean.productNumber}"
+                                android:textColor="@color/t3"
+                                android:textSize="34pt" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="9pt"
+                            android:layout_height="24pt"
+                            android:layout_marginLeft="74pt"
+                            android:layout_marginRight="74pt"
+                            android:src="@drawable/ic_spilt" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Location:"
+                                android:textColor="@color/t12"
+                                android:textSize="34pt" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{assetBean.machineAddress}"
+                                android:textColor="@color/t3"
+                                android:textSize="34pt" />
+
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:layout_width="9pt"
+                            android:layout_height="24pt"
+                            android:layout_marginLeft="74pt"
+                            android:layout_marginRight="74pt"
+                            android:src="@drawable/ic_spilt" />
+
+                        <ImageView
+                            android:layout_width="27pt"
+                            android:layout_height="27pt"
+                            android:src="@drawable/ic_online" />
+
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="87pt"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="136pt"
+                    android:layout_height="136pt"
+                    android:background="@drawable/shape_b8"
+                    android:onClick="@{()->presenter.showQrDialog(assetBean.productNumber)}"
+                    android:src="@drawable/qrcode" />
+
                 <LinearLayout
-                    android:id="@+id/myAsset_content"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toLeftOf="@id/ll_right"
-                    android:layout_toRightOf="@id/iv_zc"
+                    android:layout_marginLeft="32pt"
                     android:orientation="vertical">
 
 
@@ -94,366 +225,179 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Today's Note:"
+                                android:textColor="@color/t12"
+                                android:textSize="42pt" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{String.valueOf(assetBean.todayBanknote)}"
+                                android:textColor="@color/t3"
+                                android:textSize="42pt" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{assetBean.productName}"
-                            android:textColor="#000"
-                            android:textSize="30pt" />
+                            android:layout_marginLeft="110pt">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{isMaster?@string/zsj:@string/fsj}"
-                            android:textColor="@{isMaster?@color/c7:@color/c8}"
-                            android:textSize="15sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Today's Coin:"
+                                android:textColor="@color/t12"
+                                android:textSize="42pt" />
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{String.valueOf(assetBean.todayCoin)}"
+                                android:textColor="@color/t3"
+                                android:textSize="42pt" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{assetBean.divideRate+@string/present}"
-                            android:textSize="15sp" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="@{@string/jqbm+assetBean.productNumber}"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:text='@{@string/jqdz+":"+assetBean.machineAddress}'
-                        android:textSize="12sp" />
-
-                    <include layout="@layout/layout_divider3" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="36pt">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text='@{@string/jrtb+":"+assetBean.todayCoin}'
-                            android:textSize="25pt" />
+                            android:text="Today's Shared Income:"
+                            android:textColor="@color/t12"
+                            android:textSize="42pt" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:text='@{@string/jrfc+":"+assetBean.divideIncome}'
-                            android:textSize="25pt" />
+                            android:text="@{String.valueOf(assetBean.coinDivideIncome)}"
+                            android:textColor="@color/t3"
+                            android:textSize="42pt" />
 
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text='@{@string/jrzc+":"+assetBean.todayBanknote}'
-                            android:textSize="25pt" />
-
-                    </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:visibility='@{assetBean.productNumber.contains("4G")||assetBean.productNumber.contains("4g")?View.VISIBLE:View.GONE}'>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text='@{@string/commodityNumber+":"+assetBean.commodityRoadCount}'
-                            android:textSize="25pt" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:text='@{@string/sumStock+":"+assetBean.sumStock}'
-                            android:textSize="25pt" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:visibility='@{assetBean.productNumber.contains("4G")||assetBean.productNumber.contains("4g")?View.VISIBLE:View.GONE}'>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text='@{@string/tlbl+":"+"0/0"}'
-                            android:textSize="25pt" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:text='@{@string/currentStock+":"++assetBean.currentStock}'
-                            android:textSize="25pt" />
-
-                    </RelativeLayout>
-
+                    </LinearLayout>
 
                 </LinearLayout>
 
 
-            </RelativeLayout>
-
-            <include layout="@layout/layout_divider2" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:divider="@drawable/divider2"
+                android:layout_marginTop="130pt"
+                android:background="@drawable/shape_b1"
+                android:divider="@drawable/divider_a2"
                 android:orientation="vertical"
-                android:showDividers="middle">
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt"
+                android:showDividers="middle|end">
 
-                <RelativeLayout
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
-                    android:onClick="@{()->fragment.assetConfig(1)}">
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->fragment.assetConfig(1)}"
+                    android:text="Income Share Setting"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        android:id="@+id/revenueconfig"
-                        style="@style/tv1"
-                        android:text="@string/revenueSetting" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
                     android:onClick="@{()->fragment.assetConfig(2)}"
-                    android:visibility='@{assetBean.productNumber.contains("4G")||assetBean.productNumber.contains("4g")?View.GONE:View.VISIBLE}'>
+                    android:text="Pricing"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        android:id="@+id/et_price"
-                        style="@style/tv1"
-                        android:text="@string/editPrice" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
-                    android:onClick="@{()->fragment.assetConfig(3)}">
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->fragment.assetConfig(3)}"
+                    android:text="Product Details"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        android:id="@+id/et_asset"
-                        style="@style/tv1"
-                        android:text="@string/editProductInfo" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
                     android:onClick="@{()->fragment.assetConfig(4)}"
-                    >
+                    android:text="Volume"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        android:id="@+id/et_voice"
-                        style="@style/tv1"
-                        android:text="@string/et_voice" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
                     android:onClick="@{()->fragment.assetConfig(5)}"
-                    >
+                    android:text="Product Operation Price(Per Cycle)"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        android:id="@+id/et_jv"
-                        style="@style/tv1"
-                        android:text="@string/et_jv" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
                     android:onClick="@{()->fragment.assetConfig(6)}"
-                   >
+                    android:text="Currency"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        style="@style/tv1"
-                        android:text="@string/et_coin" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-
-                </RelativeLayout>
-
-
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{()->fragment.assetConfig(13)}"
-                    >
-
-                    <TextView
-                        style="@style/tv1"
-                        android:text="@string/blsz" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-
-                </RelativeLayout>
-
-
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
                     android:onClick="@{()->fragment.assetConfig(7)}"
-                    android:visibility='@{assetBean.productNumber.contains("4G")||assetBean.productNumber.contains("4g")?View.GONE:View.VISIBLE}'>
+                    android:text="Proportion"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
-                    <TextView
-                        android:id="@+id/yjpw"
-                        style="@style/tv1"
-                        android:text="@string/yjpw" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="@{isMaster?true:false}"
+                    android:layout_height="150pt"
+                    android:gravity="center_vertical"
                     android:onClick="@{()->fragment.assetConfig(8)}"
-                    android:visibility='@{assetBean.productNumber.contains("4G")||assetBean.productNumber.contains("4g")?View.VISIBLE:View.GONE}'>
-
-                    <TextView
-                        style="@style/tv1"
-                        android:text="@string/zbcspz" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{()->fragment.assetConfig(9)}"
-                    android:visibility='@{assetBean.productNumber.contains("4G")||assetBean.productNumber.contains("4g")?View.VISIBLE:View.GONE}'>
-
-                    <TextView
-                        style="@style/tv1"
-                        android:text="@string/hdxq" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/back3" />
-                </RelativeLayout>
-
-
+                    android:text="Mainenance"
+                    android:textColor="@color/t4"
+                    android:textSize="46pt" />
 
 
             </LinearLayout>
 
-
-            <RelativeLayout
+            <TextView
+                android:id="@+id/unBind"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/bg3"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
-
-                <Button
-                    android:id="@+id/relieve_product"
-                    style="@style/btn3"
-                    android:layout_centerInParent="true"
-                    android:visibility="@{isMaster?View.VISIBLE:View.GONE}" />
-
-            </RelativeLayout>
+                android:layout_height="180pt"
+                android:layout_marginLeft="60pt"
+                android:layout_marginTop="60pt"
+                android:layout_marginRight="60pt"
+                android:background="@drawable/bg_a1"
+                android:gravity="center"
+                android:text="UNBIND"
+                android:textColor="@android:color/white"
+                android:textSize="35pt" />
 
         </LinearLayout>
-    </com.southernbox.springscrollview.SpringScrollView>
+
+
+    </FrameLayout>
 
 </layout>

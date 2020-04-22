@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
-
 import com.example.godcode.R;
 import com.example.godcode.databinding.FragmentMainBinding;
 import com.example.godcode.greendao.entity.Friend;
@@ -16,36 +15,25 @@ import com.example.godcode.observable.RxEvent;
 import com.example.godcode.ui.activity.BaseActivity;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.ui.base.GodCodeApplication;
-import com.example.godcode.ui.fragment.asset.AssetGroupFragment;
-import com.example.godcode.ui.fragment.bindproduct.BindProductFragment;
-import com.example.godcode.ui.fragment.deatailFragment.AddFriendFragment;
-import com.example.godcode.ui.fragment.deatailFragment.BalanceFragment;
-import com.example.godcode.ui.fragment.deatailFragment.BankCardFragment;
-import com.example.godcode.ui.fragment.deatailFragment.ContactDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.GatheringFragment;
-import com.example.godcode.ui.fragment.deatailFragment.MyAgent;
-import com.example.godcode.ui.fragment.deatailFragment.NewFriendFragment;
-import com.example.godcode.ui.fragment.deatailFragment.PayMentFragment;
-import com.example.godcode.ui.fragment.deatailFragment.PresonalFragment;
-import com.example.godcode.ui.fragment.deatailFragment.ProductCenterFragment;
-import com.example.godcode.ui.fragment.deatailFragment.ServiceRemainderFragment;
-import com.example.godcode.ui.fragment.pwd.SetPayPsdFragment;
-import com.example.godcode.ui.fragment.deatailFragment.SettingFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TransationRecordFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TransferAccountDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TxSuccessFragment;
-import com.example.godcode.ui.fragment.deatailFragment.VisitingCardFragment;
-import com.example.godcode.ui.fragment.deatailFragment.YSJLFragment;
-import com.example.godcode.ui.fragment.mainActivity.FriendFragment;
+import com.example.godcode.ui.fragment.newui.BindProductFragment;
+import com.example.godcode.ui.fragment.newui.asset.AssetGroupFragment;
+import com.example.godcode.ui.fragment.newui.AddFriendFragment;
+import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
+import com.example.godcode.ui.fragment.newui.NewFriendFragment;
+import com.example.godcode.ui.fragment.newui.PresonalFragment;
+import com.example.godcode.ui.fragment.newui.ServiceRemainderFragment;
+import com.example.godcode.ui.fragment.newui.SettingFragment;
+import com.example.godcode.ui.fragment.newui.YSJLFragment;
+import com.example.godcode.ui.fragment.newui.main.FriendFragment;
 import com.example.godcode.ui.view.widget.ExitDialog;
-import com.example.godcode.ui.view.QrcodeDialog;
+import com.example.godcode.ui.view.widget.QrcodeDialog;
 import com.example.godcode.utils.CommonUtil;
 import com.google.zxing.activity.CaptureActivity;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Presenter {
+
     FragmentManager fm;
 
     public BaseActivity getActivity() {
@@ -68,12 +56,6 @@ public class Presenter {
                 rxEvent.setId(friend.getUserId());
                 RxBus.getInstance().post(rxEvent);
                 back();
-                break;
-            case 3:
-                //进入转账详情界面
-                TransferAccountDetailFragment transferAccountDetailFragment = new TransferAccountDetailFragment();
-                transferAccountDetailFragment.initData(friend.getUserId(), 0, 2);
-                step2Fragment(transferAccountDetailFragment, "tadf");
                 break;
             default:
                 ContactDetailFragment cdf = new ContactDetailFragment();
@@ -186,23 +168,8 @@ public class Presenter {
                 case "myAsset":
                     fragment = new AssetGroupFragment();
                     break;
-                case "productCenter":
-                    fragment = new ProductCenterFragment();
-                    break;
-                case "payment":
-                    fragment = new PayMentFragment();
-                    break;
-                case "gathering":
-                    fragment = new GatheringFragment();
-                    break;
                 case "serviceRemainder":
                     fragment = new ServiceRemainderFragment();
-                    break;
-                case "bankCard":
-                    fragment = new BankCardFragment();
-                    break;
-                case "transationRecord":
-                    fragment = new TransationRecordFragment();
                     break;
                 case "setting":
                     fragment = new SettingFragment();
@@ -210,29 +177,14 @@ public class Presenter {
                 case "personal":
                     fragment = new PresonalFragment();
                     break;
-                case "balance":
-                    fragment = new BalanceFragment();
-                    break;
-                case "txSuccess":
-                    fragment = new TxSuccessFragment();
-                    break;
                 case "newFriend":
                     fragment = new NewFriendFragment();
                     break;
                 case "addFriend":
                     fragment = new AddFriendFragment();
                     break;
-                case "visitingcard":
-                    fragment = new VisitingCardFragment();
-                    break;
-                case "setPayPsd":
-                    fragment = new SetPayPsdFragment();
-                    break;
                 case "bindProduct":
                     fragment = new BindProductFragment();
-                    break;
-                case "myAgent":
-                    fragment = new MyAgent();
                     break;
             }
             fragmentMap.put(name, fragment);
@@ -252,12 +204,6 @@ public class Presenter {
                 activity.requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
         }
-    }
-
-    public void step2Ysjl(int type) {
-        YSJLFragment ysjlFragment = new YSJLFragment();
-        ysjlFragment.initData(type);
-        fm.beginTransaction().replace(R.id.mainActivity_fragmentContainer, ysjlFragment).addToBackStack("ysjl").commit();
     }
 
     private ArrayList<BaseFragment> fragments = new ArrayList<>();

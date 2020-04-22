@@ -22,98 +22,327 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.asset.BaseAssetFragment" />
+            type="com.example.godcode.ui.fragment.newui.asset.BaseAssetFragment" />
 
         <variable
-            name="assetData"
-            type="com.example.godcode.ui.fragment.asset.AssetData" />
-
-        <variable
-            name="title"
-            type="String" />
+            name="data"
+            type="com.example.godcode.bean.MyAssetList.ResultBean" />
 
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/bg_main">
 
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/bg5"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:gravity="center_vertical">
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/back" />
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:src="@drawable/fanhui" />
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:maxEms="5"
-                android:singleLine="true"
-                android:text="@{title}"
-                android:textColor="#fff"
-                android:textSize="20sp" />
+                android:text="My Product"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
 
+        </LinearLayout>
 
-            <FrameLayout
-                android:id="@+id/option"
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true">
-
-                <TextView
-                    android:id="@+id/tv_option"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textColor="#fff"
-                    android:textSize="15sp" />
-
-                <ImageView
-                    android:id="@+id/iv_option"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/config"
-                    android:layout_gravity="center" />
-
-
-            </FrameLayout>
-
-
-        </RelativeLayout>
-
-        <include
-            layout="@layout/asset_head"
-            bind:assetData="@{assetData}"
-            bind:fcArray="@{fcArray}"
-            bind:fragment="@{fragment}"
-            bind:selectPosition="@{selectPosition}"
-            bind:tbArray="@{tbArray}"
-            bind:zcArray="@{zcArray}" />
-
-
-        <com.example.godcode.ui.view.MyListView
-            android:id="@+id/lv_detail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@color/bg2"
-            android:dividerHeight="5dp" />
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a2"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="TODAY"
+                        android:textStyle="bold"
+                        android:textColor="@{selectPosition==1?@color/t10:@color/t17}"
+                        android:onClick="@{()->fragment.selectDate(1)}"
+                        android:textSize="38pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:singleLine="true"
+                        android:text="YESTERDAY"
+                        android:textStyle="bold"
+                        android:textColor="@{selectPosition==2?@color/t10:@color/t17}"
+                        android:onClick="@{()->fragment.selectDate(2)}"
+                        android:textSize="38pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:singleLine="true"
+                        android:text="THIS WEEK"
+                        android:textStyle="bold"
+                        android:onClick="@{()->fragment.selectDate(3)}"
+                        android:textColor="@{selectPosition==3?@color/t10:@color/t17}"
+                        android:textSize="38pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:singleLine="true"
+                        android:text="THIS MONTH"
+                        android:textStyle="bold"
+                        android:onClick="@{()->fragment.selectDate(4)}"
+                        android:textColor="@{selectPosition==4?@color/t10:@color/t17}"
+                        android:textSize="38pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:singleLine="true"
+                        android:text="TOTAL"
+                        android:textStyle="bold"
+                        android:onClick="@{()->fragment.selectDate(5)}"
+                        android:textColor="@{selectPosition==5?@color/t10:@color/t17}"
+                        android:textSize="38pt" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80pt"
+                    android:background="@drawable/shape_a8"
+                    android:gravity="center_vertical"
+                    android:paddingTop="67pt"
+                    android:paddingBottom="67pt">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:text="Today's shared income:"
+                        android:textColor="@color/t11"
+                        android:textSize="52pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="75pt"
+                        android:text="@{String.valueOf(data.dividedMoney)}"
+                        android:textColor="@color/t3"
+                        android:textSize="78pt"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55pt">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(data.paperCoinCount)}"
+                            android:textColor="@color/t3"
+                            android:textSize="40pt"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Note Received Today"
+                            android:textColor="@color/t2"
+                            android:textSize="41pt" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(data.coinCount)}"
+                            android:textColor="@color/t3"
+                            android:textSize="40pt"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coin Received Today"
+                            android:textColor="@color/t2"
+                            android:textSize="41pt" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="130pt"
+                android:background="@drawable/shape_a9"
+                android:orientation="vertical"
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70pt">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total :"
+                            android:textColor="@color/t12"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10pt"
+                            android:text="@{String.valueOf(data.count)}"
+                            android:textColor="@color/t4"
+                            android:textSize="35pt" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="27pt"
+                            android:layout_height="27pt"
+                            android:src="@drawable/ic_online" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15pt"
+                            android:text="Online:"
+                            android:textColor="@color/t12"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10pt"
+                            android:text="@{String.valueOf(data.normalCount)}"
+                            android:textColor="@color/t4"
+                            android:textSize="35pt" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="27pt"
+                            android:layout_height="27pt"
+                            android:src="@drawable/ic_offine" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15pt"
+                            android:text="Offline:"
+                            android:textColor="@color/t12"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10pt"
+                            android:text="@{String.valueOf(data.errorCount)}"
+                            android:textColor="@color/t4"
+                            android:textSize="35pt" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3pt"
+                    android:layout_marginTop="80pt"
+                    android:background="@color/d3" />
+
+
+                <ListView
+                    android:id="@+id/lv_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/lv_divider1"
+                    android:scrollbars="none" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
 </layout>

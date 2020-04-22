@@ -1,11 +1,16 @@
 package com.example.godcode.catche.Loader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.ImageView;
+
 import com.example.godcode.catche.Creator.RequestCreator;
 import com.example.godcode.bean.ImageBean;
+import com.example.godcode.utils.ImagUtil;
+
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -15,10 +20,13 @@ public class RxImageLoader {
     static RxImageLoader singleton;
     private String mUrl;
     private RequestCreator requestCreator;
+    private int type;
+
 
     //防止用户可以创建该对象
     private RxImageLoader(Builder builder) {
         requestCreator = new RequestCreator(builder.mContext);
+        this.type = builder.type;
     }
 
     public static RxImageLoader with(Context context) {
@@ -37,7 +45,7 @@ public class RxImageLoader {
         return singleton;
     }
 
-    public void into(final ImageView imageView) {
+    public void into(final ImageView imageView, int type) {
         Observable
                 .concat(
                         requestCreator.getImageFromMemory(mUrl),
@@ -52,8 +60,17 @@ public class RxImageLoader {
 
                     @Override
                     public void onNext(ImageBean imageBean) {
-                        if (imageBean.getBitmap() != null) {
-                            imageView.setBackground(new BitmapDrawable(imageBean.getBitmap()));
+                        Bitmap bitmap = imageBean.getBitmap();
+                        if (bitmap != null) {
+                            if (type == 2) {
+                                imageView.setImageBitmap(bitmap);
+                            } else if (type == 1) {
+                                imageView.setBackground(new BitmapDrawable(bitmap));
+                            } else if (type == 3) {
+                                Drawable drawable = ImagUtil.conner(bitmap);
+                                imageView.setImageDrawable(drawable);
+                            }
+
                         }
                     }
 
@@ -85,8 +102,15 @@ public class RxImageLoader {
 
         private Context mContext;
 
+        private int type;
+
         public Builder(Context mContext) {
             this.mContext = mContext;
+        }
+
+        public Builder type(int type) {
+            this.type = type;
+            return this;
         }
 
         public RxImageLoader build() {

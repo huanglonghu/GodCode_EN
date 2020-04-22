@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170pt"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="50pt"
+                android:layout_height="74pt"
+                android:padding="10pt"
+                android:src="@drawable/back_a2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="56pt"
+                android:layout_toRightOf="@id/back"
+                android:text="Add New"
+                android:textColor="@color/t6"
+                android:textSize="37pt" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a4"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="160pt"
+                    android:text="NAME"
+                    android:textColor="#000"
+                    android:textSize="30pt" />
+
+
+                <EditText
+                    android:id="@+id/product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="180pt"
+                    android:layout_marginTop="42pt"
+                    android:background="@drawable/shape_a5"
+                    android:gravity="center_vertical"
+                    android:hint="Sear the name"
+                    android:paddingLeft="60pt"
+                    android:textSize="35pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="77pt"
+                    android:text="PERCENTAGE"
+                    android:textColor="#000"
+                    android:textSize="30pt" />
+
+
+                <EditText
+                    android:id="@+id/product_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="180pt"
+                    android:layout_marginTop="42pt"
+                    android:background="@drawable/shape_a5"
+                    android:gravity="center_vertical"
+                    android:hint="Amount"
+                    android:paddingLeft="60pt"
+                    android:textSize="35pt" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="100pt"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="180pt"
+                    android:background="@drawable/shape_a6"
+                    android:gravity="center"
+                    android:text="CANCEL"
+                    android:textColor="@color/t9"
+                    android:textSize="33pt" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="180pt"
+                    android:layout_marginTop="45pt"
+                    android:background="@drawable/shape_a7"
+                    android:gravity="center"
+                    android:text="ADD"
+                    android:textColor="@android:color/white"
+                    android:textSize="33pt" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+</layout>

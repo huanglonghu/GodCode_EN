@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import com.example.godcode.bean.LoginBody;
 import com.example.godcode.bean.LoginResponse;
 import com.example.godcode.bean.RegisterBody;
@@ -16,7 +15,7 @@ import com.example.godcode.http.HttpUtil;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.activity.MainActivity;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.loginActivity.RegisterFragment;
+import com.example.godcode.ui.fragment.newui.login.RegisterFragment;
 import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 import com.google.gson.Gson;

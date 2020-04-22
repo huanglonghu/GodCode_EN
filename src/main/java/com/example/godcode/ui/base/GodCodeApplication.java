@@ -7,13 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.multidex.MultiDex;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-
 import com.example.godcode.constant.Constant;
 import com.example.godcode.greendao.gen.DaoMaster;
 import com.example.godcode.greendao.gen.DaoSession;
 import com.example.godcode.service.PushIntentService;
 import com.example.godcode.utils.LogUtil;
-import com.example.godcode.utils.RemberPsd;
 import com.example.godcode.utils.RudenessScreenHelper;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.commonsdk.UMConfigure;
@@ -88,7 +86,6 @@ public class GodCodeApplication extends Application {
         mWindowManager.getDefaultDisplay().getMetrics(metric);
         windownWidth = metric.widthPixels;
         windowHeight = metric.heightPixels;
-        RemberPsd.getInstance().init(getApplicationContext());
     }
 
     private int windownWidth;

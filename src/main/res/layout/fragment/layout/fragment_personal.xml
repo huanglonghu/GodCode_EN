@@ -14,262 +14,146 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.deatailFragment.PresonalFragment" />
+            type="com.example.godcode.ui.fragment.newui.PresonalFragment" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="60pt"
+        android:paddingRight="60pt">
 
-        <include
-            android:id="@+id/personal_toolbar"
-            layout="@layout/layout_toolbar2"
-            bind:presenter="@{presenter}"
-            bind:title="@{@string/grxx}" />
 
-        <include layout="@layout/layout_divider" />
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="307pt"
+            android:layout_height="307pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="242pt" />
 
-        <RelativeLayout
-            android:id="@+id/rl_headImage"
-            android:layout_width="match_parent"
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/bg1"
-            android:gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="10dp">
+            android:layout_marginTop="130pt"
+            android:text="USERNAME"
+            android:textColor="#000"
+            android:textSize="30pt" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="@string/head"
-                android:textColor="#000"
-                android:textSize="15sp" />
-
-            <ImageView
-                android:id="@+id/iv_user"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-
-
-        </RelativeLayout>
-
-        <include layout="@layout/layout_divider" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/bg1"
-            android:divider="@drawable/divider2"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:showDividers="middle">
+            android:layout_height="180pt"
+            android:layout_marginTop="40pt"
+            android:background="@drawable/shape_a5"
+            android:gravity="center_vertical">
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:onClick="@{()->fragment.editPersonal(1)}">
+            <ImageView
+                android:layout_width="46pt"
+                android:layout_height="52pt"
+                android:layout_marginLeft="80pt"
+                android:src="@drawable/ico_name" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center_vertical"
-                    android:text="@string/userName"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+            <EditText
+                android:id="@+id/et_userName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="62pt"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Username"
+                android:text="@{user.userName}"
+                android:textSize="33pt" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_userName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_alignParentRight="true"
-                        android:gravity="center_vertical"
-                        android:text="@{user.userName}"
-                        android:textColor="#000"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/back3" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center_vertical"
-                    android:text="@string/wdsyh"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:gravity="center_vertical"
-                    android:text="@{user.syNumber}"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:onClick="@{()->presenter.step2Fragment(&quot;visitingcard&quot;)}">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center_vertical"
-                    android:text="@string/myQrcode"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/qrcode" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/back3" />
-
-                </LinearLayout>
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:onClick="@{()->fragment.editPersonal(2)}"
-                android:tag="2">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center_vertical"
-                    android:text="@string/sex"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_sex"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:text="@{user.sex}"
-                        android:textColor="#000"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/back3" />
-
-                </LinearLayout>
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:onClick="@{()->fragment.editPersonal(3)}"
-                android:tag="3">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center_vertical"
-                    android:text="@string/area"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_area"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:text="@{user.area}"
-                        android:textColor="#000"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/back3" />
-
-                </LinearLayout>
-
-
-            </RelativeLayout>
 
         </LinearLayout>
 
-        <include layout="@layout/layout_divider" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44pt"
+            android:text="EMAIL"
+            android:textColor="#000"
+            android:textSize="30pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180pt"
+            android:layout_marginTop="44pt"
+            android:background="@drawable/shape_a5"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:layout_width="56pt"
+                android:layout_height="46pt"
+                android:layout_marginLeft="80pt"
+                android:src="@drawable/ico_emall" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="62pt"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Email"
+                android:text="@{user.emailAddress}"
+                android:textSize="33pt" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44pt"
+            android:text="PHONE NUMBER"
+            android:textColor="#000"
+            android:textSize="30pt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180pt"
+            android:layout_marginTop="44pt"
+            android:background="@drawable/shape_a5"
+            android:gravity="center_vertical">
+
+
+            <ImageView
+                android:layout_width="66pt"
+                android:layout_height="66pt"
+                android:layout_marginLeft="80pt"
+                android:src="@drawable/ico_line" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="62pt"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="PhoneNumber"
+                android:text="@{user.phoneNumer}"
+                android:textSize="33pt" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="180pt"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="60pt"
+            android:background="@drawable/btn_login2"
+            android:gravity="center"
+            android:text="UPDATE"
+            android:textColor="#fff"
+            android:textSize="33pt" />
 
 
     </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.godcode.catche.catcheObservable;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import com.example.godcode.bean.ImageBean;
 import com.example.godcode.utils.DiskCacheUtils;
@@ -19,7 +20,6 @@ import java.net.URL;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
 
 public class DiskCacheObservable extends CacheObservable {

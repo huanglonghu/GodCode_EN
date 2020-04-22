@@ -14,7 +14,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.asset.RevenueConfigFragment" />
+            type="com.example.godcode.ui.fragment.newui.asset.RevenueConfigFragment" />
 
         <variable
             name="name"
@@ -22,85 +22,69 @@
 
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#fff"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/revenueconfig_toolbar"
-            layout="@layout/layout_toolbar2"
-            bind:presenter="@{presenter}"
-            bind:title="@{@string/revenueSetting}" />
-
         <RelativeLayout
-            android:id="@+id/rl_top"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:gravity="center_vertical"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170pt"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="50pt"
+                android:layout_height="74pt"
+                android:padding="10pt"
+                android:src="@drawable/back_a2" />
 
             <TextView
-                android:id="@+id/main_seller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text='@{@string/zsj+"-"+name}'
-                />
+                android:layout_marginLeft="56pt"
+                android:layout_toRightOf="@id/back"
+                android:text="Income Shared Percentage"
+                android:textColor="@color/t6"
+                android:textSize="48pt"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/main_business"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="@{String.valueOf(mainPresent)}"
-                android:textColor="#000" />
 
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/rl_top"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a4"
+            android:orientation="vertical"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/bg3"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:text="@string/fcsj" />
 
             <ListView
-                android:id="@+id/lv_revenueconfig"
+                android:id="@+id/lvRevenueconfig"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/bg3"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <Button
+            <TextView
                 android:id="@+id/addRevenue"
-                style="@style/btn2"
-                android:text="@string/add" />
-
-            <Button
-                android:id="@+id/commit_revenue"
-                style="@style/btn1"
-                android:layout_marginTop="20dp"
-                android:text="@string/qr" />
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_marginBottom="100pt"
+                android:background="@drawable/shape_a6"
+                android:gravity="center"
+                android:text="ADD NEW"
+                android:textColor="@color/t9"
+                android:textSize="33pt" />
 
         </LinearLayout>
 
-    </LinearLayout>
+
+    </FrameLayout>
 </layout>

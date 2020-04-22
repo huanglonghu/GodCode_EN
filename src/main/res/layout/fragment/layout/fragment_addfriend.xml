@@ -9,69 +9,90 @@
             type="com.example.godcode.presenter.Presenter" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/addFriend_toolBar"
-            layout="@layout/layout_toolbar2"
-            bind:presenter="@{presenter}" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:background="#f0eff5" />
-
+        android:background="@drawable/bg_main">
 
         <LinearLayout
-            android:id="@+id/addFriend_search"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_search"
-            android:gravity="center">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:gravity="center_vertical">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="30dp"
-                android:src="@drawable/search" />
+                android:id="@+id/back"
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:onClick="@{()->presenter.back()}"
+                android:src="@drawable/fanhui" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="@string/search" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#f0eff5"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv_mySmNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                 />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/qrcode"
-                android:onClick="@{()->presenter.step2Fragment(&quot;visitingcard&quot;)}"
-                />
+                android:text="Add Friends"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
 
         </LinearLayout>
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#f0eff5" />
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a2"
+            android:orientation="vertical">
 
-    </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/addFriend_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="60pt"
+                android:gravity="center">
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="SY.NO/Telephone.NO" />
+
+
+                <ImageView
+                    android:layout_width="57pt"
+                    android:layout_height="57pt"
+                    android:src="@drawable/search2" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_mySmNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MY SY No:" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/qrcode" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
 </layout>

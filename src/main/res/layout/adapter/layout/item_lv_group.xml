@@ -15,11 +15,6 @@
             name="periodType"
             type="int" />
 
-
-        <variable
-            name="fcArray"
-            type="String[]" />
-
         <variable
             name="tbArray"
             type="String[]" />
@@ -34,111 +29,156 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center_vertical"
-        android:padding="10dp">
+        android:layout_height="wrap_content"
+        android:paddingTop="44pt"
+        android:paddingBottom="60pt">
 
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.3">
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="186pt"
+            android:layout_height="186pt"
+            android:background="@drawable/shape_b9" />
 
-            <ImageView
-                android:id="@+id/iv_photo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50pt"
+            android:orientation="vertical">
 
-
-            <RelativeLayout
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_photo">
+                android:layout_height="wrap_content"
+                android:text="@{bean.userName}"
+                android:textColor="@color/t4"
+                android:textSize="53pt" />
 
-                <TextView
-                    android:id="@+id/groupName"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:maxEms="5"
-                    android:singleLine="true"
-                    android:text="@{bean.userName}"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35pt"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:text='@{"("+(bean.offlineCount+bean.onlineCount)+")"}'
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textSize="12sp" />
+                    android:text='@{(bean.offlineCount+bean.onlineCount)+" Products"}'
+                    android:textColor="@color/t12"
+                    android:textSize="34pt" />
 
 
-            </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="208pt"
+                    android:gravity="center_vertical">
 
-            <ImageView
-                android:id="@+id/edit_groupName"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:src="@drawable/edit" />
+                    <ImageView
+                        android:layout_width="27pt"
+                        android:layout_height="27pt"
+                        android:src="@drawable/ic_online" />
 
-        </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19pt"
+                        android:text="@{String.valueOf(bean.onlineCount)}"
+                        android:textColor="@color/t4"
+                        android:textSize="35pt" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="9pt"
+                    android:layout_height="24pt"
+                    android:layout_marginLeft="74pt"
+                    android:layout_marginRight="74pt"
+                    android:src="@drawable/ic_spilt" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="27pt"
+                        android:layout_height="27pt"
+                        android:src="@drawable/ic_offine" />
 
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19pt"
+                        android:text="@{String.valueOf(bean.offlineCount)}"
+                        android:textColor="@color/t4"
+                        android:textSize="34pt" />
 
-            <TextView
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text='@{zcArray[(periodType-1)]+" : "+bean.todayBanknote}'
-                android:textSize="30pt" />
+                android:layout_marginTop="58pt"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text='@{tbArray[(periodType-1)]+" : "+bean.todayCoin}'
-                android:textSize="30pt" />
 
-        </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{tbArray[periodType]+":"}'
+                        android:textColor="@color/t12"
+                        android:textSize="42pt" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:text='@{@string/normal+":"+bean.onlineCount}'
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="12sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18pt"
+                        android:text="@{String.valueOf(bean.todayCoin)}"
+                        android:textColor="@color/t3"
+                        android:textSize="42pt" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text='@{@string/abnormal+":"+bean.offlineCount}'
-                android:textColor="@android:color/holo_red_dark"
-                android:textSize="12sp" />
 
-        </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{zcArray[periodType]+":"}'
+                        android:textColor="@color/t12"
+                        android:textSize="42pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="18pt"
+                        android:text="@{String.valueOf(bean.todayBanknote)}"
+                        android:textColor="@color/t3"
+                        android:textSize="42pt" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 </layout>

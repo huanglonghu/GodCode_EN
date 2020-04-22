@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/b3"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="954pt"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60pt"
+            android:layout_marginRight="60pt"
+            android:background="@drawable/shape_b2"
+            android:orientation="vertical"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="96pt"
+                android:text="Volume"
+                android:textColor="@color/t5"
+                android:textSize="48pt" />
+
+            <SeekBar
+                android:id="@+id/seek"
+                android:layout_width="match_parent"
+                android:layout_height="130pt"
+                android:layout_marginTop="165pt"
+                android:background="@null"
+                android:maxHeight="1.5dp"
+                android:minHeight="1.5dp"
+                android:progressDrawable="@drawable/seek_progress"
+                android:thumb="@drawable/seek_thumb" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43pt">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="1"
+                    android:textColor="@color/t5"
+                    android:textSize="34pt" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="2"
+                    android:textColor="@color/t5"
+                    android:textSize="34pt" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="3"
+                    android:textColor="@color/t5"
+                    android:textSize="34pt" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="4"
+                    android:textColor="@color/t5"
+                    android:textSize="34pt" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="212pt">
+
+                <TextView
+                    android:layout_width="410pt"
+                    android:layout_height="178pt"
+                    android:background="@drawable/shape_b3"
+                    android:gravity="center"
+                    android:text="CANCEL"
+                    android:textColor="@color/b2"
+                    android:textSize="34pt" />
+
+
+                <TextView
+                    android:layout_width="410pt"
+                    android:layout_height="178pt"
+                    android:layout_marginLeft="56pt"
+                    android:background="@drawable/shape_b4"
+                    android:gravity="center"
+                    android:text="DONE"
+                    android:textColor="@android:color/white"
+                    android:textSize="34pt" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

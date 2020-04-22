@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.WindowManager;
 import com.example.godcode.R;
 import com.example.godcode.databinding.LayoutNetstateBinding;
-import com.example.godcode.databinding.LayoutUpdateBinding;
 import com.example.godcode.presenter.Presenter;
 
 

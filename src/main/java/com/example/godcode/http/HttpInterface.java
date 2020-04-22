@@ -247,7 +247,7 @@ public interface HttpInterface {
     Call<ResponseBody> getGroup(@Query("UserId") int userId, @Query("PeriodType") int periodType);
 
     @GET("/api/services/app/MerchantOwner/GetPagedMobileMerchantOwnersOne")
-    Call<ResponseBody> getGroupById(@QueryMap Map<String, String> map);
+    Call<ResponseBody> getGroupById(@QueryMap Map<String, Integer> map);
 
     @POST("/api/services/app/GroupAppellation/CreateOrUpdate")
     Call<ResponseBody> editGroupItemName(@Body EditGroupItemName editGroupItemName);

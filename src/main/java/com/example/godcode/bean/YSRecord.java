@@ -1,5 +1,10 @@
 package com.example.godcode.bean;
 
+import android.text.TextUtils;
+import android.util.TimeUtils;
+
+import com.example.godcode.utils.TimeUtil;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -211,6 +216,11 @@ public class YSRecord {
             }
 
             public String getOrderDate() {
+
+                if(!TextUtils.isEmpty(orderDate)){
+                    orderDate= TimeUtil.getStringToDate2(orderDate);
+                }
+
                 return orderDate;
             }
 

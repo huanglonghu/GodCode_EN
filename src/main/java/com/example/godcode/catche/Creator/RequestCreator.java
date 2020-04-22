@@ -2,14 +2,12 @@ package com.example.godcode.catche.Creator;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
 import com.example.godcode.catche.catcheObservable.DiskCacheObservable;
 import com.example.godcode.catche.catcheObservable.MemoryCacheObservable;
 import com.example.godcode.catche.catcheObservable.NetworkCacheObservable;
 import com.example.godcode.bean.ImageBean;
-import com.example.godcode.http.HttpUtil;
-
 import io.reactivex.Observable;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 

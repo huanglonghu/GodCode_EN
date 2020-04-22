@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:src="@drawable/fanhui" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="542pt"
+            android:layout_height="125pt"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="662pt"
+            android:src="@drawable/title" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="800pt"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_a2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="104pt"
+                android:text="PLEASE INPUT YOUR EMAIL"
+                android:textColor="#000"
+                android:textSize="43pt" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_marginTop="44pt"
+                android:background="@drawable/shape_a5"
+                android:gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="46pt"
+                    android:layout_height="52pt"
+                    android:layout_marginLeft="80pt"
+                    android:src="@drawable/ico_emall" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="62pt"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Email"
+                    android:textSize="36pt" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/send"
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="68pt"
+                android:background="@drawable/btn_login2"
+                android:gravity="center"
+                android:text="SEND CODE"
+                android:textColor="#fff"
+                android:textSize="38pt"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="78pt">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resend : "
+                    android:textColor="@android:color/black"
+                    android:textSize="42pt" />
+
+                <TextView
+                    android:id="@+id/djs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/b2"
+                    android:textSize="42pt" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</layout>

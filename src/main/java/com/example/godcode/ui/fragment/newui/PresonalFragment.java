@@ -1,0 +1,129 @@
+package com.example.godcode.ui.fragment.newui;
+
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+import com.example.godcode.bean.EditPresonal;
+import com.example.godcode.R;
+import com.example.godcode.bean.UploadResponse;
+import com.example.godcode.catche.Loader.RxImageLoader;
+import com.example.godcode.databinding.FragmentPersonalBinding;
+import com.example.godcode.greendao.entity.User;
+import com.example.godcode.greendao.option.UserOption;
+import com.example.godcode.handler.ActivityResultHandler;
+import com.example.godcode.http.HttpUtil;
+import com.example.godcode.interface_.HandlerStrategy;
+import com.example.godcode.ui.base.BaseFragment;
+import com.example.godcode.constant.Constant;
+import com.example.godcode.ui.fragment.newui.main.MineFragment;
+import com.example.godcode.utils.GsonUtil;
+import okhttp3.MultipartBody;
+
+public class PresonalFragment extends BaseFragment {
+    private FragmentPersonalBinding binding;
+    private View view;
+    private User user;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if (binding == null) {
+            user = UserOption.getInstance().querryUser(Constant.userId);
+            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_personal, container, false);
+            binding.setFragment(this);
+            binding.setUser(user);
+            binding.setPresenter(presenter);
+            view = binding.getRoot();
+            initView();
+            initListener();
+        }
+        return view;
+    }
+
+
+    public void initListener() {
+        binding.ivHead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                new ActivityResultHandler.Builder().hadlerStrategy(new HandlerStrategy() {
+                    @Override
+                    public void onActivityResult(MultipartBody.Part filePart, Bitmap bitmap) {
+                        upload(filePart, bitmap);
+                    }
+                }).requestCode(ActivityResultHandler.REQUEST_SELECT_PHOTO).intent(intent).activity(activity).build().startActivityForResult();
+            }
+        });
+
+
+        binding.update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userName = binding.etUserName.getText().toString();
+                if (TextUtils.isEmpty(userName)) {
+                    Toast.makeText(activity, "The userName cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String email = binding.etEmail.getText().toString();
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(activity, "The email cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String phone = binding.etPhone.getText().toString();
+                if (TextUtils.isEmpty(phone)) {
+                    Toast.makeText(activity, "The phone cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                EditPresonal editPresonal = new EditPresonal();
+                HttpUtil.getInstance().editPresonal(editPresonal).subscribe();
+            }
+        });
+
+    }
+
+
+    public void initView() {
+        String headImageUrl = user.getHeadImageUrl();
+        if (!TextUtils.isEmpty(headImageUrl)) {
+            if (!headImageUrl.contains("http")) {
+                headImageUrl = Constant.baseUrl + headImageUrl;
+            }
+            RxImageLoader.with(activity).load(headImageUrl).into(binding.ivHead, 1);
+        } else {
+            binding.ivHead.setImageResource(R.drawable.contact_normal);
+        }
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+
+    public void upload(MultipartBody.Part filePart, Bitmap bitmap) {
+        binding.ivHead.setImageBitmap(bitmap);
+        HttpUtil.getInstance().upload(filePart, 2).subscribe(
+                uploadStr -> {
+                    UploadResponse uploadResponse = GsonUtil.getInstance().fromJson(uploadStr, UploadResponse.class);
+                    String headUrl = uploadResponse.getResult().get(0);
+                    EditPresonal editPresonal = new EditPresonal();
+                    editPresonal.setId(Constant.userId);
+                    editPresonal.setHeadImgUrl(Constant.baseUrl + headUrl);
+                    HttpUtil.getInstance().editPresonal(editPresonal).subscribe(
+                            editSuccess -> {
+                                user.setHeadImageUrl(Constant.baseUrl + headUrl);
+                                UserOption.getInstance().updateUser(user);
+
+                                MineFragment mineFragment = (MineFragment) presenter.getFragments().get(3);
+                                mineFragment.refreshData();
+                            }
+                    );
+                }
+        );
+    }
+}

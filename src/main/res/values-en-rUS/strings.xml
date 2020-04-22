@@ -256,32 +256,34 @@
     <string name="kfdh">Customer Service Number</string>
 
     <string-array name="fcArray">
-        <item>Today’s Shared Income</item>
-        <item>Yesterday’s Shared Income</item>
-        <item>Week’s Shared Income</item>
-        <item>Moth’s Shared Income</item>
+        <item>Today\'s Shared Income</item>
+        <item>Yesterday\'s Shared Income</item>
+        <item>Week\'s Shared Income</item>
+        <item>Moth\'s Shared Income</item>
         <item>Total Shared Income</item>
     </string-array>
 
     <string-array name="tbArray">
-        <item>Coin Received Today</item>
-        <item>Coin Received Yesterday</item>
-        <item>Coin Received Week</item>
-        <item>Coin Received Month</item>
-        <item>Coin Received Total</item>
+        <item>  </item>
+        <item>Today\'s Coin</item>
+        <item>Yesterday\'s Coin</item>
+        <item>Week\'s Coin</item>
+        <item>Moth\'s Coin</item>
+        <item>Total Coin</item>
     </string-array>
 
     <string-array name="zcArray">
-        <item>Note Received Today</item>
-        <item>Note Received Yesterday</item>
-        <item>Note Received Week</item>
-        <item>Note Received Month</item>
-        <item>Note Received Total</item>
+        <item>  </item>
+        <item>Today\'s Note</item>
+        <item>Yesterday\'s Note</item>
+        <item>Week\'s Note</item>
+        <item>Moth\'s Note</item>
+        <item>Total Note</item>
     </string-array>
-    <string name="jrfc">Today’s Shared Income</string>
-    <string name="zrfc">Yesterday’s Shared Income</string>
-    <string name="bzfc">Week’s Shared Income</string>
-    <string name="byfc">Moth’s Shared Income</string>
+    <string name="jrfc">Today\'s Shared Income</string>
+    <string name="zrfc">Yesterday\'s Shared Income</string>
+    <string name="bzfc">Week\'s Shared Income</string>
+    <string name="byfc">Moth\'s Shared Income</string>
     <string name="zfc">Total Shared Income</string>
 
     <string name="jrtb">Coin Received Today</string>

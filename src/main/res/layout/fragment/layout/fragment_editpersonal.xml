@@ -14,7 +14,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.deatailFragment.EditPresonalFragment" />
+            type="com.example.godcode.ui.fragment.newui.EditPresonalFragment" />
 
         <import type="android.view.View" />
 

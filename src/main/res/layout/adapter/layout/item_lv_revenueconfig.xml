@@ -9,7 +9,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.asset.RevenueConfigFragment" />
+            type="com.example.godcode.ui.fragment.newui.asset.RevenueConfigFragment" />
 
         <variable
             name="position"
@@ -20,72 +20,48 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:descendantFocusability="afterDescendants"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@{revenueDivideItem.name}"
-            android:textColor="#000"
-            android:textSize="15sp" />
 
-        <com.example.godcode.ui.view.customview.LastInputEditText
-            android:id="@+id/et_present"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_et_selector"
-            android:enabled="@{revenueDivideItem.id==null?true:false}"
-            android:gravity="center"
-            android:inputType="number"
-            android:text='@={revenueDivideItem.divideRate+""}'
-            />
-
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="186pt"
+            android:layout_height="186pt" />
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:padding="3dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="58pt"
+            android:layout_toRightOf="@id/iv"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/etDivide"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:onClick="@{()->fragment.alertDialog(position)}"
-                android:src="@drawable/et_config"
-                android:visibility="@{revenueDivideItem.id==null?View.INVISIBLE:View.VISIBLE}"
-                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{revenueDivideItem.name}"
+                android:textColor="@android:color/black"
+                android:textSize="50pt" />
 
-            <ImageView
-                android:id="@+id/deleteDivide"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:onClick="@{()->fragment.deleteDivideItem(revenueDivideItem)}"
-                android:src="@drawable/delete" />
-
-            <ImageView
-                android:id="@+id/transferDivide"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:onClick="@{()->fragment.transferDivide(position)}"
-                android:src="@drawable/transfer_divide" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32pt"
+                android:textColor="@color/t18"
+                android:textSize="40pt" />
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text='@{revenueDivideItem.divideRate+"%"}'
+            android:textColor="@color/t19"
+            android:textSize="44pt" />
 
-    </LinearLayout>
+
+    </RelativeLayout>
 </layout>

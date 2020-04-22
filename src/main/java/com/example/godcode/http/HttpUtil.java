@@ -49,13 +49,11 @@ import com.example.godcode.bean.UpdateFriend;
 import com.example.godcode.bean.WxPay;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.presenter.Presenter;
-import com.example.godcode.ui.view.NetLoading;
+import com.example.godcode.ui.view.widget.NetLoading;
 import com.example.godcode.ui.view.widget.ErrorDialog;
-import com.example.godcode.utils.ErrrCodeShow;
 import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -516,7 +514,7 @@ public class HttpUtil {
         return enqueueCall(call);
     }
 
-    public Observable<String> getGroupById(HashMap<String, String> map) {
+    public Observable<String> getGroupById(HashMap<String, Integer> map) {
         Call<ResponseBody> call = httpInterface.getGroupById(map);
         return enqueueCall(call);
     }

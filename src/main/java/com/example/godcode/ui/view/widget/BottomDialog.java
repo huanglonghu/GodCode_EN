@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import com.example.godcode.R;
 import com.example.godcode.databinding.LayoutProducttypeBinding;
 import com.example.godcode.presenter.Presenter;
-import com.example.godcode.ui.adapter.GridViewAdapter;
+import com.example.godcode.ui.fragment.newui.adapter.GridViewAdapter;
 
 import java.util.ArrayList;
 

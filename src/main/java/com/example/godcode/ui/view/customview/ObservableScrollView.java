@@ -4,13 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
 
-/**
- * 重写ScrollView对外抛出滑动监听数据
- * Create by: chenwei.li
- * Date: 2017/4/18
- * time: 10:55
- * Email: lichenwei.me@foxmail.com
- */
 public class ObservableScrollView extends ScrollView {
 
     /**

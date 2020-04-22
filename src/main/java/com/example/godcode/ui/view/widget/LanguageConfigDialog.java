@@ -12,15 +12,10 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.databinding.LayoutAirkissConfigBinding;
 import com.example.godcode.databinding.LayoutLangugeConfigBinding;
 import com.example.godcode.presenter.Presenter;
-import com.example.godcode.ui.base.GodCodeApplication;
-import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.NetUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 

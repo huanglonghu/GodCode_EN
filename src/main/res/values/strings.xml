@@ -125,8 +125,8 @@
     <string name="bankName">开户行</string>
     <string name="bankType">卡类型</string>
     <string name="next">下一步</string>
-    <string name="zsj">(主商家)</string>
-    <string name="fsj">(副商家)</string>
+    <string name="zsj">( Main Operator)</string>
+    <string name="fsj">( Sub Operator )</string>
 
     <string name="deleteFriend">删除好友</string>
     <string name="receivedRefund">您的退款已到账</string>
@@ -146,27 +146,29 @@
 
 
     <string-array name="fcArray">
-        <item>今日分成</item>
-        <item>昨日分成</item>
-        <item>本周分成</item>
-        <item>本月分成</item>
-        <item>总分成</item>
+        <item>Today\'s Shared Income</item>
+        <item>Yesterday\'s Shared Income</item>
+        <item>Week\'s Shared Income</item>
+        <item>Moth\'s Shared Income</item>
+        <item>Total Shared Income</item>
     </string-array>
 
     <string-array name="tbArray">
-        <item>今日投币</item>
-        <item>昨日投币</item>
-        <item>本周投币</item>
-        <item>本月投币</item>
-        <item>总投币</item>
+        <item>  </item>
+        <item>Today\'s Coin</item>
+        <item>Yesterday\'s Coin</item>
+        <item>Week\'s Coin</item>
+        <item>Moth\'s Coin</item>
+        <item>Total Coin</item>
     </string-array>
 
     <string-array name="zcArray">
-        <item>今日纸钞</item>
-        <item>昨日纸钞</item>
-        <item>本周纸钞</item>
-        <item>本月纸钞</item>
-        <item>总纸钞</item>
+        <item>  </item>
+        <item>Today\'s Note</item>
+        <item>Yesterday\'s Note</item>
+        <item>Week\'s Note</item>
+        <item>Moth\'s Note</item>
+        <item>Total Note</item>
     </string-array>
 
 
@@ -328,8 +330,6 @@
     <string name="parameterChange">参数调整</string>
 
 
-
-
     <string-array name="gameArray">
         <item>测试</item>
         <item>扭蛋机</item>
@@ -341,7 +341,7 @@
         <item>打枪机</item>
         <item>打地鼠</item>
     </string-array>
-    
+
     <string-array name="proportionArray">
 
         <item>1币1分</item>
@@ -356,17 +356,16 @@
 
 
     <string-array name="currencyArray">
-           <item>€ EUR</item>
-           <item>$ USD</item>
-           <item>¥ CNY</item>
-           <item>£ GBP</item>
+        <item>€ EUR</item>
+        <item>$ USD</item>
+        <item>¥ CNY</item>
+        <item>£ GBP</item>
     </string-array>
 
     <string name="wifiName">wifi名称</string>
     <string name="wifi_input_hint">请输入wifi密码</string>
 
     <string name="selectDate">选择日期</string>
-
 
 
     <string name="friendDetail">详细资料</string>
@@ -390,7 +389,6 @@
     <string name="bjfzmc">编辑分组名称</string>
 
 
-
     <string name="hint2">请输入分组名称</string>
     <string name="hint3">请输入比例</string>
 
@@ -399,23 +397,13 @@
 
     <string name="cn">中文</string>
     <string name="en">英文</string>
-    
+
     <string name="dqsy">当期收益</string>
-    
+
     <string name="sqsy">上期收益</string>
 
     <string name="zbcspz">主板参数配置</string>
     <string name="hdxq">货道详情</string>
 
-
-
-
-
-
-
-
-
-    
-    
 
 </resources>

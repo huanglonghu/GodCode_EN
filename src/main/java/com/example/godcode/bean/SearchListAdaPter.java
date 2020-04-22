@@ -15,8 +15,8 @@ import com.example.godcode.greendao.entity.Friend;
 import com.example.godcode.greendao.option.FriendOption;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.deatailFragment.ContactDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.UserFragment;
+import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
+import com.example.godcode.ui.fragment.newui.UserFragment;
 
 import java.util.ArrayList;
 
@@ -60,7 +60,7 @@ public class SearchListAdaPter extends BaseAdapter {
             if(!headImgUrl.contains("http")){
                 headImgUrl= Constant.baseUrl+headImgUrl;
             }
-            RxImageLoader.with(context).load(headImgUrl).into(binding.userPhoto);
+            RxImageLoader.with(context).load(headImgUrl).into(binding.userPhoto,1);
         } else {
             binding.userPhoto.setImageResource(R.drawable.contact_normal);
         }

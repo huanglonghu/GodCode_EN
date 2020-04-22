@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -27,12 +26,9 @@ import com.example.godcode.interface_.HandlerStrategy;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.activity.ClipImageActivity;
 import com.example.godcode.ui.base.BaseFragment;
-import com.example.godcode.ui.fragment.bindproduct.BindProductFragment;
-import com.example.godcode.ui.fragment.deatailFragment.ContactDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.OrderDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.SelectPackageFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TransferAccountDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.UserFragment;
+import com.example.godcode.ui.fragment.newui.BindProductFragment;
+import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
+import com.example.godcode.ui.fragment.newui.UserFragment;
 import com.example.godcode.utils.BitmapUtil;
 import com.example.godcode.utils.EncryptUtil;
 import com.example.godcode.utils.FileUtil;
@@ -49,11 +45,9 @@ import com.google.zxing.camera.PlanarYUVLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.decoding.RGBLuminanceSource;
 import com.google.zxing.qrcode.QRCodeReader;
-
 import java.io.File;
 import java.util.Hashtable;
 import java.util.List;
-
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -227,7 +221,7 @@ public class ActivityResultHandler {
 
         //如果是收款信息则跳转 付款界面 如果是产品信息 则跳转绑定产品界面 如果是好友信息 则跳转好友详情界面
         if (scanResult.contains("productNumber")) {
-            handlerProduct(fragment, scanResult);
+
         } else if (scanResult.contains("AndroidBoardPay?orderID")) {
             String[] split = scanResult.split("=");
             String orderId = split[split.length - 1];
@@ -244,18 +238,11 @@ public class ActivityResultHandler {
                                                 ProductScan.ResultBean productScanResult = productScan.getResult();
                                                 if (productScanResult.isIsBind()) {
                                                     if (productScanResult.isIsValid()) {
-                                                        OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
-                                                        Bundle bundle = new Bundle();
-                                                        bundle.putSerializable("orderResult", orderResult);
-                                                        bundle.putSerializable("productScanResult",productScanResult);
-                                                        orderDetailFragment.setArguments(bundle);
-                                                        stepFragment(orderDetailFragment, "orderDetail");
                                                     } else {
                                                         String errContext = productScanResult.getErrContext();
                                                         Toast.makeText(activity, errContext, Toast.LENGTH_SHORT).show();
                                                     }
                                                 } else {
-                                                    toBindProduct(productScanResult.getProductNumber(),fragment);
                                                 }
                                             }
                                         }
@@ -267,7 +254,7 @@ public class ActivityResultHandler {
             }
 
         } else {
-            handlerContact(scanResult);
+
         }
     }
 
@@ -385,56 +372,6 @@ public class ActivityResultHandler {
     }
 
 
-    @SuppressLint("CheckResult")
-    private void handlerProduct(BaseFragment fragment, String scanResult) {
-        String[] split = scanResult.split("=");
-        String productNumber = split[split.length - 1];
-        HttpUtil.getInstance().querryProduct(null, productNumber)
-                .subscribe(isBindStr -> {
-                            if (isBindStr.contains("\"success\":true")) {
-                                ProductScan productScan = GsonUtil.getInstance().fromJson(isBindStr, ProductScan.class);
-                                ProductScan.ResultBean productScanResult = productScan.getResult();
-                                if (productScanResult.isIsBind()) {
-                                    if (productScanResult.isIsValid()) {
-                                        List<ProductScan.ResultBean.ProductPackageListBean> productPackageList = productScanResult.getProductPackageList();
-                                        if (productPackageList != null && productPackageList.size() > 0||productScanResult.getIsFreePlay()==1) {
-                                            SelectPackageFragment selectPackageFragment = new SelectPackageFragment();
-                                            Bundle bundle = new Bundle();
-                                            bundle.putSerializable("productScanResult", productScanResult);
-                                            bundle.putBoolean("isFree",productScanResult.getIsFreePlay()==1);
-                                            selectPackageFragment.setArguments(bundle);
-                                            Presenter.getInstance().step2Fragment(selectPackageFragment, "selctPackage");
-                                        } else {
-                                            HttpUtil.getInstance().getOrderNumber(productScanResult.getId(), productScanResult.getMoney(), null)
-                                                    .subscribe(getOrderNumberStr -> {
-                                                                OrderDetail orderResult = GsonUtil.getInstance().fromJson(getOrderNumberStr, OrderDetail.class);
-                                                                OrderDetailFragment orderDetailFragment = new OrderDetailFragment();
-                                                                Bundle bundle = new Bundle();
-                                                                bundle.putSerializable("orderDetail", orderResult);
-                                                                bundle.putSerializable("productScanResult", productScanResult);
-                                                                orderDetailFragment.setArguments(bundle);
-                                                                stepFragment(orderDetailFragment, "orderDetail");
-                                                            }
-                                                    );
-                                        }
-
-
-                                    } else {
-                                        String errContext = productScanResult.getErrContext();
-                                        Toast.makeText(activity, errContext, Toast.LENGTH_SHORT).show();
-                                    }
-                                } else {
-                                    LogUtil.log("33333=======AAAAAAAAAAAAAAAA===========");
-                                    toBindProduct(productNumber,fragment);
-                                }
-                            } else {
-                                LogUtil.log("4444=======AAAAAAAAAAAAAAAA===========");
-                                toBindProduct(productNumber,fragment);
-                            }
-                        }
-                );
-
-    }
 
     private void stepFragment(BaseFragment fragment, String s) {
         fragmentManager.beginTransaction()
@@ -443,48 +380,8 @@ public class ActivityResultHandler {
                 .commitAllowingStateLoss();
     }
 
-    private void handlerContact(String scanResult) {
-        if (scanResult.contains("WeChatPay")) {
-            String cipherText = scanResult.split("Ciphertext=")[1];
-            cipherText = cipherText.replaceAll("~", "\\+").replaceAll("!", "/").replaceAll("-", "=");
-            String s = EncryptUtil.aesDecrypt(cipherText);
-            String[] split = s.split("\\|");
-            TransferAccountDetailFragment tadf = new TransferAccountDetailFragment();
-            double money = Double.parseDouble(split[2]);
-            int userId = Integer.parseInt(split[1]);
-            tadf.initData(userId, money, 3);
-            stepFragment(tadf, "tadf");
-        } else {
-            String a = scanResult.replaceAll("~", "\\+").replaceAll("!", "/").replaceAll("-", "=");
-            String s = EncryptUtil.aesDecrypt(a);
-            String[] split = s.split("\\|");
-            int id = Integer.parseInt(split[1]);
-            Friend friend = FriendOption.getInstance(activity).querryFriend(id);
-            if (friend == null) {
-                UserFragment userFragment = new UserFragment();
-                userFragment.initData(id);
-                stepFragment(userFragment, "user");
-            } else {
-                ContactDetailFragment cdf = new ContactDetailFragment();
-                cdf.initData(id);
-                stepFragment(cdf, "cdf");
-            }
-        }
-    }
-
-    private void toBindProduct(String productNumber,BaseFragment fragment) {
-        if (fragment instanceof BindProductFragment) {
-            BindProductFragment bindProductFragment = (BindProductFragment) fragment;
-            bindProductFragment.refreshProductNumber(productNumber);
-            return;
-        }else {
-            BindProductFragment bindProductFragment = (BindProductFragment) Presenter.getInstance().getFragment("bindProduct");
-            bindProductFragment.setProductNumber(productNumber);
-            stepFragment(bindProductFragment, "bindProduct");
-        }
 
 
-    }
 
 
 }

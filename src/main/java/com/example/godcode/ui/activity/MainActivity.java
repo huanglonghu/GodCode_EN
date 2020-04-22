@@ -7,11 +7,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.databinding.DataBindingUtil;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.widget.Toast;
 import com.example.godcode.R;
 import com.example.godcode.bean.RefreshDiviceToken;
@@ -28,24 +26,11 @@ import com.example.godcode.presenter.Presenter;
 import com.example.godcode.service.WebSocketService;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.auth.SelectAuthWay;
-import com.example.godcode.ui.fragment.bindproduct.BindProductFragment;
-import com.example.godcode.ui.fragment.deatailFragment.AddBankCardFragment;
-import com.example.godcode.ui.fragment.deatailFragment.MobileRechargeFragment;
-import com.example.godcode.ui.fragment.deatailFragment.OrderDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.PaySuccessFragment;
-import com.example.godcode.ui.fragment.deatailFragment.PresonalFragment;
-import com.example.godcode.ui.fragment.deatailFragment.RechargeFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TransationRecordDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TransferAccountDetailFragment;
-import com.example.godcode.ui.fragment.deatailFragment.TxFragment;
-import com.example.godcode.ui.fragment.deatailFragment.YSJLDetailFragment;
-import com.example.godcode.ui.fragment.mainActivity.HomeFragment;
-import com.example.godcode.ui.fragment.mainActivity.MainFragment;
-import com.example.godcode.ui.fragment.pwd.ResetPwd;
-import com.example.godcode.ui.view.PsdPopupWindow;
-import com.example.godcode.ui.view.UpdateDialog;
-import com.example.godcode.utils.PayPwdSetting;
+import com.example.godcode.ui.fragment.newui.PresonalFragment;
+import com.example.godcode.ui.fragment.newui.YSJLDetailFragment;
+import com.example.godcode.ui.fragment.newui.main.HomeFragment;
+import com.example.godcode.ui.fragment.newui.main.MainFragment;
+import com.example.godcode.ui.view.widget.UpdateDialog;
 import com.example.godcode.utils.SharepreferenceUtil;
 import java.util.concurrent.TimeUnit;
 import io.reactivex.Flowable;
@@ -64,7 +49,6 @@ public class MainActivity extends BaseActivity {
     public void init() {
         HttpUtil.getInstance().init(this);
         changeAppLanguage();
-        PayPwdSetting.getInstance().initContext(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainFragment mainFragment = new MainFragment();
         supportFragmentManager = getSupportFragmentManager();
@@ -190,12 +174,8 @@ public class MainActivity extends BaseActivity {
                 home.addCategory(Intent.CATEGORY_HOME);
                 startActivity(home);
                 return true;
-            } else if (fragment instanceof RechargeFragment || fragment instanceof AddBankCardFragment
-                    || fragment instanceof TxFragment || fragment instanceof TransferAccountDetailFragment
-                    || fragment instanceof OrderDetailFragment || fragment instanceof YSJLDetailFragment
-                    || fragment instanceof PresonalFragment || fragment instanceof OrderDetailFragment
-                    || fragment instanceof PaySuccessFragment || fragment instanceof MobileRechargeFragment
-                    || fragment instanceof BindProductFragment || fragment instanceof SelectAuthWay || fragment instanceof ResetPwd) {
+            } else if ( fragment instanceof YSJLDetailFragment
+                    || fragment instanceof PresonalFragment) {
                 fragment.onKeyDown();
                 return true;
             }
@@ -210,13 +190,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (PsdPopupWindow.getInstance(this) != null && PsdPopupWindow.getInstance(this).isShowing()) {
-            return false;
-        }
-        return super.dispatchTouchEvent(event);
-    }
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -232,9 +205,6 @@ public class MainActivity extends BaseActivity {
 //                noticeDetailFragment.setArguments(bundle0);
 //                Presenter.getInstance().step2Fragment(noticeDetailFragment, "noticeDetail");
                 break;
-            case 1:
-                step2transtaion(intent);
-                break;
             case 2:
                 Presenter.getInstance().step2Fragment("newFriend");
                 break;
@@ -246,24 +216,9 @@ public class MainActivity extends BaseActivity {
 //                //cdf.initData(friend);
 //                Presenter.getInstance().step2Fragment(cdf, "cdf");
                 break;
-            case 5:
-                step2transtaion(intent);
-                break;
-            case 6:
-                step2transtaion(intent);
-                break;
-            case 7:
-                step2transtaion(intent);
-                break;
         }
     }
 
-    private void step2transtaion(Intent intent) {
-        TransationRecordDetailFragment trdf1 = new TransationRecordDetailFragment();
-        Bundle extras1 = intent.getExtras();
-        trdf1.setArguments(extras1);
-        Presenter.getInstance().step2Fragment(trdf1, "transationDetail");
-    }
 
     @Override
     protected void onDestroy() {

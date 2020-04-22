@@ -2,12 +2,6 @@ package com.example.godcode.utils;
 
 import android.hardware.Camera;
 
-/**
- * @className: CommonUtil
- * @classDescription: 通用工具类
- * @author: miao
- * @createTime: 2017年2月10日
- */
 public class CommonUtil {
 
     /**

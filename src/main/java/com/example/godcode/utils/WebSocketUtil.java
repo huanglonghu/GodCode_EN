@@ -2,7 +2,6 @@ package com.example.godcode.utils;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import com.example.godcode.bean.WebSocketNews1;
 import com.example.godcode.bean.WebSocketNews2;
 import com.example.godcode.bean.WebSocketNews3;
@@ -13,14 +12,11 @@ import com.example.godcode.observable.EventType;
 import com.example.godcode.observable.RxBus;
 import com.example.godcode.observable.RxEvent;
 import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONObject;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;

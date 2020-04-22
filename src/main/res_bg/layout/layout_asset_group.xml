@@ -22,39 +22,331 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.asset.BaseAssetFragment" />
+            type="com.example.godcode.ui.fragment.newui.asset.BaseAssetFragment" />
+
 
         <variable
-            name="assetData"
-            type="com.example.godcode.ui.fragment.asset.AssetData" />
+            name="data"
+            type="com.example.godcode.bean.GroupMsg.ResultBean" />
+
+        <variable
+            name="presenter"
+            type="com.example.godcode.presenter.Presenter" />
 
 
     </data>
 
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/bg_main">
 
-        <include
-            android:id="@+id/asset1_toolbar"
-            layout="@layout/layout_toolbar4"
-            bind:title="@{@string/myAsset}" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:gravity="center_vertical">
 
-        <include
-            layout="@layout/asset_head"
-            bind:assetData="@={assetData}"
-            bind:fcArray="@{fcArray}"
-            bind:fragment="@{fragment}"
-            bind:selectPosition="@{selectPosition}"
-            bind:tbArray="@{tbArray}"
-            bind:zcArray="@{zcArray}" />
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="101pt"
+                android:layout_height="87pt"
+                android:onClick="@{()->presenter.back()}"
+                android:src="@drawable/fanhui" />
 
-        <ListView
-            android:id="@+id/lv_group"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Product"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a2"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70pt">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->fragment.selectDate(1)}"
+                        android:singleLine="true"
+                        android:text="TODAY"
+                        android:textColor="@{selectPosition==1?@color/t10:@color/t17}"
+                        android:textSize="38pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:onClick="@{()->fragment.selectDate(2)}"
+                        android:singleLine="true"
+                        android:text="YESTERDAY"
+                        android:textColor="@{selectPosition==2?@color/t10:@color/t17}"
+                        android:textSize="38pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:onClick="@{()->fragment.selectDate(3)}"
+                        android:singleLine="true"
+                        android:text="THIS WEEK"
+                        android:textColor="@{selectPosition==3?@color/t10:@color/t17}"
+                        android:textSize="38pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:onClick="@{()->fragment.selectDate(4)}"
+                        android:singleLine="true"
+                        android:text="THIS MONTH"
+                        android:textColor="@{selectPosition==4?@color/t10:@color/t17}"
+                        android:textSize="38pt"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:onClick="@{()->fragment.selectDate(5)}"
+                        android:singleLine="true"
+                        android:text="TOTAL"
+                        android:textColor="@{selectPosition==5?@color/t10:@color/t17}"
+                        android:textSize="38pt"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80pt"
+                    android:background="@drawable/shape_a8"
+                    android:gravity="center_vertical"
+                    android:paddingTop="67pt"
+                    android:paddingBottom="67pt">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40pt"
+                        android:text="Today's shared income:"
+                        android:textColor="@color/t11"
+                        android:textSize="52pt" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="75pt"
+                        android:text="@{String.valueOf(data.coinDividedMoney)}"
+                        android:textColor="@color/t3"
+                        android:textSize="78pt" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55pt">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(data.paperCoinCount)}"
+                            android:textColor="@color/t3"
+                            android:textSize="40pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Note Received Today"
+                            android:textColor="@color/t2"
+                            android:textSize="41pt" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(data.coinCount)}"
+                            android:textColor="@color/t3"
+                            android:textSize="40pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coin Received Today"
+                            android:textColor="@color/t2"
+                            android:textSize="41pt" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="130pt"
+                android:background="@drawable/shape_a9"
+                android:orientation="vertical"
+                android:paddingLeft="60pt"
+                android:paddingRight="60pt">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70pt">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total :"
+                            android:textColor="@color/t12"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10pt"
+                            android:text="@{String.valueOf(data.count)}"
+                            android:textColor="@color/t4"
+                            android:textSize="35pt" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="27pt"
+                            android:layout_height="27pt"
+                            android:src="@drawable/ic_online" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15pt"
+                            android:text="Online:"
+                            android:textColor="@color/t12"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10pt"
+                            android:text="@{String.valueOf(data.normalCount)}"
+                            android:textColor="@color/t4"
+                            android:textSize="35pt" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="27pt"
+                            android:layout_height="27pt"
+                            android:src="@drawable/ic_offine" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15pt"
+                            android:text="Offline:"
+                            android:textColor="@color/t12"
+                            android:textSize="35pt" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10pt"
+                            android:text="@{String.valueOf(data.errorCount)}"
+                            android:textColor="@color/t4"
+                            android:textSize="35pt" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3pt"
+                    android:layout_marginTop="80pt"
+                    android:background="@color/d3" />
+
+
+                <ListView
+                    android:id="@+id/lvGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/lv_divider1"
+                    android:scrollbars="none" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
 </layout>
