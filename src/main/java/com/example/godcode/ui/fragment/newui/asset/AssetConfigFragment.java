@@ -36,6 +36,7 @@ import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.ui.fragment.newui.assetconfig.Curency;
+import com.example.godcode.ui.fragment.newui.assetconfig.Jbyw;
 import com.example.godcode.ui.fragment.newui.assetconfig.ProductPrice;
 import com.example.godcode.ui.fragment.newui.assetconfig.Proportion;
 import com.example.godcode.ui.fragment.newui.assetconfig.Volume;
@@ -48,7 +49,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import okhttp3.MultipartBody;
 
-public class AssetConfigFragment extends BaseFragment{
+public class AssetConfigFragment extends BaseFragment {
     private FragmentMyassetConfigBinding binding;
     private View view;
     private MyAssetList.ResultBean.DataBean bean;
@@ -77,13 +78,34 @@ public class AssetConfigFragment extends BaseFragment{
 
 
     public void initData() {
+
+
+
+
+
+//        HttpUtil.getInstance().getAesstMsgByProductId().subscribe(
+//                str->{
+//
+//
+//
+//                }
+//        );
+
+
         HttpUtil.getInstance().getProductSettingMsg(bean.getFK_ProductID()).subscribe(
                 productSettingStr -> {
                     productSetting = GsonUtil.fromJson(productSettingStr, ProductSetting.class);
                 }
         );
-    }
 
+
+
+
+
+
+
+
+    }
 
     public void initListener() {
         binding.unBind.setOnClickListener(new View.OnClickListener() {
@@ -180,16 +202,26 @@ public class AssetConfigFragment extends BaseFragment{
 
 
     public void assetConfig(int type) {
+
+        int productId = bean.getFK_ProductID();
+        Integer productSettingId = productSetting.getResult().getId();
+        int fk_priceID = bean.getFK_PriceID();
+        int fk_userID = bean.getFK_UserID();
+        Bundle bundle = new Bundle();
+
         switch (type) {
             case 1:
                 RevenueConfigFragment revenueConfigFragment = new RevenueConfigFragment();
-                Bundle bundle = new Bundle();
                 bundle.putSerializable("bean", bean);
                 revenueConfigFragment.setArguments(bundle);
                 presenter.step2Fragment(revenueConfigFragment, "revenue");
                 break;
             case 2:
                 ProductPrice productPrice = new ProductPrice();
+                bundle.putInt("productId", productId);
+                bundle.putInt("price", fk_priceID);
+                bundle.putInt("userId", fk_userID);
+                productPrice.setArguments(bundle);
                 Presenter.getInstance().step2Fragment(productPrice, "productPrice");
                 break;
             case 3:
@@ -199,10 +231,17 @@ public class AssetConfigFragment extends BaseFragment{
                 break;
             case 4:
                 Volume volume = new Volume();
+                bundle.putInt("productId", productId);
+                bundle.putInt("productSettingId", productSettingId);
+                volume.setArguments(bundle);
                 presenter.step2Fragment(volume, "volume");
                 break;
             case 5:
-
+                Jbyw jbyw = new Jbyw();
+                bundle.putInt("productId", productId);
+                bundle.putInt("productSettingId", productSettingId);
+                jbyw.setArguments(bundle);
+                presenter.step2Fragment(jbyw, "jbyw");
                 break;
             case 6:
                 Curency curency = new Curency();
@@ -242,11 +281,10 @@ public class AssetConfigFragment extends BaseFragment{
             if (!productImgUrl.contains("http")) {
                 productImgUrl = Constant.baseUrl + productImgUrl;
             }
-            RxImageLoader.with(getContext()).load(productImgUrl).into(binding.ivZc,2);
+            RxImageLoader.with(getContext()).load(productImgUrl).into(binding.ivZc, 2);
         }
         binding.setAssetBean(bean);
     }
-
 
 
     public void upload(MultipartBody.Part filePart, Bitmap bitmap) {

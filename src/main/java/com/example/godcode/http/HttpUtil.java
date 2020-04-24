@@ -750,6 +750,12 @@ public class HttpUtil {
     }
 
 
+    public Observable<String> getAesstMsgByProductId(int productId) {
+        Call<ResponseBody> call = httpInterface.getAesstMsgByProductId(productId);
+        return enqueueCall(call);
+    }
+
+
     HashMap<Call<ResponseBody>, NetLoading> map = new HashMap<>();
 
     @NonNull

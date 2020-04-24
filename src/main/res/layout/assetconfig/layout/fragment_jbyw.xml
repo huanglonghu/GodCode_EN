@@ -20,10 +20,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="110pt"
                 android:layout_marginLeft="75pt"
-                android:text="Price"
+                android:layout_marginTop="110pt"
+                android:text="Product Operation Price"
                 android:textColor="#fff"
+                android:textSize="58pt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75pt"
+                android:layout_marginTop="20pt"
+                android:text="( per cycle )"
+                android:textColor="@color/t22"
                 android:textSize="58pt" />
 
 
@@ -47,9 +56,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="136pt"
                 android:layout_gravity="center_horizontal"
-                >
+                android:layout_marginTop="136pt">
 
                 <TextView
                     android:id="@+id/cancle"

@@ -30,6 +30,8 @@
             android:layout_width="307pt"
             android:layout_height="307pt"
             android:layout_gravity="center_horizontal"
+            android:background="@drawable/shape_head"
+            android:padding="6pt"
             android:layout_marginTop="242pt" />
 
 
@@ -65,7 +67,7 @@
                 android:background="@null"
                 android:hint="Username"
                 android:text="@{user.userName}"
-                android:textSize="33pt" />
+                android:textSize="45pt" />
 
 
         </LinearLayout>
@@ -102,7 +104,7 @@
                 android:background="@null"
                 android:hint="Email"
                 android:text="@{user.emailAddress}"
-                android:textSize="33pt" />
+                android:textSize="45pt" />
 
 
         </LinearLayout>
@@ -138,7 +140,7 @@
                 android:background="@null"
                 android:hint="PhoneNumber"
                 android:text="@{user.phoneNumer}"
-                android:textSize="33pt" />
+                android:textSize="45pt" />
 
 
         </LinearLayout>
@@ -153,7 +155,7 @@
             android:gravity="center"
             android:text="UPDATE"
             android:textColor="#fff"
-            android:textSize="33pt" />
+            android:textSize="36pt" />
 
 
     </LinearLayout>

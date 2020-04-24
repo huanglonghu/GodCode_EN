@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -25,60 +23,61 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+        android:background="@android:color/white">
 
-
-        <LinearLayout
-            android:id="@+id/presenal"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginTop="100pt"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="114pt"
+                android:layout_height="114pt"
+                android:layout_marginLeft="84pt"
+                android:src="@drawable/edit_person" />
 
             <LinearLayout
+                android:id="@+id/presenal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85pt"
-                android:layout_marginTop="200pt"
-                android:gravity="center_vertical">
-
-
-                <ImageView
-                    android:layout_width="114pt"
-                    android:layout_height="114pt"
-                    android:src="@drawable/edit_person" />
+                android:layout_marginTop="40pt"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="250pt"
                     android:text="MY PROFILE"
                     android:textColor="@color/t4"
-                    android:textSize="28pt" />
+                    android:textSize="36pt"
+                    android:textStyle="bold" />
 
+
+                <ImageView
+                    android:id="@+id/iv_user"
+                    android:layout_width="308pt"
+                    android:layout_height="308pt"
+                    android:layout_marginTop="66pt"
+                    android:background="@drawable/shape_head"
+                    android:padding="6pt" />
+
+                <TextView
+                    android:id="@+id/tv_userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_user"
+                    android:layout_marginTop="64pt"
+                    android:text="@{user.userName}"
+                    android:textColor="#000"
+                    android:textSize="57pt" />
 
             </LinearLayout>
 
-
-            <ImageView
-                android:id="@+id/iv_user"
-                android:layout_width="308pt"
-                android:layout_height="308pt"
-                android:layout_marginTop="66pt" />
-
-            <TextView
-                android:id="@+id/tv_userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/iv_user"
-                android:layout_marginTop="64pt"
-                android:text="@{user.userName}"
-                android:textColor="#000"
-                android:textSize="57pt" />
-
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <LinearLayout

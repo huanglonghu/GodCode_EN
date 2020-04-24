@@ -11,8 +11,10 @@ import com.example.godcode.R;
 import com.example.godcode.databinding.FragmentSettingBinding;
 import com.example.godcode.greendao.entity.VersionMsg;
 import com.example.godcode.greendao.option.VersionMsgOption;
+import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.ui.base.GodCodeApplication;
+import com.example.godcode.ui.fragment.newui.login.ForgotPassword;
 import com.example.godcode.ui.view.widget.UpdateDialog;
 import com.example.godcode.ui.view.widget.LanguageConfigDialog;
 
@@ -65,6 +67,16 @@ public class SettingFragment extends BaseFragment {
                 languageConfigDialog.show();
             }
         });
+
+
+        binding.changePwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ForgotPassword forgotPassword = new ForgotPassword();
+                Presenter.getInstance().step2Fragment(forgotPassword,"forgotpwd");
+            }
+        });
+
 
     }
 

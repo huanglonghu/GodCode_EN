@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.godcode.R;
 import com.example.godcode.databinding.FragmentAddfriendBinding;
 import com.example.godcode.greendao.entity.User;
@@ -44,11 +45,15 @@ public class AddFriendFragment extends BaseFragment {
     }
 
 
-
-    public void initData() {}
+    public void initData() {
+    }
 
     public void initView() {
         User user = UserOption.getInstance().querryUser(Constant.userId);
+        if (user != null) {
+            String syNumber = user.getSyNumber();
+            binding.tvMySmNum.setText(syNumber);
+        }
 
     }
 

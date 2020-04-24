@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.example.godcode.R;
 import com.example.godcode.bean.LoginBody;
 import com.example.godcode.bean.LoginResponse;
@@ -27,7 +28,6 @@ public class RegisterFragment extends BaseFragment {
     private FragmentRegisterBinding binding;
     private RegisterBody registerBody;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (binding == null) {
@@ -35,7 +35,6 @@ public class RegisterFragment extends BaseFragment {
             binding.setPresenter(presenter);
             initListener();
         }
-        binding.setRegisterBody(registerBody);
         return binding.getRoot();
     }
 
@@ -58,29 +57,30 @@ public class RegisterFragment extends BaseFragment {
             }
         });
 
+
     }
 
 
-
     public void register() {
-
-        if (TextUtils.isEmpty(registerBody.getPhoneNumber())) {
-            Toast.makeText(activity, "The phone number cannot be empty", Toast.LENGTH_SHORT).show();
+        registerBody = new RegisterBody();
+        String nickName = binding.etAccount.getText().toString();
+        if (TextUtils.isEmpty(nickName)) {
+            Toast.makeText(activity, "The username cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (TextUtils.isEmpty(registerBody.getEmailAddress())) {
+        registerBody.setNickName(nickName);
+        String emailAddress = binding.etEmail.getText().toString();
+        if (TextUtils.isEmpty(emailAddress)) {
             Toast.makeText(activity, "The email cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        if (TextUtils.isEmpty(registerBody.getPassword())) {
+        registerBody.setEmailAddress(emailAddress);
+        String password = binding.etPwd.getText().toString();
+        if (TextUtils.isEmpty(password)) {
             Toast.makeText(getContext(), "The password cannotbe empty", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        if (TextUtils.isEmpty(registerBody.getNickName())) {
-            registerBody.setNickName(registerBody.getPhoneNumber());
-        }
+        registerBody.setPassword(password);
         HttpUtil.getInstance().register(registerBody).subscribe(
                 registerStr -> {
                     if (registerBody.getOpenID() == null) {

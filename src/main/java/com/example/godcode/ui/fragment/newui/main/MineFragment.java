@@ -3,6 +3,7 @@ package com.example.godcode.ui.fragment.newui.main;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -10,13 +11,16 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.godcode.R;
 import com.example.godcode.bean.User;
 import com.example.godcode.bean.WsHeart;
 import com.example.godcode.catche.Loader.RxImageLoader;
 import com.example.godcode.databinding.FragmentMineBinding;
+import com.example.godcode.greendao.option.LoginResultOption;
 import com.example.godcode.greendao.option.UserOption;
 import com.example.godcode.greendao.option.VersionMsgOption;
+import com.example.godcode.http.HttpUtil;
 import com.example.godcode.observable.EventType;
 import com.example.godcode.observable.RxBus;
 import com.example.godcode.observable.RxEvent;
@@ -27,6 +31,7 @@ import com.example.godcode.ui.base.GodCodeApplication;
 import com.example.godcode.ui.fragment.newui.PresonalFragment;
 import com.example.godcode.ui.fragment.newui.SettingFragment;
 import com.example.godcode.ui.fragment.newui.YSJLFragment;
+import com.example.godcode.utils.ImagUtil;
 
 public class MineFragment extends BaseFragment {
     private View view;
@@ -72,6 +77,12 @@ public class MineFragment extends BaseFragment {
         binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HttpUtil.getInstance().exit(Constant.userId, Constant.uniquenessToken).subscribe(
+                        exitStr -> {
+
+                        }
+                );
+                LoginResultOption.getInstance().exit();
                 System.exit(0);
             }
         });
@@ -134,10 +145,8 @@ public class MineFragment extends BaseFragment {
         if (user != null) {
             binding.setUser(user);
             String headImageUrl = user.getHeadImageUrl();
-            if (!TextUtils.isEmpty(headImageUrl)) {
-                if (!headImageUrl.contains("http")) {
-                    headImageUrl = Constant.baseUrl + headImageUrl;
-                }
+            String url = ImagUtil.handleUrl(headImageUrl);
+            if (!TextUtils.isEmpty(url)) {
                 RxImageLoader.with(activity).getBitmap(headImageUrl).subscribe(
                         imageBean -> {
                             if (imageBean.getBitmap() != null) {
@@ -149,7 +158,10 @@ public class MineFragment extends BaseFragment {
                         }
                 );
             } else {
-                binding.ivUser.setImageResource(R.drawable.contact_normal);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.contact_normal);
+                RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+                roundedBitmapDrawable.setCircular(true);
+                binding.ivUser.setImageDrawable(roundedBitmapDrawable);
             }
         }
     }

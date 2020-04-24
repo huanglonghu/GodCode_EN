@@ -48,7 +48,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public void init() {
         HttpUtil.getInstance().init(this);
-        changeAppLanguage();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         MainFragment mainFragment = new MainFragment();
         supportFragmentManager = getSupportFragmentManager();
@@ -95,21 +94,14 @@ public class MainActivity extends BaseActivity {
                         Presenter.getInstance().showNew(1);
                         break;
                 }
-
             }
+            @Override
+            public void onError(Throwable e) {}
 
             @Override
-            public void onError(Throwable e) {
-            }
-
-            @Override
-            public void onComplete() {
-            }
+            public void onComplete() {}
         });
-
-
     }
-
 
     private FragmentManager.OnBackStackChangedListener getListener() {
         FragmentManager.OnBackStackChangedListener result = new FragmentManager.OnBackStackChangedListener() {
@@ -124,12 +116,10 @@ public class MainActivity extends BaseActivity {
                             HomeFragment homeFragment = (HomeFragment) Presenter.getInstance().getFragments().get(0);
                             homeFragment.refreshDivideIncome();
                         }
-
                     }
                 }
             }
         };
-
         return result;
     }
 
@@ -155,8 +145,7 @@ public class MainActivity extends BaseActivity {
         }
 
         @Override
-        public void onServiceDisconnected(ComponentName name) {
-        }
+        public void onServiceDisconnected(ComponentName name) {}
     };
 
     @Override
@@ -173,10 +162,6 @@ public class MainActivity extends BaseActivity {
                 home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 home.addCategory(Intent.CATEGORY_HOME);
                 startActivity(home);
-                return true;
-            } else if ( fragment instanceof YSJLDetailFragment
-                    || fragment instanceof PresonalFragment) {
-                fragment.onKeyDown();
                 return true;
             }
         }

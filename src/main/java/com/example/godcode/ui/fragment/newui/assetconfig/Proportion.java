@@ -8,8 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.godcode.R;
+import com.example.godcode.bean.EditProductSetting;
+import com.example.godcode.bean.ProductSetting;
 import com.example.godcode.databinding.FragmentProportionBinding;
+import com.example.godcode.http.HttpUtil;
 import com.example.godcode.ui.base.BaseFragment;
+import com.example.godcode.utils.GsonUtil;
+import com.example.godcode.utils.ToastUtil;
 
 public class Proportion extends BaseFragment {
 
@@ -19,6 +24,7 @@ public class Proportion extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_proportion, container, false);
+        initListener();
         return binding.getRoot();
     }
 
@@ -34,6 +40,14 @@ public class Proportion extends BaseFragment {
 
     @Override
     public void initListener() {
+
+        binding.done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
     }
 }

@@ -86,7 +86,7 @@ public class ProductSetting {
          * buyLimit : 0
          */
 
-        private int id;
+        private Integer id;
         private int fK_ProductID;
         private int volume;
         private int award;
@@ -121,11 +121,11 @@ public class ProductSetting {
             this.publicNoPrice = publicNoPrice;
         }
 
-        public int getId() {
+        public Integer getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(Integer id) {
             this.id = id;
         }
 

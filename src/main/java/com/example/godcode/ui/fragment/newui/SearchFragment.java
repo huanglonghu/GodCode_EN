@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.QurreyFriend;
 import com.example.godcode.bean.SearchListAdaPter;
@@ -17,7 +16,6 @@ import com.example.godcode.databinding.FragmentSearchBinding;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.ui.base.BaseFragment;
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 public class SearchFragment extends BaseFragment {

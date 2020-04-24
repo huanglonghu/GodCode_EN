@@ -1,6 +1,5 @@
 package com.example.godcode.handler;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
@@ -19,18 +18,11 @@ import android.widget.Toast;
 import com.example.godcode.R;
 import com.example.godcode.bean.OrderDetail;
 import com.example.godcode.bean.ProductScan;
-import com.example.godcode.greendao.entity.Friend;
-import com.example.godcode.greendao.option.FriendOption;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.interface_.HandlerStrategy;
-import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.activity.ClipImageActivity;
 import com.example.godcode.ui.base.BaseFragment;
-import com.example.godcode.ui.fragment.newui.BindProductFragment;
-import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
-import com.example.godcode.ui.fragment.newui.UserFragment;
 import com.example.godcode.utils.BitmapUtil;
-import com.example.godcode.utils.EncryptUtil;
 import com.example.godcode.utils.FileUtil;
 import com.example.godcode.utils.GsonUtil;
 import com.example.godcode.utils.LogUtil;
@@ -47,7 +39,7 @@ import com.google.zxing.decoding.RGBLuminanceSource;
 import com.google.zxing.qrcode.QRCodeReader;
 import java.io.File;
 import java.util.Hashtable;
-import java.util.List;
+
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

@@ -71,7 +71,8 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
     //	private Button cancelScanButton;
     public static final int RESULT_CODE_QR_SCAN = 0xA1;
     public static final String INTENT_EXTRA_KEY_QR_SCAN = "qr_scan_result";
-    private TextView photo;
+    private TextView done;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,15 +80,13 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
         setContentView(R.layout.activity_scanner);
         CameraManager.init(getApplication());
         viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_content);
-        back = (ImageView) findViewById(R.id.scanner_toolbar_back);
-        photo = findViewById(R.id.scanner_toolbar_photo);
-        photo.setOnClickListener(new View.OnClickListener() {
+        back = (ImageView) findViewById(R.id.exit);
+        done = findViewById(R.id.done);
+
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                new ActivityResultHandler.Builder().activity(CaptureActivity.this).intent(intent).requestCode(ActivityResultHandler.REQUEST_ANALY_PHOTO).build().startActivityForResult();
+                finish();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +109,7 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
     @Override
     protected void onActivityResult(final int requestCode, int resultCode, Intent data) {
         LogUtil.log(requestCode + "===========captureActivity=============" + resultCode);
-       ActivityResultHandler.getInstance().handler(requestCode,resultCode,data);
+        ActivityResultHandler.getInstance().handler(requestCode, resultCode, data);
 //        if (requestCode==RESULT_OK) {
 //            switch (requestCode) {
 //                case REQUEST_CODE_SCAN_GALLERY:

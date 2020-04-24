@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
 import com.example.godcode.R;
 import com.example.godcode.catche.Loader.RxImageLoader;
 import com.example.godcode.databinding.ItemFootBinding;
@@ -15,8 +16,10 @@ import com.example.godcode.databinding.ItemHeadBinding;
 import com.example.godcode.greendao.entity.Friend;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.constant.Constant;
+import com.example.godcode.utils.ImagUtil;
 import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.StringUtil;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -86,11 +89,9 @@ public class ContactAdapter extends BaseAdapter {
             if (charcterMap2.get(firstChar) == friend) {
                 binding.setCharacter(firstChar);
             }
-            if (!TextUtils.isEmpty(headImageUrl)) {
-                if (!headImageUrl.contains("http")) {
-                    headImageUrl = Constant.baseUrl + headImageUrl;
-                }
-                RxImageLoader.with(context).load(headImageUrl).into(binding.friendPhoto,1);
+            String url = ImagUtil.handleUrl(headImageUrl);
+            if (!TextUtils.isEmpty(url)) {
+                RxImageLoader.with(context).load(url).into(binding.friendPhoto, 3);
             } else {
                 binding.friendPhoto.setBackgroundResource(R.drawable.contact_normal);
             }

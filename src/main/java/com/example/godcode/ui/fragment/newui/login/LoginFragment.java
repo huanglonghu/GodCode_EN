@@ -30,7 +30,6 @@ import io.reactivex.schedulers.Schedulers;
 public class LoginFragment extends BaseFragment {
 
     private FragmentLoginBinding binding;
-
     private LoginBody loginBody;
 
     @Override

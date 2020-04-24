@@ -3,51 +3,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.main.FriendFragment"/>
+            type="com.example.godcode.ui.fragment.newui.main.FriendFragment" />
     </data>
 
+
     <LinearLayout
-        android:id="@+id/main_popup"
-        android:layout_width="wrap_content"
+        android:layout_width="380pt"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_popupwindow"
-        android:divider="@drawable/divider_3"
-        android:orientation="vertical"
-        android:showDividers="middle|end">
+        android:orientation="vertical">
 
-        <com.example.godcode.ui.view.customview.ImageTextView
-            android:id="@+id/mainPopup_addFriend"
-            android:layout_width="375pt"
-            android:layout_height="225pt"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical|left"
-            android:text="@string/addFriend"
-            android:textColor="#fff"
-            android:textSize="15sp"
-            app:direcation="0"
-            app:drawable="@drawable/addfriend"
-            app:drawableHeight="8dp"
-            app:drawableWidth="8dp"
-            android:onClick="@{(view)->fragment.config(view)}"
-            />
 
-        <com.example.godcode.ui.view.customview.ImageTextView
-            android:id="@+id/mainPopup_sys"
-            android:layout_width="375pt"
-            android:layout_height="225pt"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical|left"
-            android:text="@string/sys"
-            android:textColor="#fff"
-            android:textSize="15sp"
-            app:direcation="0"
-            app:drawable="@drawable/sys2"
-            app:drawableHeight="8dp"
-            app:drawableWidth="8dp"
-            android:onClick="@{(view)->fragment.config(view)}"
-            />
+        <ImageView
+            android:layout_width="36pt"
+            android:layout_height="19pt"
+            android:rotation="180"
+            android:layout_gravity="right"
+            android:layout_marginRight="71pt"
+            android:src="@drawable/xui_popup_arrow_down" />
+
+        <LinearLayout
+            android:id="@+id/main_popup"
+            android:layout_width="380pt"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_popupwindow"
+            android:orientation="vertical"
+            android:paddingLeft="40pt">
+
+
+            <LinearLayout
+                android:id="@+id/mainPopup_addFriend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view)->fragment.config(view)}"
+                android:paddingTop="50pt"
+                android:paddingBottom="50pt">
+
+
+                <ImageView
+                    android:layout_width="58pt"
+                    android:layout_height="58pt"
+                    android:background="@drawable/addfriend" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30pt"
+                    android:text="Add Friend"
+                    android:textColor="@android:color/white"
+                    android:textSize="45pt" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/mainPopup_sys"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view)->fragment.config(view)}"
+                android:paddingTop="50pt"
+                android:paddingBottom="50pt">
+
+
+                <ImageView
+                    android:layout_width="58pt"
+                    android:layout_height="58pt"
+                    android:background="@drawable/sys2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30pt"
+                    android:text="Scan"
+                    android:textColor="@android:color/white"
+                    android:textSize="45pt" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
+
 </layout>

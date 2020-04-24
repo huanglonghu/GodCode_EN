@@ -1,4 +1,4 @@
-package com.example.godcode.ui.fragment.newui;
+package com.example.godcode.ui.fragment.newui.asset;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.BindProduct;
 import com.example.godcode.bean.ProductCategory;
@@ -19,7 +18,6 @@ import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,20 +46,7 @@ public class BindProductFragment extends BaseFragment {
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        bindProductBody = new BindProduct();
-        binding.setBody(bindProductBody);
-        binding.productPackage.setText("");
-        binding.productType.setText("");
-    }
-
-
-    public void initListener() {
-
-
-    }
+    public void initListener() {}
 
 
     private void getProductCategorys() {
@@ -87,7 +72,8 @@ public class BindProductFragment extends BaseFragment {
 
     @Override
     public void initData() {
-
+        bindProductBody = new BindProduct();
+        binding.setBody(bindProductBody);
     }
 
     public void bind() {
@@ -112,8 +98,6 @@ public class BindProductFragment extends BaseFragment {
                             binding.setBody(bindProductBody);
                             packageStrMap.clear();
                             packageSettingBeanMap.clear();
-                            setPackageStr();
-                            binding.productType.setText("");
                             Presenter.getInstance().back();
                         } else {
                             Toast.makeText(activity, "Binding failure", Toast.LENGTH_SHORT).show();
@@ -124,44 +108,38 @@ public class BindProductFragment extends BaseFragment {
     }
 
     private boolean checkData(BindProduct body) {
+        String productId = binding.productId.getText().toString();
         if (TextUtils.isEmpty(body.getProductNumber())) {
             Toast.makeText(activity, "Please enter the product number", Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        if (TextUtils.isEmpty(body.getPrice())) {
+        bindProductBody.setProductNumber(productId);
+        String price = binding.price.getText().toString();
+        if (TextUtils.isEmpty(price)) {
             Toast.makeText(activity, "Please enter the product price", Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        if (TextUtils.isEmpty(body.getMachineAddress())) {
+        bindProductBody.setPrice(price);
+        String adress = binding.adress.getText().toString();
+        if (TextUtils.isEmpty(adress)) {
             Toast.makeText(activity, "Please enter the product address", Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        if (TextUtils.isEmpty(body.getProductName())) {
+        bindProductBody.setMachineAddress(adress);
+        String productName = binding.productName.getText().toString();
+        if (TextUtils.isEmpty(productName)) {
             Toast.makeText(activity, "Please enter the product name", Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        if (TextUtils.isEmpty(binding.productType.getText().toString())) {
+        bindProductBody.setProductName(productName);
+        String productType = binding.productType.getText().toString();
+        if (TextUtils.isEmpty(productType)) {
             Toast.makeText(activity, "Please select product type", Toast.LENGTH_SHORT).show();
             return false;
         }
+
         return true;
     }
 
 
-    private void setPackageStr() {
-        StringBuffer sb = new StringBuffer();
-        for (int i : packageStrMap.keySet()) {
-            String s = packageStrMap.get(i);
-            if (sb.length() == 0) {
-                sb.append(s);
-            } else {
-                sb.append("," + s);
-            }
-        }
-        binding.productPackage.setText(sb.toString());
-    }
 }

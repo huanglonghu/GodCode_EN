@@ -80,7 +80,6 @@ public final class ViewfinderView extends View {
   // This constructor is used when the class is built from an XML resource.
   public ViewfinderView(Context context, AttributeSet attrs) {
     super(context, attrs);
-
     //初始化自定义属性信息
     TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ViewfinderView);
     laserColor = array.getColor(R.styleable.ViewfinderView_laser_color, 0x00FF00);

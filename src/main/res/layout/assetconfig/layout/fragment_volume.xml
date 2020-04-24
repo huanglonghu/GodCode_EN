@@ -31,12 +31,13 @@
 
             <SeekBar
                 android:id="@+id/seek"
-                android:layout_width="match_parent"
+                android:layout_width="862pt"
                 android:layout_height="130pt"
                 android:layout_marginTop="165pt"
                 android:background="@null"
                 android:maxHeight="1.5dp"
                 android:minHeight="1.5dp"
+                android:max="5"
                 android:progressDrawable="@drawable/seek_progress"
                 android:thumb="@drawable/seek_thumb" />
 
@@ -46,39 +47,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="43pt">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/t5"
+                    android:textSize="34pt" />
+
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
+                    android:layout_marginLeft="185pt"
                     android:text="1"
                     android:textColor="@color/t5"
                     android:textSize="34pt" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
+                    android:layout_marginLeft="185pt"
                     android:text="2"
                     android:textColor="@color/t5"
                     android:textSize="34pt" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
                     android:text="3"
                     android:textColor="@color/t5"
+                    android:layout_marginLeft="185pt"
                     android:textSize="34pt" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
+                    android:layout_marginLeft="185pt"
                     android:text="4"
                     android:textColor="@color/t5"
                     android:textSize="34pt" />
@@ -93,6 +97,7 @@
                 android:layout_marginTop="212pt">
 
                 <TextView
+                    android:id="@+id/cancle"
                     android:layout_width="410pt"
                     android:layout_height="178pt"
                     android:background="@drawable/shape_b3"
@@ -103,6 +108,7 @@
 
 
                 <TextView
+                    android:id="@+id/done"
                     android:layout_width="410pt"
                     android:layout_height="178pt"
                     android:layout_marginLeft="56pt"

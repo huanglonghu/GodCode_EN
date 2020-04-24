@@ -89,47 +89,82 @@
                 android:layout_marginTop="133pt">
 
                 <EditText
-                    android:layout_width="174pt"
-                    android:layout_height="180pt"
-                    android:background="@drawable/shape_a5" />
+                    android:id="@+id/code1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="140pt"
+                    android:background="@drawable/shape_a5"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1" />
 
                 <EditText
-                    android:layout_width="174pt"
-                    android:layout_height="180pt"
+                    android:id="@+id/code2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="140pt"
                     android:layout_marginLeft="33pt"
-                    android:background="@drawable/shape_a5" />
+                    android:gravity="center"
+                    android:background="@drawable/shape_a5"
+                    android:inputType="number"
+                    android:maxLength="1" />
 
                 <EditText
-                    android:layout_width="174pt"
-                    android:layout_height="180pt"
+                    android:id="@+id/code3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="140pt"
                     android:layout_marginLeft="33pt"
-                    android:background="@drawable/shape_a5" />
+                    android:gravity="center"
+                    android:background="@drawable/shape_a5"
+                    android:inputType="number"
+                    android:maxLength="1" />
 
                 <EditText
-                    android:layout_width="174pt"
-                    android:layout_height="180pt"
+                    android:id="@+id/code4"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="140pt"
                     android:layout_marginLeft="33pt"
-                    android:background="@drawable/shape_a5" />
+                    android:background="@drawable/shape_a5"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="1" />
 
                 <EditText
-                    android:layout_width="174pt"
-                    android:layout_height="180pt"
+                    android:id="@+id/code5"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="140pt"
                     android:layout_marginLeft="33pt"
-                    android:background="@drawable/shape_a5" />
+                    android:gravity="center"
+                    android:background="@drawable/shape_a5"
+                    android:inputType="number"
+                    android:maxLength="1" />
 
+                <EditText
+                    android:id="@+id/code6"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="140pt"
+                    android:layout_marginLeft="33pt"
+                    android:gravity="center"
+                    android:background="@drawable/shape_a5"
+                    android:inputType="number"
+                    android:maxLength="1" />
 
             </LinearLayout>
 
 
             <TextView
-                android:id="@+id/login"
+                android:id="@+id/verifiy"
                 android:layout_width="match_parent"
-                android:layout_height="180pt"
+                android:layout_height="160pt"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="68pt"
                 android:background="@drawable/btn_login2"
                 android:gravity="center"
-                android:text="LOGIN"
+                android:text="VERIFICATION"
                 android:textColor="#fff"
                 android:textSize="33pt" />
 
@@ -147,9 +182,9 @@
                     android:textSize="42pt" />
 
                 <TextView
+                    android:id="@+id/djs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:50"
                     android:textColor="@color/b2"
                     android:textSize="42pt" />
 

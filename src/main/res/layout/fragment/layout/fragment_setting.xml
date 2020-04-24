@@ -25,6 +25,7 @@
             <ImageView
                 android:layout_width="114pt"
                 android:layout_height="114pt"
+                android:onClick="@{()->presenter.back()}"
                 android:src="@drawable/setting_back" />
 
             <TextView

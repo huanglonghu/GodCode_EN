@@ -3,7 +3,10 @@ package com.example.godcode.ui.fragment.newui;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +26,8 @@ import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.ui.fragment.newui.main.MineFragment;
 import com.example.godcode.utils.GsonUtil;
+import com.example.godcode.utils.ImagUtil;
+
 import okhttp3.MultipartBody;
 
 public class PresonalFragment extends BaseFragment {
@@ -89,13 +94,23 @@ public class PresonalFragment extends BaseFragment {
 
     public void initView() {
         String headImageUrl = user.getHeadImageUrl();
-        if (!TextUtils.isEmpty(headImageUrl)) {
-            if (!headImageUrl.contains("http")) {
-                headImageUrl = Constant.baseUrl + headImageUrl;
-            }
-            RxImageLoader.with(activity).load(headImageUrl).into(binding.ivHead, 1);
+        String url = ImagUtil.handleUrl(headImageUrl);
+        if (!TextUtils.isEmpty(url)) {
+            RxImageLoader.with(activity).getBitmap(headImageUrl).subscribe(
+                    imageBean -> {
+                        if (imageBean.getBitmap() != null) {
+                            Bitmap bitmap = imageBean.getBitmap();
+                            RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
+                            roundedBitmapDrawable.setCircular(true);
+                            binding.ivHead.setImageDrawable(roundedBitmapDrawable);
+                        }
+                    }
+            );
         } else {
-            binding.ivHead.setImageResource(R.drawable.contact_normal);
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.contact_normal);
+            RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(),bitmap);
+            roundedBitmapDrawable.setCircular(true);
+            binding.ivHead.setImageDrawable(roundedBitmapDrawable);
         }
     }
 

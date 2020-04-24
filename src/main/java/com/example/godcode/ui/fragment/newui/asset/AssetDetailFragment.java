@@ -2,16 +2,12 @@ package com.example.godcode.ui.fragment.newui.asset;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
 import com.example.godcode.R;
-import com.example.godcode.bean.AssetData;
 import com.example.godcode.bean.MyAssetList;
-import com.example.godcode.bean.ProductCategory;
 import com.example.godcode.bean.WebSocketNews1;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.databinding.ItemLvMyassetBinding;
@@ -22,18 +18,10 @@ import com.example.godcode.observable.RxBus;
 import com.example.godcode.observable.RxEvent;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.fragment.newui.adapter.AssetListAdapter;
-import com.example.godcode.ui.view.customview.MyListView;
-import com.example.godcode.ui.view.widget.AssetSelectDialog;
-import com.example.godcode.utils.FormatUtil;
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 public class AssetDetailFragment extends BaseAssetFragment {
     private AssetListAdapter assetListAdapter;

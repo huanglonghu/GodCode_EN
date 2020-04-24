@@ -380,4 +380,8 @@ public interface HttpInterface {
     @POST("/api/services/app/User/ResetUserPassword")
     Call<ResponseBody> resetPwd(@Body HashMap<String, String> map);
 
+
+    @GET("/api/services/app/MerchantOwner/GetMerchantOwnerByProductIDAsync")
+    Call<ResponseBody> getAesstMsgByProductId(@Query("Id") int id);
+
 }

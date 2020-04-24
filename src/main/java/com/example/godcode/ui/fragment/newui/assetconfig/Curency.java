@@ -19,7 +19,6 @@ public class Curency extends BaseFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_curency, container, false);
         initListener();
         return binding.getRoot();
