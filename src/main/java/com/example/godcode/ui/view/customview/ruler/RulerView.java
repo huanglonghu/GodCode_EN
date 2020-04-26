@@ -183,18 +183,15 @@ public class RulerView extends View implements ScrollChange {
 
 
     private int pt2px(int size) {
-
         int windownWidth = GodCodeApplication.getInstance().getWindownWidth();
-
         int w = windownWidth * size / 1125;
-
         return w;
     }
 
 
     private void initDistanceForDp() {
         mLineWidth = dp2px(1);
-        mLineSpace = dp2px(5);
+        mLineSpace = dp2px(50);
         mSmallLineHeight = dp2px(4);
         mLongLineHeight = dp2px(9);
         dpFor05 = dp2px(0.5f);

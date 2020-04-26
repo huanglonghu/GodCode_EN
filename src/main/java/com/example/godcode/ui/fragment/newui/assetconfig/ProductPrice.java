@@ -11,10 +11,12 @@ import android.widget.Toast;
 import com.example.godcode.R;
 import com.example.godcode.bean.EditProductPrice;
 import com.example.godcode.bean.GroupMsg;
+import com.example.godcode.bean.MyAssetList;
 import com.example.godcode.databinding.FragmentProductPriceBinding;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
+import com.example.godcode.utils.LogUtil;
 
 public class ProductPrice extends BaseFragment {
 
@@ -35,16 +37,20 @@ public class ProductPrice extends BaseFragment {
 
     @Override
     public void initView() {
-        binding.rulerView.setScope(10, 400, 10);
-        binding.rulerView.setCurrentItem("100");
+        binding.rulerView.setScope(1, 20, 1);
     }
+
+    private MyAssetList.ResultBean.DataBean bean;
 
     @Override
     public void initData() {
         Bundle bundle = getArguments();
-        productId = bundle.getInt("productId");
-        priceId = bundle.getInt("priceId");
-        userId = bundle.getInt("userId");
+        bean = (MyAssetList.ResultBean.DataBean) bundle.getSerializable("bean");
+        productId = bean.getFK_ProductID();
+        priceId = bean.getFK_PriceID();
+        userId = bean.getFK_UserID();
+        double price = bean.getPrice();
+        binding.rulerView.setCurrentItem((int) price + "");
     }
 
     @Override
@@ -73,6 +79,7 @@ public class ProductPrice extends BaseFragment {
                 HttpUtil.getInstance().editProductPrice(editProductPrice).subscribe(
                         editPriceStr -> {
                             if (editPriceStr.contains("\"success\":true")) {
+                                bean.setPrice(price);
                                 Toast.makeText(activity, "Modified success", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(activity, "Modified failure", Toast.LENGTH_SHORT).show();

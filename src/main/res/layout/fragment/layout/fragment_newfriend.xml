@@ -9,55 +9,105 @@
             type="com.example.godcode.presenter.Presenter" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/bg_main">
 
-        <include
-            android:id="@+id/newFriend_toolbar"
-            layout="@layout/layout_toolbar2"
-            bind:presenter="@{presenter}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60pt"
+            android:layout_marginTop="130pt"
+            android:layout_marginRight="60pt">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="101pt"
+                    android:layout_height="87pt"
+                    android:onClick="@{()->presenter.back()}"
+                    android:src="@drawable/fanhui" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Friend"
+                    android:textColor="@android:color/white"
+                    android:textSize="50pt" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/addFriend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="Add Friend"
+                android:textColor="@android:color/white"
+                android:textSize="50pt" />
+
+        </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/bg3"
+            android:layout_height="match_parent"
+            android:layout_marginTop="327pt"
+            android:background="@drawable/shape_a2"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingLeft="60pt"
+            android:paddingRight="60pt">
+
 
             <LinearLayout
-                android:id="@+id/search_newFriend"
+                android:id="@+id/search"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/bg_search"
-                android:gravity="center">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80pt"
+                android:background="@drawable/shape_b6"
+                android:paddingLeft="38pt"
+                android:paddingTop="30pt"
+                android:gravity="center"
+                android:paddingBottom="30pt">
+
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
+                    android:layout_width="64pt"
+                    android:layout_height="64pt"
                     android:src="@drawable/search" />
 
                 <TextView
+                    android:id="@+id/divideIncomeTotal"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:gravity="center"
-                    android:text="@string/search" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40pt"
+                    android:text="Search"
+                    android:textColor="@color/t3"
+                    android:textSize="50pt" />
+
 
             </LinearLayout>
 
+
+            <ListView
+                android:id="@+id/lv_newFriend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30pt"
+                android:divider="@drawable/divider2"
+                android:scrollbars="none" />
         </LinearLayout>
 
 
-        <ListView
-            android:id="@+id/lv_newFriend"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@drawable/divider2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:scrollbars="none" />
-    </LinearLayout>
+    </FrameLayout>
 
 </layout>

@@ -16,7 +16,7 @@ import com.example.godcode.databinding.ItemLvNewfriendBinding;
 import com.example.godcode.constant.Constant;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.presenter.Presenter;
-import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
+import com.example.godcode.ui.fragment.newui.friend.ContactDetailFragment;
 import com.google.gson.Gson;
 import java.util.List;
 

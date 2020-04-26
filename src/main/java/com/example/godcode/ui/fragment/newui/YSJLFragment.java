@@ -128,8 +128,8 @@ public class YSJLFragment extends BaseFragment implements MyListView.RefreshData
 
     @Override
     public void refreshData(int page) {
-        time1 = "2019-10-2";
-        time2 = "2020-4-3";
+        time1 = "2019-4";
+        time2 = "2020-4";
         HttpUtil.getInstance().getYSRecord(time1, time2, page).subscribe(
                 ysRecordStr -> {
                     YSRecord ysRecord = new Gson().fromJson(ysRecordStr, YSRecord.class);

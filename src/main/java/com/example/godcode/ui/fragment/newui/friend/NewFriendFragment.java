@@ -1,4 +1,4 @@
-package com.example.godcode.ui.fragment.newui;
+package com.example.godcode.ui.fragment.newui.friend;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import com.example.godcode.R;
 import com.example.godcode.bean.ApplyFriend;
 import com.example.godcode.databinding.FragmentNewfriendBinding;
 import com.example.godcode.http.HttpUtil;
+import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.fragment.newui.adapter.NewFriendListAdapter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.utils.StringUtil;
 import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.List;
@@ -30,10 +30,6 @@ public class NewFriendFragment extends BaseFragment {
         if (binding == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_newfriend, container, false);
             binding.setPresenter(presenter);
-            String title = StringUtil.getString(activity, R.string.newfriend);
-            String str = StringUtil.getString(activity, R.string.addFriend);
-            binding.newFriendToolbar.title.setText(title);
-            binding.newFriendToolbar.tvOption.setText(str);
             view = binding.getRoot();
             initListener();
         }
@@ -47,7 +43,7 @@ public class NewFriendFragment extends BaseFragment {
     }
 
     private void querryFriendList(int page, boolean isConcur) {
-        binding.searchNewFriend.setOnClickListener(new View.OnClickListener() {
+        binding.search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SearchFragment searchFragment = new SearchFragment();
@@ -80,10 +76,11 @@ public class NewFriendFragment extends BaseFragment {
     public void initView() {
         adapter = new NewFriendListAdapter(activity, items, R.layout.item_lv_newfriend);
         binding.lvNewFriend.setAdapter(adapter);
-        binding.newFriendToolbar.option.setOnClickListener(new View.OnClickListener() {
+        binding.addFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.step2Fragment("addFriend");
+                AddFriendFragment addFriendFragment = new AddFriendFragment();
+                Presenter.getInstance().step2Fragment(addFriendFragment,"addFriend");
             }
         });
 

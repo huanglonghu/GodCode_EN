@@ -15,6 +15,7 @@ import com.example.godcode.bean.ProductSetting;
 import com.example.godcode.databinding.FragmentJbywBinding;
 import com.example.godcode.http.HttpUtil;
 import com.example.godcode.ui.base.BaseFragment;
+import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.ToastUtil;
 
 public class Jbyw extends BaseFragment {
@@ -30,22 +31,22 @@ public class Jbyw extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_jbyw, container, false);
         initView();
         initData();
+        initListener();
         return binding.getRoot();
     }
 
     @Override
     public void initView() {
-        binding.rulerView.setScope(10, 400, 10);
-        binding.rulerView.setCurrentItem("100");
+        binding.rulerView.setScope(1, 20, 1);
     }
 
     @Override
     public void initData() {
-
         Bundle bundle = getArguments();
         productId = bundle.getInt("productId");
         productSettingId = bundle.getInt("productSettingId");
-
+        int coin = bundle.getInt("coin");
+        binding.rulerView.setCurrentItem(coin + "");
     }
 
     @Override

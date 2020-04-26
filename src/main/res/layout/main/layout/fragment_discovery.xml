@@ -49,7 +49,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="100pt"
                 android:text="There are no notification yet"
-                android:textSize="34pt" />
+                android:textSize="40pt" />
 
         </RelativeLayout>
 

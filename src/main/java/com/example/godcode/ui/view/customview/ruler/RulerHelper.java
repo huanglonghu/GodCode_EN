@@ -44,7 +44,7 @@ public class RulerHelper {
     }
 
     public boolean isLongLine(int index) {
-        int lineIndex = index / 10;
+        int lineIndex = index;
         if (currentLine != lineIndex) {
             currentLine = lineIndex;
             return true;
@@ -56,7 +56,7 @@ public class RulerHelper {
         if(offSet != 0) {
             this.offSet = offSet;
         }
-        lineNumbers = (count - start) / (this.offSet / 10);
+        lineNumbers = count-1;
         for (int i = start; i <= count; i += this.offSet) {
             texts.add(String.valueOf(i));
         }

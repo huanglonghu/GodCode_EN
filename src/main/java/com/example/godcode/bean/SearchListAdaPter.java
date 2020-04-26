@@ -15,7 +15,7 @@ import com.example.godcode.greendao.entity.Friend;
 import com.example.godcode.greendao.option.FriendOption;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
+import com.example.godcode.ui.fragment.newui.friend.ContactDetailFragment;
 import com.example.godcode.ui.fragment.newui.UserFragment;
 
 import java.util.ArrayList;

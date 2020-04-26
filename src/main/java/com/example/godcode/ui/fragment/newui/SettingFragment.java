@@ -63,8 +63,7 @@ public class SettingFragment extends BaseFragment {
         binding.language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LanguageConfigDialog languageConfigDialog = new LanguageConfigDialog(activity);
-                languageConfigDialog.show();
+
             }
         });
 

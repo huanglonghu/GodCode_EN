@@ -1,4 +1,4 @@
-package com.example.godcode.ui.fragment.newui;
+package com.example.godcode.ui.fragment.newui.friend;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;

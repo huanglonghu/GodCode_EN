@@ -15,7 +15,7 @@ import com.example.godcode.greendao.option.FriendOption;
 import com.example.godcode.ui.fragment.newui.adapter.ContactAdapter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.newui.SearchFragment;
+import com.example.godcode.ui.fragment.newui.friend.SearchFragment;
 import com.example.godcode.ui.view.customview.LetterView;
 import com.example.godcode.ui.view.widget.MenuWindow;
 import com.example.godcode.utils.ToastUtil;

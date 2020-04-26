@@ -4,18 +4,20 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.example.godcode.R;
+import com.example.godcode.bean.AddFriend;
 import com.example.godcode.catche.Loader.RxImageLoader;
 import com.example.godcode.databinding.ItemFootBinding;
 import com.example.godcode.databinding.ItemFriendBinding;
 import com.example.godcode.databinding.ItemHeadBinding;
 import com.example.godcode.greendao.entity.Friend;
 import com.example.godcode.presenter.Presenter;
-import com.example.godcode.constant.Constant;
+import com.example.godcode.ui.fragment.newui.friend.NewFriendFragment;
 import com.example.godcode.utils.ImagUtil;
 import com.example.godcode.utils.LogUtil;
 import com.example.godcode.utils.StringUtil;
@@ -73,11 +75,14 @@ public class ContactAdapter extends BaseAdapter {
             if (position == 0) {
                 String str = StringUtil.getString(context, R.string.newfriend);
                 binding.headName.setText(str);
-                binding.getRoot().setOnClickListener(new View.OnClickListener() {
+                binding.getRoot().setOnTouchListener(new View.OnTouchListener() {
                     @Override
-                    public void onClick(View v) {
-                        presenter.step2Fragment("newFriend");
-                        presenter.showNew(2);
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            NewFriendFragment newFriendFragment = new NewFriendFragment();
+                            Presenter.getInstance().step2Fragment(newFriendFragment, "newFriend");
+                        }
+                        return false;
                     }
                 });
             }

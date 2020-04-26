@@ -8,6 +8,15 @@ public class EditPresonal {
     private String area;
     private String signature;
     private String address;
+    private String emailAddress;
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
     public int getId() {
         return id;

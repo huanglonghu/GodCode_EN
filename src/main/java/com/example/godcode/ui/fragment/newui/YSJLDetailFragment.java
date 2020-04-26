@@ -27,8 +27,6 @@ public class YSJLDetailFragment extends BaseFragment {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ysjl_detail, container, false);
             binding.setPresenter(presenter);
             view = binding.getRoot();
-            String title = StringUtil.getString(activity, R.string.cpsyjl);
-            binding.ysjlDetailToolBar.title.setText(title);
             initData();
             initView();
             initListener();
@@ -38,13 +36,7 @@ public class YSJLDetailFragment extends BaseFragment {
 
 
     public void initListener() {
-        binding.tk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double money = bean.getSumOrder();
 
-            }
-        });
     }
 
 

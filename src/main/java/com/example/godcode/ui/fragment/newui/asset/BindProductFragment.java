@@ -110,7 +110,7 @@ public class BindProductFragment extends BaseFragment {
     private boolean checkData(BindProduct body) {
         String productId = binding.productId.getText().toString();
         if (TextUtils.isEmpty(body.getProductNumber())) {
-            Toast.makeText(activity, "Please enter the product number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please enter the product id", Toast.LENGTH_SHORT).show();
             return false;
         }
         bindProductBody.setProductNumber(productId);

@@ -17,10 +17,9 @@ import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.ui.base.GodCodeApplication;
 import com.example.godcode.ui.fragment.newui.asset.BindProductFragment;
 import com.example.godcode.ui.fragment.newui.asset.AssetGroupFragment;
-import com.example.godcode.ui.fragment.newui.AddFriendFragment;
-import com.example.godcode.ui.fragment.newui.ContactDetailFragment;
-import com.example.godcode.ui.fragment.newui.NewFriendFragment;
-import com.example.godcode.ui.fragment.newui.PresonalFragment;
+import com.example.godcode.ui.fragment.newui.friend.AddFriendFragment;
+import com.example.godcode.ui.fragment.newui.friend.ContactDetailFragment;
+import com.example.godcode.ui.fragment.newui.friend.NewFriendFragment;
 import com.example.godcode.ui.fragment.newui.ServiceRemainderFragment;
 import com.example.godcode.ui.fragment.newui.SettingFragment;
 import com.example.godcode.ui.fragment.newui.main.FriendFragment;
@@ -172,12 +171,6 @@ public class Presenter {
                     break;
                 case "setting":
                     fragment = new SettingFragment();
-                    break;
-                case "personal":
-                    fragment = new PresonalFragment();
-                    break;
-                case "newFriend":
-                    fragment = new NewFriendFragment();
                     break;
                 case "addFriend":
                     fragment = new AddFriendFragment();

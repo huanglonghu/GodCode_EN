@@ -47,6 +47,7 @@ public class MineFragment extends BaseFragment {
             view = binding.getRoot();
             initListener();
         }
+        initData();
         return view;
     }
 
@@ -58,7 +59,9 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public void initData() {
-
+        user = UserOption.getInstance().querryUser(Constant.userId);
+        binding.setUser(user);
+        initHead();
     }
 
 
@@ -132,18 +135,8 @@ public class MineFragment extends BaseFragment {
     }
 
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser && isVisible()) {
-            setHeadImage();
-        }
-    }
-
-    private void setHeadImage() {
-        user = UserOption.getInstance().querryUser(Constant.userId);
+    private void initHead() {
         if (user != null) {
-            binding.setUser(user);
             String headImageUrl = user.getHeadImageUrl();
             String url = ImagUtil.handleUrl(headImageUrl);
             if (!TextUtils.isEmpty(url)) {
@@ -164,10 +157,6 @@ public class MineFragment extends BaseFragment {
                 binding.ivUser.setImageDrawable(roundedBitmapDrawable);
             }
         }
-    }
-
-    public void refreshData() {
-        setHeadImage();
     }
 
 

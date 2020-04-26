@@ -166,7 +166,7 @@
                 android:gravity="center"
                 android:text="VERIFICATION"
                 android:textColor="#fff"
-                android:textSize="33pt" />
+                android:textSize="40pt" />
 
 
             <LinearLayout

@@ -4,24 +4,38 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.godcode.R;
+import com.example.godcode.bean.GetVerification;
 import com.example.godcode.bean.LoginBody;
 import com.example.godcode.bean.LoginResponse;
 import com.example.godcode.bean.RegisterBody;
+import com.example.godcode.bean.YZM;
 import com.example.godcode.databinding.FragmentRegisterBinding;
 import com.example.godcode.greendao.entity.LoginResult;
 import com.example.godcode.greendao.option.LoginResultOption;
 import com.example.godcode.http.HttpUtil;
+import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.activity.MainActivity;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
+import com.example.godcode.utils.GsonUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 import com.google.gson.Gson;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 
 public class RegisterFragment extends BaseFragment {
 
@@ -57,11 +71,89 @@ public class RegisterFragment extends BaseFragment {
             }
         });
 
+        binding.eye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean selected = binding.eye.isSelected();
+                if (selected) {
+                    binding.etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    binding.etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                binding.eye.setSelected(!selected);
+            }
+        });
+
+        binding.send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailAddress = binding.etEmail.getText().toString();
+                if (TextUtils.isEmpty(emailAddress)) {
+                    Toast.makeText(activity, "The email cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                boolean isEmail = isEmail(emailAddress);
+                if (!isEmail) {
+                    Toast.makeText(activity, "Incorrect mailbox format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                GetVerification getVerification = new GetVerification();
+                getVerification.setType("1");
+                getVerification.setEmailAddress(emailAddress);
+                HttpUtil.getInstance().getVerificationCode(getVerification).subscribe(
+                        str -> {
+                            YZM yzm = GsonUtil.getInstance().fromJson(str, YZM.class);
+                            String result = yzm.getResult();
+                            if (result.equals("True")) {
+                            } else {
+                                Toast.makeText(activity, result, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                );
+                countDownTime();
+            }
+        });
+
 
     }
 
 
-    public void register() {
+    private void countDownTime() {
+        Observable.interval(1, TimeUnit.SECONDS).take(61).map(new Function<Long, String>() {
+            @Override
+            public String apply(Long aLong) throws Exception {
+                String time = "Resend 00:" + (60 - aLong);
+                return time;
+            }
+        }).doOnSubscribe(new Consumer<Disposable>() {
+            @Override
+            public void accept(Disposable disposable) throws Exception {
+                binding.send.setClickable(false);
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).doFinally(new Action() {
+            @Override
+            public void run() throws Exception {
+                binding.send.setClickable(true);
+                binding.send.setText("SEND CODE");
+            }
+        }).subscribe(
+                t -> {
+                    binding.send.setText(t);
+                }
+        );
+    }
+
+
+    private boolean isEmail(String email) {
+        Pattern pattern = Pattern
+                .compile("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+        Matcher mc = pattern.matcher(email.trim());
+        boolean b = mc.find();
+        return b;
+    }
+
+
+    public void  register() {
         registerBody = new RegisterBody();
         String nickName = binding.etAccount.getText().toString();
         if (TextUtils.isEmpty(nickName)) {
@@ -74,7 +166,21 @@ public class RegisterFragment extends BaseFragment {
             Toast.makeText(activity, "The email cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        boolean isEmail = isEmail(emailAddress);
+        if (!isEmail) {
+            Toast.makeText(activity, "Incorrect mailbox format", Toast.LENGTH_SHORT).show();
+            return;
+        }
         registerBody.setEmailAddress(emailAddress);
+
+        String code = binding.etCode.getText().toString();
+        if (TextUtils.isEmpty(code)) {
+            Toast.makeText(getContext(), "The sms code cannotbe empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        registerBody.setVerificationCode(code);
+
         String password = binding.etPwd.getText().toString();
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(getContext(), "The password cannotbe empty", Toast.LENGTH_SHORT).show();
@@ -84,8 +190,8 @@ public class RegisterFragment extends BaseFragment {
         HttpUtil.getInstance().register(registerBody).subscribe(
                 registerStr -> {
                     if (registerBody.getOpenID() == null) {
-                        LoginFragment loginFragment = new LoginFragment();
-                        presenter.step2Fragment(loginFragment, "login");
+                        Toast.makeText(getContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
+                        Presenter.getInstance().back();
                     } else {
                         LoginBody loginBody = new LoginBody();
                         loginBody.setOpenID(registerBody.getOpenID());

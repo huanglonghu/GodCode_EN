@@ -90,7 +90,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="Username"
-                    android:textSize="33pt" />
+                    android:textSize="38pt" />
 
 
             </LinearLayout>
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44pt"
-                android:text="USERNAME"
+                android:text="PASSWORD"
                 android:textColor="#000"
                 android:textSize="30pt" />
 
@@ -124,8 +124,17 @@
                     android:layout_marginLeft="62pt"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:inputType="textPassword"
                     android:hint="Password"
-                    android:textSize="33pt" />
+                    android:textSize="38pt" />
+
+
+                <ImageView
+                    android:id="@+id/eye"
+                    android:layout_width="62pt"
+                    android:layout_height="60pt"
+                    android:layout_marginRight="64pt"
+                    android:src="@drawable/eye_select" />
 
 
             </LinearLayout>
@@ -135,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="66pt"
-                android:text="Forgot Password"
+                android:text="Forgot Password ?"
                 android:textColor="#000"
                 android:textSize="42pt" />
 
@@ -150,22 +159,14 @@
                 android:gravity="center"
                 android:text="LOGIN"
                 android:textColor="#fff"
-                android:textSize="33pt" />
-
-
-            <TextView
-                android:id="@+id/logByPwd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Log in via password"
-                android:textColor="@color/t1"
                 android:textSize="40pt" />
+
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30pt"
                 android:layout_gravity="center_horizontal">
 
 

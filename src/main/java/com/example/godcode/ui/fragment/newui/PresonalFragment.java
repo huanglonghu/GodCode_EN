@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.example.godcode.bean.EditPresonal;
 import com.example.godcode.R;
 import com.example.godcode.bean.UploadResponse;
@@ -24,7 +25,6 @@ import com.example.godcode.http.HttpUtil;
 import com.example.godcode.interface_.HandlerStrategy;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.ui.fragment.newui.main.MineFragment;
 import com.example.godcode.utils.GsonUtil;
 import com.example.godcode.utils.ImagUtil;
 
@@ -45,6 +45,7 @@ public class PresonalFragment extends BaseFragment {
             binding.setPresenter(presenter);
             view = binding.getRoot();
             initView();
+            initData();
             initListener();
         }
         return view;
@@ -85,7 +86,17 @@ public class PresonalFragment extends BaseFragment {
                     return;
                 }
                 EditPresonal editPresonal = new EditPresonal();
-                HttpUtil.getInstance().editPresonal(editPresonal).subscribe();
+                editPresonal.setId(user.getUserId());
+                editPresonal.setEmailAddress(email);
+                editPresonal.setNickName(userName);
+                HttpUtil.getInstance().editPresonal(editPresonal).subscribe(
+                        str -> {
+                            user.setEmailAddress(email);
+                            user.setUserName(userName);
+                            UserOption.getInstance().updateUser(user);
+                            Toast.makeText(activity, "Modified success", Toast.LENGTH_SHORT).show();
+                        }
+                );
             }
         });
 
@@ -108,7 +119,7 @@ public class PresonalFragment extends BaseFragment {
             );
         } else {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.contact_normal);
-            RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(),bitmap);
+            RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
             roundedBitmapDrawable.setCircular(true);
             binding.ivHead.setImageDrawable(roundedBitmapDrawable);
         }
@@ -117,11 +128,11 @@ public class PresonalFragment extends BaseFragment {
     @Override
     public void initData() {
 
+
     }
 
 
     public void upload(MultipartBody.Part filePart, Bitmap bitmap) {
-        binding.ivHead.setImageBitmap(bitmap);
         HttpUtil.getInstance().upload(filePart, 2).subscribe(
                 uploadStr -> {
                     UploadResponse uploadResponse = GsonUtil.getInstance().fromJson(uploadStr, UploadResponse.class);
@@ -132,10 +143,8 @@ public class PresonalFragment extends BaseFragment {
                     HttpUtil.getInstance().editPresonal(editPresonal).subscribe(
                             editSuccess -> {
                                 user.setHeadImageUrl(Constant.baseUrl + headUrl);
+                                initView();
                                 UserOption.getInstance().updateUser(user);
-
-                                MineFragment mineFragment = (MineFragment) presenter.getFragments().get(3);
-                                mineFragment.refreshData();
                             }
                     );
                 }

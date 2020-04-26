@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.LoginBody;
 import com.example.godcode.bean.LoginResponse;
@@ -20,12 +21,8 @@ import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.activity.MainActivity;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
-import com.example.godcode.utils.FormatUtil;
 import com.example.godcode.utils.SharepreferenceUtil;
 import com.google.gson.Gson;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public class LoginFragment extends BaseFragment {
 
@@ -78,6 +75,19 @@ public class LoginFragment extends BaseFragment {
             public void onClick(View v) {
                 RegisterFragment registerFragment = new RegisterFragment();
                 Presenter.getInstance().step2Fragment(registerFragment, "register");
+            }
+        });
+
+        binding.eye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean selected = binding.eye.isSelected();
+                if (selected) {
+                    binding.etPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    binding.etPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+                binding.eye.setSelected(!selected);
             }
         });
 

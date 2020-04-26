@@ -68,6 +68,8 @@ public class EditAssetFragment extends BaseFragment {
         editProduct.setProduct(productBean);
         HttpUtil.getInstance().editProduct(editProduct).subscribe(
                 editProductStr -> {
+                    bean.setProductName(productName);
+                    bean.setMachineAddress(adress);
                     Toast.makeText(activity, "Modify the success", Toast.LENGTH_SHORT).show();
                     presenter.back();
                 }
@@ -86,7 +88,7 @@ public class EditAssetFragment extends BaseFragment {
         String productImgUrl = bean.getProductImgUrl();
         String url = ImagUtil.handleUrl(productImgUrl);
         if (!TextUtils.isEmpty(url)) {
-            RxImageLoader.with(getContext()).load(url).into(binding.iv,3);
+            RxImageLoader.with(getContext()).load(url).into(binding.iv, 3);
         }
 
 

@@ -43,6 +43,7 @@
             <ImageView
                 android:layout_width="101pt"
                 android:layout_height="87pt"
+                android:onClick="@{()->presenter.back()}"
                 android:src="@drawable/fanhui" />
 
             <TextView
@@ -65,7 +66,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1464pt"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@drawable/shape_a2"
             android:orientation="vertical"
@@ -104,7 +105,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="Username"
-                    android:textSize="36pt" />
+                    android:textSize="38pt" />
 
 
             </LinearLayout>
@@ -139,8 +140,9 @@
                     android:layout_marginLeft="62pt"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:inputType="textEmailAddress"
                     android:hint="Email"
-                    android:textSize="36pt" />
+                    android:textSize="38pt" />
 
 
             </LinearLayout>
@@ -150,7 +152,51 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44pt"
-                android:text="USERNAME"
+                android:text="SMS CODE"
+                android:textColor="#000"
+                android:textSize="30pt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180pt"
+                android:layout_marginTop="44pt"
+                android:gravity="center_vertical">
+
+
+                <EditText
+                    android:id="@+id/et_code"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="30pt"
+                    android:background="@drawable/shape_a5"
+                    android:inputType="number"
+                    android:hint="SMS Code"
+                    android:textSize="38pt" />
+
+                <TextView
+                    android:id="@+id/send"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="150pt"
+                    android:layout_marginLeft="20pt"
+                    android:background="@drawable/btn_login2"
+                    android:gravity="center"
+                    android:text="SEND CODE"
+                    android:textColor="#fff"
+                    android:textSize="40pt"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44pt"
+                android:text="PASSWORD"
                 android:textColor="#000"
                 android:textSize="30pt" />
 
@@ -176,14 +222,16 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="Password"
-                    android:textSize="36pt" />
+                    android:inputType="textPassword"
+                    android:textSize="38pt" />
 
 
                 <ImageView
+                    android:id="@+id/eye"
                     android:layout_width="62pt"
                     android:layout_height="60pt"
                     android:layout_marginRight="64pt"
-                    android:src="@drawable/ico_pass3" />
+                    android:src="@drawable/eye_select" />
 
 
             </LinearLayout>
@@ -199,13 +247,14 @@
                 android:gravity="center"
                 android:text="REGISTER"
                 android:textColor="#fff"
-                android:textSize="33pt" />
+                android:textSize="40pt" />
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="30pt"
                 android:layout_marginTop="70pt">
 
 
@@ -223,7 +272,6 @@
                     android:text="Login"
                     android:textColor="@color/b2"
                     android:textSize="49pt" />
-
 
             </LinearLayout>
 

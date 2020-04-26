@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.example.godcode.R;
 import com.example.godcode.bean.BindProduct;
 import com.example.godcode.bean.EditProduct;
@@ -29,9 +28,6 @@ import com.example.godcode.interface_.ClickSureListener;
 import com.example.godcode.interface_.EtStrategy;
 import com.example.godcode.interface_.HandlerStrategy;
 import com.example.godcode.interface_.ProductSettingStrategy;
-import com.example.godcode.observable.EventType;
-import com.example.godcode.observable.RxBus;
-import com.example.godcode.observable.RxEvent;
 import com.example.godcode.presenter.Presenter;
 import com.example.godcode.ui.base.BaseFragment;
 import com.example.godcode.constant.Constant;
@@ -44,9 +40,6 @@ import com.example.godcode.ui.view.widget.DeleteDialog;
 import com.example.godcode.utils.GsonUtil;
 import com.example.godcode.utils.StringUtil;
 import com.example.godcode.utils.ToastUtil;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 import okhttp3.MultipartBody;
 
 public class AssetConfigFragment extends BaseFragment {
@@ -78,33 +71,12 @@ public class AssetConfigFragment extends BaseFragment {
 
 
     public void initData() {
-
-
-
-
-
-//        HttpUtil.getInstance().getAesstMsgByProductId().subscribe(
-//                str->{
-//
-//
-//
-//                }
-//        );
-
-
         HttpUtil.getInstance().getProductSettingMsg(bean.getFK_ProductID()).subscribe(
                 productSettingStr -> {
                     productSetting = GsonUtil.fromJson(productSettingStr, ProductSetting.class);
                 }
         );
-
-
-
-
-
-
-
-
+        binding.setAssetBean(bean);
     }
 
     public void initListener() {
@@ -172,55 +144,23 @@ public class AssetConfigFragment extends BaseFragment {
 
             }
         });
-        RxBus.getInstance().toObservable(RxEvent.class).subscribe(new Observer<RxEvent>() {
-            @Override
-            public void onSubscribe(Disposable disposable) {
-
-            }
-
-            @Override
-            public void onNext(RxEvent rxEvent) {
-                if (rxEvent.getEventType() == EventType.EVENTTYPE_CURRENSSTOCK_CHANGE) {
-                    Bundle bundle = rxEvent.getBundle();
-                    int kc = bundle.getInt("kc");
-                    bean.setCurrentStock(kc);
-                }
-            }
-
-            @Override
-            public void onError(Throwable throwable) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
-
     }
 
 
     public void assetConfig(int type) {
-
-        int productId = bean.getFK_ProductID();
-        Integer productSettingId = productSetting.getResult().getId();
-        int fk_priceID = bean.getFK_PriceID();
-        int fk_userID = bean.getFK_UserID();
+        ProductSetting.ResultBean result = productSetting.getResult();
+        Integer productSettingId = result.getId();
+        int productID = bean.getFK_ProductID();
         Bundle bundle = new Bundle();
-
+        bundle.putSerializable("bean", bean);
         switch (type) {
             case 1:
                 RevenueConfigFragment revenueConfigFragment = new RevenueConfigFragment();
-                bundle.putSerializable("bean", bean);
                 revenueConfigFragment.setArguments(bundle);
                 presenter.step2Fragment(revenueConfigFragment, "revenue");
                 break;
             case 2:
                 ProductPrice productPrice = new ProductPrice();
-                bundle.putInt("productId", productId);
-                bundle.putInt("price", fk_priceID);
-                bundle.putInt("userId", fk_userID);
                 productPrice.setArguments(bundle);
                 Presenter.getInstance().step2Fragment(productPrice, "productPrice");
                 break;
@@ -231,15 +171,17 @@ public class AssetConfigFragment extends BaseFragment {
                 break;
             case 4:
                 Volume volume = new Volume();
-                bundle.putInt("productId", productId);
+                bundle.putInt("productId", productID);
                 bundle.putInt("productSettingId", productSettingId);
+                bundle.putInt("volume", result.getVolume());
                 volume.setArguments(bundle);
                 presenter.step2Fragment(volume, "volume");
                 break;
             case 5:
                 Jbyw jbyw = new Jbyw();
-                bundle.putInt("productId", productId);
+                bundle.putInt("productId", productID);
                 bundle.putInt("productSettingId", productSettingId);
+                bundle.putInt("coin", result.getCoinPlay());
                 jbyw.setArguments(bundle);
                 presenter.step2Fragment(jbyw, "jbyw");
                 break;
