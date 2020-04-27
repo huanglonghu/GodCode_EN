@@ -5,7 +5,7 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="selectPosition"
@@ -25,7 +25,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.SelectTimeFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.SelectTimeFragment" />
 
         <import type="android.view.View" />
     </data>

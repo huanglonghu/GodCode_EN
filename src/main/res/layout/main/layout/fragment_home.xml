@@ -6,7 +6,7 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="showNews"
@@ -59,10 +59,10 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/totalIncome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50pt"
-                android:text="3452"
                 android:textStyle="bold"
                 android:textColor="@color/t3"
                 android:textSize="78pt" />
@@ -82,13 +82,12 @@
 
 
                 <TextView
-                    android:id="@+id/todayDivide"
+                    android:id="@+id/todayCoin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/icon1"
                     android:layout_marginLeft="30pt"
                     android:layout_toRightOf="@id/icon1"
-                    android:text="100"
                     android:textStyle="bold"
                     android:textColor="@color/t3"
                     android:textSize="44pt" />
@@ -126,7 +125,6 @@
                     android:layout_alignTop="@id/icon2"
                     android:layout_marginLeft="30pt"
                     android:layout_toRightOf="@id/icon2"
-                    android:text="100"
                     android:textStyle="bold"
                     android:textColor="@color/t3"
                     android:textSize="44pt" />

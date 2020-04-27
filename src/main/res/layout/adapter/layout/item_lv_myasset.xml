@@ -5,11 +5,7 @@
 
         <variable
             name="assetBean"
-            type="com.example.godcode.bean.MyAssetList.ResultBean.DataBean" />
-
-        <variable
-            name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.bean.MyAssetList.ResultBean.DataBean" />
 
         <variable
             name="isMaster"
@@ -160,10 +156,10 @@
                 android:layout_marginTop="80pt">
 
                 <ImageView
+                    android:id="@+id/showQrcode"
                     android:layout_width="136pt"
                     android:layout_height="136pt"
                     android:background="@drawable/shape_b8"
-                    android:onClick="@{()->presenter.showQrDialog(assetBean.productNumber)}"
                     android:scaleType="centerCrop"
                     android:src="@drawable/qrcode" />
 

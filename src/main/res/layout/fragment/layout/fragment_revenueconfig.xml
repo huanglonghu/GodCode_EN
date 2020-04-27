@@ -6,7 +6,7 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="mainPresent"
@@ -14,7 +14,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.asset.RevenueConfigFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.asset.RevenueConfigFragment" />
 
         <variable
             name="name"

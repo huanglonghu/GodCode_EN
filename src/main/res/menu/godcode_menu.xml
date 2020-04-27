@@ -14,7 +14,7 @@
         android:id="@+id/action_plus"
         android:icon="@mipmap/action_more"
         android:title="@null"
-        app:actionProviderClass="com.example.godcode.ui.view.PlusActionProvider"
+        app:actionProviderClass="com.example.godcode_en.ui.view.PlusActionProvider"
         app:showAsAction="ifRoom"
         />
 </menu>

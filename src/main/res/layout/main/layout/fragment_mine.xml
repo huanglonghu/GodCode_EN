@@ -5,11 +5,11 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="user"
-            type="com.example.godcode.greendao.entity.User" />
+            type="com.example.godcode_en.greendao.entity.User" />
 
         <variable
             name="title"

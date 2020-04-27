@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.godcode"
+    package="com.example.godcode_en"
     android:versionCode="1"
     android:versionName="2.7.2">
 
@@ -19,7 +19,7 @@
 
 
     <application
-        android:name=".ui.base.GodCodeApplication"
+        android:name="com.example.godcode_en.ui.base.GodCodeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_logo"
         android:label="@string/app_name"
@@ -27,7 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name="com.example.godcode_en.ui.activity.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,19 +35,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="com.example.godcode_en.ui.activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.google.zxing.activity.CaptureActivity" />
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name="com.example.godcode_en.wxapi.WXEntryActivity"
             android:exported="true" />
-        <activity android:name=".ui.activity.ClipImageActivity" />
+        <activity android:name="com.example.godcode_en.ui.activity.ClipImageActivity" />
 
-        <service android:name=".service.WebSocketService" />
-        <service android:name=".service.PushIntentService" />
-        <service android:name=".service.TimeService" />
+        <service android:name="com.example.godcode_en.service.WebSocketService" />
+        <service android:name="com.example.godcode_en.service.PushIntentService" />
+        <service android:name="com.example.godcode_en.service.TimeService" />
 
 
         <uses-library
@@ -55,7 +55,7 @@
             android:required="false" />
 
         <receiver
-            android:name=".service.MyBroadCastReceiver"
+            android:name="com.example.godcode_en.service.MyBroadCastReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="ELITOR_CLOCK" />

@@ -9,7 +9,7 @@
 
         <variable
             name="assetDialog"
-            type="com.example.godcode.ui.view.widget.AssetSelectDialog" />
+            type="com.example.godcode_en.ui.view.widget.AssetSelectDialog" />
     </data>
 
     <LinearLayout

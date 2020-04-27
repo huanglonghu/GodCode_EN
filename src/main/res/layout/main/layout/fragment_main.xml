@@ -6,7 +6,7 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="position"
@@ -44,7 +44,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="338pt"
+            android:layout_height="238pt"
             android:layout_alignParentBottom="true"
             android:background="@drawable/shape_b7"
             android:gravity="center_horizontal"

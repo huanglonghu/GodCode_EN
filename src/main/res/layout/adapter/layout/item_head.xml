@@ -27,7 +27,7 @@
                 android:layout_height="114pt"
                 android:background="@drawable/newfriend" />
 
-            <com.example.godcode.ui.view.customview.NewsView
+            <com.example.godcode_en.ui.view.customview.NewsView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_alignParentTop="true"

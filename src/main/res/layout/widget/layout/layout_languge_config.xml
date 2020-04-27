@@ -6,7 +6,7 @@
 
         <variable
             name="dialog"
-            type="com.example.godcode.ui.view.widget.LanguageConfigDialog" />
+            type="com.example.godcode_en.ui.view.widget.LanguageConfigDialog" />
 
         <variable
             name="isChinese"
@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
 
-        <com.example.godcode.ui.view.customview.ImageTextView
+        <com.example.godcode_en.ui.view.customview.ImageTextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -37,7 +37,7 @@
         <include layout="@layout/layout_divider3" />
 
 
-        <com.example.godcode.ui.view.customview.ImageTextView
+        <com.example.godcode_en.ui.view.customview.ImageTextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"

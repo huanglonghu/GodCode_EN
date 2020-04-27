@@ -27,7 +27,7 @@
                 android:textSize="58pt" />
 
 
-            <com.example.godcode.ui.view.customview.ruler.ScrollRulerLayout
+            <com.example.godcode_en.ui.view.customview.ruler.ScrollRulerLayout
                 android:id="@+id/ruler_view"
                 android:layout_width="match_parent"
                 android:layout_height="224pt"

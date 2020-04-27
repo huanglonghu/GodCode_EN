@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.godcode.R;
+import com.example.godcode_en.R;
 
 
 public class DataAdapter extends BaseAdapter {

@@ -6,7 +6,7 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
     </data>
 
     <FrameLayout
@@ -45,20 +45,21 @@
             android:orientation="vertical">
 
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/addFriend_search"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="180pt"
                 android:layout_marginLeft="60pt"
                 android:layout_marginTop="200pt"
                 android:layout_marginRight="60pt"
+                android:gravity="center"
+                android:background="@drawable/shape_c3"
                 android:orientation="horizontal">
 
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="180pt"
-                    android:background="@drawable/shape_c3"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:hint="SY.NO/Telephone.NO"
                     android:paddingLeft="58pt"
                     android:textSize="44pt" />
@@ -67,13 +68,11 @@
                 <ImageView
                     android:layout_width="57pt"
                     android:layout_height="57pt"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="60pt"
+                    android:layout_marginLeft="30pt"
                     android:src="@drawable/search" />
 
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
             <LinearLayout
@@ -101,6 +100,8 @@
                     android:src="@drawable/qrcode" />
 
             </LinearLayout>
+
+
 
 
         </LinearLayout>

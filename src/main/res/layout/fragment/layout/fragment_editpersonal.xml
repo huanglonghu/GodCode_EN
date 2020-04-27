@@ -6,15 +6,15 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
        <variable
            name="editBean"
-           type="com.example.godcode.bean.EditBean"/>
+           type="com.example.godcode_en.bean.EditBean"/>
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.EditPresonalFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.EditPresonalFragment" />
 
         <import type="android.view.View" />
 

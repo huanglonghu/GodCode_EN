@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.godcode.bean.ApplyFriend.ResultBean.ItemsBean"/>
+            type="com.example.godcode_en.bean.ApplyFriend.ResultBean.ItemsBean"/>
     </data>
 
 <LinearLayout

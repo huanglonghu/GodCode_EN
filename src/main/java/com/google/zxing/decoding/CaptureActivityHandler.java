@@ -25,7 +25,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.example.godcode.R;
+import com.example.godcode_en.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.activity.CaptureActivity;

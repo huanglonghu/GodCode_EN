@@ -4,7 +4,7 @@ apply plugin: 'org.greenrobot.greendao'
 
 greendao {
     schemaVersion 5//指定数据库版本号，更新操作会用到;
-    daoPackage 'com.example.godcode.greendao.gen'//自动生成的dao的包名，包名默认是entity所在的包；
+    daoPackage 'com.example.godcode_en.greendao.gen'//自动生成的dao的包名，包名默认是entity所在的包；
     targetGenDir 'src/main/java'//生成数据库文件的目录
 }
 android {
@@ -27,7 +27,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.example.godcode"
+        applicationId "com.example.godcode_en"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

@@ -5,7 +5,7 @@
 
         <variable
             name="bean"
-            type="com.example.godcode.bean.YSRecord.ResultBean.DataBean" />
+            type="com.example.godcode_en.bean.YSRecord.ResultBean.DataBean" />
 
         <variable
             name="isIncome"

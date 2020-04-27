@@ -6,7 +6,11 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
+
+        <variable
+            name="ysjl"
+            type="com.example.godcode_en.ui.fragment.newui.YSJLFragment" />
 
         <variable
             name="type"
@@ -122,6 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="ALL"
+                            android:onClick="@{()->ysjl.seleDate(1)}"
                             android:textSize="36pt" />
 
 
@@ -131,12 +136,14 @@
                             android:layout_marginLeft="85pt"
                             android:layout_marginRight="85pt"
                             android:text="THIS MONTH"
+                            android:onClick="@{()->ysjl.seleDate(2)}"
                             android:textSize="36pt" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="THIS YEAR"
+                            android:onClick="@{()->ysjl.seleDate(3)}"
                             android:textSize="36pt" />
 
 
@@ -203,7 +210,7 @@
                     android:background="@drawable/lv_divider1" />
 
 
-                <com.example.godcode.ui.view.customview.MyListView
+                <com.example.godcode_en.ui.view.customview.MyListView
                     android:id="@+id/lv_ysjl"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

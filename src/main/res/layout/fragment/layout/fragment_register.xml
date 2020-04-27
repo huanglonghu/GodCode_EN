@@ -6,11 +6,11 @@
 
         <variable
             name="registerBody"
-            type="com.example.godcode.bean.RegisterBody" />
+            type="com.example.godcode_en.bean.RegisterBody" />
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="isEmail"
@@ -19,7 +19,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.login.RegisterFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.login.RegisterFragment" />
 
         <import type="android.view.View" />
 

@@ -6,7 +6,7 @@
 
         <variable
             name="getVerification"
-            type="com.example.godcode.bean.GetVerification" />
+            type="com.example.godcode_en.bean.GetVerification" />
 
         <variable
             name="type"
@@ -14,7 +14,7 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
     </data>
 

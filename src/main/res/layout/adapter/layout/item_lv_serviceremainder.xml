@@ -4,7 +4,7 @@
 
         <variable
             name="notification"
-            type="com.example.godcode.greendao.entity.Notification" />
+            type="com.example.godcode_en.greendao.entity.Notification" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

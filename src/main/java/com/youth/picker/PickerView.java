@@ -16,7 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import com.example.godcode.R;
+import com.example.godcode_en.R;
 import com.youth.picker.adapter.DataAdapter;
 import com.youth.picker.entity.PickerData;
 import com.youth.picker.listener.OnPickerClickListener;

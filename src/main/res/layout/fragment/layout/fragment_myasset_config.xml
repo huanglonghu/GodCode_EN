@@ -6,15 +6,15 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="assetBean"
-            type="com.example.godcode.bean.MyAssetList.ResultBean.DataBean" />
+            type="com.example.godcode_en.bean.MyAssetList.ResultBean.DataBean" />
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.asset.AssetConfigFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.asset.AssetConfigFragment" />
 
         <variable
             name="isMaster"

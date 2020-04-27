@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="327pt"
-            android:layout_marginBottom="338pt"
+            android:paddingBottom="338pt"
             android:background="@drawable/shape_a2">
 
             <ListView
@@ -75,7 +75,7 @@
                 android:divider="@null" />
 
 
-            <com.example.godcode.ui.view.customview.LetterView
+            <com.example.godcode_en.ui.view.customview.LetterView
                 android:id="@+id/letter_view"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"

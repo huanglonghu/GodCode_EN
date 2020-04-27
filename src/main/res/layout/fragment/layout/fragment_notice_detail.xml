@@ -4,7 +4,7 @@
     <data>
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter"/>
+            type="com.example.godcode_en.presenter.Presenter"/>
     </data>
 
     <LinearLayout

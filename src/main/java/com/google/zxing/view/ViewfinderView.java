@@ -32,7 +32,7 @@ import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.godcode.R;
+import com.example.godcode_en.R;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.camera.CameraManager;
 

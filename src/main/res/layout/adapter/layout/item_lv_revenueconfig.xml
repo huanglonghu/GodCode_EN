@@ -5,11 +5,11 @@
 
         <variable
             name="revenueDivideItem"
-            type="com.example.godcode.bean.RevenueDivideItem" />
+            type="com.example.godcode_en.bean.RevenueDivideItem" />
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.asset.RevenueConfigFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.asset.RevenueConfigFragment" />
 
         <variable
             name="position"

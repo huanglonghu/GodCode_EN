@@ -3,13 +3,10 @@
 
     <data>
 
-        <variable
-            name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
 
         <variable
             name="bean"
-            type="com.example.godcode.bean.GroupMsg.ResultBean.bean" />
+            type="com.example.godcode_en.bean.GroupMsg.ResultBean.bean" />
 
         <variable
             name="periodType"

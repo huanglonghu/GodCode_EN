@@ -45,13 +45,13 @@
 
 
 #实体类
--keep class com.example.godcode.bean.**{*;}
+-keep class godcode_en.bean.**{*;}
 
--keep class com.example.godcode.greendao.entity.**{*;}
+-keep class godcode_en.greendao.entity.**{*;}
 
 
 #自定义控件
--keep class com.example.godcode.ui.view.**{*;}
+-keep class godcode_en.ui.view.**{*;}
 
 #pinyin4j
 -dontwarn net.soureceforge.pinyin4j.**

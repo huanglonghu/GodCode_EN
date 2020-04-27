@@ -6,11 +6,11 @@
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
         <variable
             name="friend"
-            type="com.example.godcode.greendao.entity.Friend" />
+            type="com.example.godcode_en.greendao.entity.Friend" />
 
     </data>
 

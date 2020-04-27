@@ -22,16 +22,16 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.asset.BaseAssetFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.asset.BaseAssetFragment" />
 
 
         <variable
             name="data"
-            type="com.example.godcode.bean.GroupMsg.ResultBean" />
+            type="com.example.godcode_en.bean.GroupMsg.ResultBean" />
 
         <variable
             name="presenter"
-            type="com.example.godcode.presenter.Presenter" />
+            type="com.example.godcode_en.presenter.Presenter" />
 
 
     </data>

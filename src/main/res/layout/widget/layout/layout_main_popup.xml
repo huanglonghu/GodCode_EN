@@ -6,7 +6,7 @@
 
         <variable
             name="fragment"
-            type="com.example.godcode.ui.fragment.newui.main.FriendFragment" />
+            type="com.example.godcode_en.ui.fragment.newui.main.FriendFragment" />
     </data>
 
 
