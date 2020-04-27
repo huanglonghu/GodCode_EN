@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 
 import com.example.godcode_en.ui.base.GodCodeApplication;
+import com.example.godcode_en.utils.LogUtil;
 
 /**
  * Created to :
@@ -287,13 +288,13 @@ public class RulerView extends View implements ScrollChange {
                 }
                 String text = mRulerHelper.getTextByIndex(mTextIndex);
                 mTextIndex++;
-                System.out.println(TAG + "==========drawText============" + text + "===================" + mRulerHelper.getCurrentText());
                 if (text.equals(mRulerHelper.getCurrentText())) {
-                    canvas.drawText(text, mRect.centerX(), getMeasuredHeight() - dpFor14, heighLightPaint);
+                    float h = heighLightPaint.measureText(text);
+                    canvas.drawText(text, mRect.centerX(), getMeasuredHeight() / 2 + h / 2, heighLightPaint);
                 } else {
-                    canvas.drawText(text, mRect.centerX(), getMeasuredHeight() - dpFor14, mTextPaint);
+                    float h = mTextPaint.measureText(text);
+                    canvas.drawText(text, mRect.centerX(), getMeasuredHeight() / 2 + h / 2, mTextPaint);
                 }
-
             }
             mRect.setEmpty();
         }
